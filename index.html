@@ -7,13 +7,17 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
-        <link href="css/impress.css" rel="stylesheet" />
+        <link href="media/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link href="media/css/bootstrap/bootstrap-theme.min.css"
+              rel="stylesheet" />
+        <link href="media/css/impress.css" rel="stylesheet" />
+        <link href="media/css/prettify/prettify.css" rel="stylesheet" />
+        <link href="media/css/prettify/sons-of-obsidian.css" rel="stylesheet" />
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/holder.js"></script>
+        <script src="media/js/jquery.min.js"></script>
+        <script src="media/js/bootstrap.min.js"></script>
+        <script src="media/js/holder.js"></script>
+        <script src="media/js/prettify.js"></script>
 
         <title>Curso Javascript (Día 1)</title>
     </head>
@@ -102,19 +106,19 @@
                 <br />
                 <div class="row text-center">
                     <div class="col-xs-4">
-                        <img src="svg/js1.svg" alt="" />
+                        <img src="media/svg/js1.svg" alt="" />
                         <div class="caption">
                             <p><strong>contenido</strong></p>
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <img src="svg/js2.svg" alt="HTML" />
+                        <img src="media/svg/js2.svg" alt="HTML" />
                         <div class="caption">
                             <p><strong>presentación</strong></p>
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <img src="svg/js3.svg" alt="HTML" />
+                        <img src="media/svg/js3.svg" alt="HTML" />
                         <div class="caption">
                             <p><strong>comportamiento</strong></p>
                         </div>
@@ -123,28 +127,69 @@
             </div>
             <div class="step slide" data-x="2840" data-y="1310"
                  data-rotate="180">
-                i
+                <h1>Layout engines</h1>
+                <div class="text-center">
+                    <img src="media/svg/js4.svg" alt="" /></div>
             </div>
             <div class="step slide" data-x="1810" data-y="1030"
                  data-rotate="270">
-                <q></q>
+                 <h1>JavaScript engines</h1>
+                 <div class="text-center">
+                     <img src="media/svg/js5.svg" alt="" /></div>
             </div>
             <div class="step" data-x="2420" data-y="640" data-scale="3"></div>
 
             <div class="step" data-x="4500" data-y="640" data-scale="3"></div>
             <div class="step slide" data-x="4180" data-y="0" data-rotate="0">
-                <q></q>
+                <h2>Hello world en el navegador</h2>
+                <pre class="prettyprint linenums">alert('Hello world')</pre>
+                <h2>Hello world en terminal</h2>
+                <pre class="prettyprint
+                    linenums">console.log('Hello world')</pre>
             </div>
             <div class="step slide" data-x="5210" data-y="280" data-rotate="90">
-                <q></q>
+                <h1>Ejecución del código</h1>
+                <div class="list-group">
+                    <a class="list-group-item">
+                        Interpretación en una página web</a>
+                    <a class="list-group-item">
+                        Interpretación en firebug</a>
+                    <a class="list-group-item">
+                        Interpretación en terminal (V8)</a>
+                </div>
             </div>
             <div class="step slide" data-x="4930" data-y="1310"
                  data-rotate="180">
-                <q></q>
+                <h2>Interpretación en una página web (I)</h2>
+                <pre class="prettyprint linenums">&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt&lt;/head&gt;
+    &lt;body&gt
+        &lt;script&gt;
+            alert('Hello world')
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+                <div class="row text-right">
+                    <a class="glyphicon glyphicon-play-circle"
+                       href="ejemplos/ejemplo1.html" target="_BLANK"></a>
+                </div>
             </div>
             <div class="step slide" data-x="3900" data-y="1030"
                  data-rotate="270">
-                <q></q>
+                <h2>Interpretación en una página web (II)</h2>
+                <pre class="prettyprint linenums">&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt&lt;/head&gt;
+    &lt;body&gt
+        &lt;script src="ejemplo2.js"&gt;
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+                <div class="row text-right">
+                    <a class="glyphicon glyphicon-play-circle"
+                       href="ejemplos/ejemplo2.html" target="_BLANK"></a>
+                </div>
             </div>
             <div class="step" data-x="4500" data-y="640" data-scale="3"></div>
 
@@ -240,8 +285,9 @@
 
             <div class="step" data-x="2000" data-y="2740" data-scale="9"></div>
         </div>
-        <script src="js/impress.js"></script>
+        <script src="media/js/impress.js"></script>
         <script>impress().init();</script>
+        <script>$(document).ready(prettyPrint)</script>
     </body>
 </html>
 
