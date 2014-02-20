@@ -41,8 +41,9 @@
                         href="#/step-9">Generalidades</a>
                     <a class="list-group-item"
                         href="#/step-21">Estructura del lenguaje</a>
-                    <a class="list-group-item">
-                        Variables, declaraciones, y expresiones</a>
+                    <a class="list-group-item"
+                        href="#/step-33">Variables, declaraciones, y
+                        expresiones</a>
                     <a class="list-group-item">
                         Funciones</a>
                     <a class="list-group-item">
@@ -200,7 +201,7 @@
                     <a class="list-group-item">Literales</a>
                     <a class="list-group-item">Identificadores</a>
                     <a class="list-group-item">Palabras reservadas</a>
-                    <a class="list-group-item">;</a>
+                    <a class="list-group-item">Punto y coma (;)</a>
                 </div>
             </div>
             <div class="step slide" data-x="5210" data-y="2370"
@@ -241,87 +242,247 @@ lineas */</pre>
                         <strong>/[A-Za-z]/</strong>
                     </div>
                     <div>
-                        <span>Valores nulos:</span>
+                        <span>Valor nulo:</span>
                         <strong>null</strong>
+                    </div>
+                    <div>
+                        <span>Valor indefinido:</span>
+                        <strong>undefined</strong>
                     </div>
                 </div>
             </div>
             <div class="step slide" data-x="3900" data-y="3120"
                  data-rotate="270">
-                 <q></q>
+                <h2>Identificadores</h2>
+                <p>Los identificadores en javascript comienzan con una letra,
+                una barra baja (_), o un caracter de dolar ($); seguidos por
+                letras, números, barras bajas, y caracteres de dolar</p>
+                <h3>Ejemplos</h3>
+                <ul>
+                    <li>contador</li>
+                    <li>_indice</li>
+                    <li>$indice</li>
+                    <li>$__$__$</li>
+                </ul>
             </div>
             <div class="step" data-x="4500" data-y="2730" data-scale="3"></div>
 
             <div class="step" data-x="4500" data-y="4820" data-scale="3"></div>
             <div class="step slide" data-x="4180" data-y="4180" data-rotate="0">
-                 <q></q>
+                <h2>Palabras reservadas</h2>
+                <div class="row">
+                    <table class="table table-bordered table-striped">
+<tr><td>abstract</td><td>else</td><td>instanceof</td><td>super</td></tr>
+<tr><td>boolean</td><td>enum</td><td>int</td><td>switch</td></tr>
+<tr><td>break</td><td>export</td><td>interface</td><td>synchronized</td></tr>
+<tr><td>byte</td><td>extends</td><td>let</td><td>this</td></tr>
+<tr><td>case</td><td>false</td><td>long</td><td>throw</td></tr>
+                    </table>
+                </div>
             </div>
             <div class="step slide" data-x="5210" data-y="4460"
                  data-rotate="90">
-                 <q></q>
+                <h2>Mas palabras reservadas</h2>
+                <div class="row">
+                    <table class="table table-bordered table-striped">
+<tr><td>catch</td><td>final</td><td>native</td><td>throws</td></tr>
+<tr><td>char</td><td>finally</td><td>new</td><td>transient</td></tr>
+<tr><td>class</td><td>float</td><td>null</td><td>true</td></tr>
+<tr><td>const</td><td>for</td><td>package</td><td>try</td></tr>
+<tr><td>continue</td><td>function</td><td>private</td><td>typeof</td></tr>
+                    </table>
+                </div>
             </div>
             <div class="step slide" data-x="4930" data-y="5490"
                 data-rotate="180">
-                 <q></q>
+                <h2>Todavía mas palabras reservadas</h2>
+                <div class="row">
+                    <table class="table table-bordered table-striped">
+<tr><td>debugger</td><td>goto</td><td>protected</td><td>var</td></tr>
+<tr><td>default</td><td>if</td><td>public</td><td>void</td></tr>
+<tr><td>delete</td><td>implements</td><td>return</td><td>volatile</td></tr>
+<tr><td>do</td><td>import</td><td>short</td><td>while</td></tr>
+<tr><td>double</td><td>in</td><td>static</td><td>with</td></tr>
+                    </table>
+                </div>
             </div>
             <div class="step slide" data-x="3900" data-y="5210"
                  data-rotate="270">
-                 <q></q>
+                 <h2>Punto y coma (;)</h2>
+                 <p>Es posible el uso del caracter (;) para la separación de
+                 sentencias, sin embargo, esta tambien puede omitirse si estos
+                 están en diferentes lineas</p>
+                 <p>Los interpretes de JavaScript, tratan a los fines de linea
+                 como final de una sentencia, si y solo si, la siguiente
+                 sentencia no puede interpretarse como continuación de la
+                 anterior.</p>
             </div>
             <div class="step" data-x="4500" data-y="4820" data-scale="3"></div>
 
             <div class="step" data-x="2410" data-y="4820" data-scale="3"></div>
             <div class="step slide" data-x="2090" data-y="4180" data-rotate="0">
-                 <q></q>
+                <h1>Variables, declaraciones, y expresiones</h1>
+                <div class="list-group">
+                    <a class="list-group-item">Tipos de datos</a>
+<!--                    <a class="list-group-item"></a>
+                    <a class="list-group-item"></a>
+                    <a class="list-group-item"></a>
+                    <a class="list-group-item"></a>-->
+                </div>
             </div>
             <div class="step slide" data-x="3120" data-y="4460"
                 data-rotate="90">
-                 <q></q>
+                <h2>Tipos de datos</h2>
+                <p>Existen dos categorias:</p>
+                <dl>
+                    <dt>Tipos de datos primitivos:</dt>
+                    <dd>
+                        <ul>
+                            <li>Números</li>
+                            <li>Cadenas de texto</li>
+                            <li>Valores lógicos</li>
+                        </ul>
+                    </dd>
+                    <dt>Tipos de datos objeto:</dt>
+                    <dd>
+                        <ul>
+                            <li>Objetos</li>
+                            <li>Arreglos</li>
+                        </ul>
+                    </dd>
+                </dl>
             </div>
             <div class="step slide" data-x="2840" data-y="5490"
                 data-rotate="180">
-                 <q></q>
+                <h3>Números</h3>
+                <p>Ejemplos:</p>
+                <pre>  12 // número entero en base decimal.
+0345 // número entero en base octal.
+0xFF // número entero en base hexadecimal.
+
+3.141592654 // número decimal.
+.234955
+6.023e23    // número decimal en notación exponencial.
+                </pre>
             </div>
             <div class="step slide" data-x="1810" data-y="5210"
                 data-rotate="270">
-                 <q></q>
+                <h3>Number</h3>
+                <p><em>Number</em> es la representación de tipo objeto de un
+                tipo númerico.</p>
+                <div class="row text-right">
+                    <a class="glyphicon glyphicon-upload"
+                       href="web/1.html" target="_BLANK"></a>
+                </div>
+                <h3>Math</h3>
+                <p><em>Math</em> es el objeto que concentra multiples constantes
+                y funciones matematicas.</p>
+                <div class="row text-right">
+                    <a class="glyphicon glyphicon-upload"
+                       href="web/2.html" target="_BLANK"></a>
+                </div>
+                <div class="row text-center">
+                    <a class="btn btn-primary" role="button" target="_BLANK"
+                        href="web/3.html">ejemplos</a>
+                </div>
             </div>
             <div class="step" data-x="2410" data-y="4820" data-scale="3"></div>
 
             <div class="step" data-x="320" data-y="4820" data-scale="3"></div>
             <div class="step slide" data-x="0" data-y="4180">
-                 <q></q>
+                <h3>Date</h3>
+                <p><em>Date</em> es el objeto utilizado para la representación
+                de fechas.</p>
+                <p>Internamente, esta representación es un número que representa
+                una cuenta de los milisegundos transcurridos desde la fecha:
+                1 de enero de 1970.</p>
+                <div class="row text-right">
+                    <a class="glyphicon glyphicon-upload"
+                       href="web/4.html" target="_BLANK"></a>
+                </div>
             </div>
             <div class="step slide" data-x="1030" data-y="4460"
                 data-rotate="90">
-                 <q></q>
+                <h3>Cadenas de texto</h3>
+                <p>Puede utilizarse las comillas simples o las comillas dobles
+                como delimitadores validos para la declaración de una variable
+                tipo cadena de texto.</p>
+                <p><strong>Ejemplos:</strong></p>
+                <pre class="prettyprint linenums">var a='cadena de texto'
+var b="cadena de texto"
+var c='aqui un "ejemplito"'
+var d="un ejemplo 'mas'"</pre>
             </div>
             <div class="step slide" data-x="750" data-y="5490"
                 data-rotate="180">
-                 <q></q>
+                <strong>Escapadores</strong>
+                <pre>\O          The NULL character
+\b          Backspace
+\t          Horizontal tab
+\n          Newline
+\v          Vertical tab
+\f          Form feed
+\r          Carriage return
+\"          Double quote
+\'          Apostrophe or single quote
+\\          Backslash
+\x[XX]      The Latin-1
+\u[XXXX]    The Unicode character</pre>
             </div>
             <div class="step slide" data-x="-280" data-y="5210"
                 data-rotate="270">
-                 <q></q>
+                <h3>Procesamiento de cadenas (I)</h3>
+                <p>Una cadena puede verse como un arreglo de caracteres
+                inmutable.</p>
+                <p><strong>Ejemplos:</strong></p>
+                <pre class="prettyprint linenums">var a='cadena de texto'
+console.log(a[5]) // a</pre>
             </div>
             <div class="step" data-x="320" data-y="4820" data-scale="3"></div>
 
             <div class="step" data-x="320" data-y="2730" data-scale="3"></div>
             <div class="step slide" data-x="0" data-y="2090" data-rotate="0">
-                 <q></q>
+                <p><strong>Funciones de cadena</strong></p>
+                <pre class="prettyprint linenums">var s = "hello, world"
+s.charAt(0)          // => "h"
+s.charAt(s.length-1) // => "d"
+s.substring(1,4)     // => "ell"
+s.slice(1,4)         // => "ell"
+s.slice(-3)          // => "rld"
+s.indexOf("l")       // => 2
+s.lastIndexOf("l")   // => 10
+s.indexOf("l", 3)    // => 3
+s.split(", ")        // => ["hello", "world"]
+s.replace("h", "H")  // => "Hello, world"
+s.toUpperCase()      // => "HELLO, WORLD"</pre>
             </div>
             <div class="step slide" data-x="1030" data-y="2370"
                 data-rotate="90">
-                 <q></q>
+                <h2>Valores logicos</h2>
+                <pre>var a=true
+var b=false</pre>
+                <p>Son valores falsos los siguientes:</p>
+                <ul>
+                    <li>undefined</li>
+                    <li>null</li>
+                    <li>0</li>
+                    <li>-0</li>
+                    <li>NaN</li>
+                    <li>''</li>
+                </ul>
             </div>
             <div class="step slide" data-x="750" data-y="3400"
                 data-rotate="180">
-                 <q></q>
+                <h2>valor nulo y valor indefinido</h2>
+                <p>Representan la ausencia de un valor en una variable o en el
+                retorno de una funcion.</p>
+                <pre>var a=null
+var b=undefined</pre>
             </div>
             <div class="step slide" data-x="-280" data-y="3120"
                 data-rotate="270">
-                 <q></q>
             </div>
+
             <div class="step" data-x="320" data-y="2730" data-scale="3"></div>
 
             <div class="step" data-x="2000" data-y="2740" data-scale="9"></div>
