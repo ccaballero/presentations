@@ -1,4 +1,7 @@
 
+// Practica de clases.
+// La que realizo Carlos.
+
 function draw(x,y){
     for(i=0;i<y;i++){
         line=''
@@ -20,3 +23,4 @@ function draw(x,y){
 }
 
 draw(10,10)
+
