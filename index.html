@@ -371,18 +371,18 @@ lineas */</pre>
                 tipo númerico.</p>
                 <div class="row text-right">
                     <a class="glyphicon glyphicon-upload"
-                       href="web/1.html" target="_BLANK"></a>
+                       href="web/1.html" target="_BLANK"> Referencia</a>
                 </div>
                 <h3>Math</h3>
                 <p><em>Math</em> es el objeto que concentra multiples constantes
                 y funciones matematicas.</p>
                 <div class="row text-right">
                     <a class="glyphicon glyphicon-upload"
-                       href="web/2.html" target="_BLANK"></a>
+                       href="web/2.html" target="_BLANK"> Referencia</a>
                 </div>
                 <div class="row text-center">
                     <a class="btn btn-primary" role="button" target="_BLANK"
-                        href="web/3.html">ejemplos</a>
+                        href="web/3.html"> Ejemplos</a>
                 </div>
             </div>
             <div class="step" data-x="2410" data-y="4820" data-scale="3"></div>
@@ -397,7 +397,7 @@ lineas */</pre>
                 1 de enero de 1970.</p>
                 <div class="row text-right">
                     <a class="glyphicon glyphicon-upload"
-                       href="web/4.html" target="_BLANK"></a>
+                       href="web/4.html" target="_BLANK"> Referencia</a>
                 </div>
             </div>
             <div class="step slide" data-x="1030" data-y="4460"
@@ -477,14 +477,14 @@ var b=false</pre>
                 cadena.</p>
                 <div class="row text-right">
                     <a class="glyphicon glyphicon-upload"
-                       href="web/5.html" target="_BLANK"></a>
+                       href="web/5.html" target="_BLANK"> Referencia</a>
                 </div>
                 <h3>Boolean</h3>
                 <p><em>Boolean</em> es la representación de tipo objeto de una
                 variable lógica.</p>
                 <div class="row text-right">
                     <a class="glyphicon glyphicon-upload"
-                       href="web/6.html" target="_BLANK"></a>
+                       href="web/6.html" target="_BLANK"> Referencia</a>
                 </div>
             </div>
             <div class="step slide" data-x="-280" data-y="3120"
@@ -504,7 +504,7 @@ var b=undefined</pre>
 
             <div class="step" data-x="7350" data-y="640" data-scale="3"></div>
             <div class="step slide container" data-x="7000" data-y="0">
-                <h1>Conditionales</h1>
+                <h1>Condicionales</h1>
                 <div class="list-group">
                     <a class="list-group-item">if</a>
                     <a class="list-group-item">else if</a>
@@ -621,7 +621,8 @@ while(expresion)</pre>
             <div class="step" data-x="11500" data-y="640" data-scale="3"></div>
 
             <div class="step" data-x="11500" data-y="2730" data-scale="3"></div>
-            <div class="step slide" data-x="11180" data-y="2090" data-rotate="0">
+            <div class="step slide" data-x="11180" data-y="2090"
+                data-rotate="0">
                 <h3>Hoisting</h3>
                 Las variables en JavaScript, tienen ambito de función, esto
                 significa que todas las variables declaradas en una función son
@@ -630,14 +631,376 @@ while(expresion)</pre>
             </div>
             <div class="step slide" data-x="12210" data-y="2370"
                  data-rotate="90">
+                <h1>Funciones</h1>
+                <p>Las funciones se declaran con la palabra reservada
+                función.</p>
+                <pre class="prettyprint linenums">function f(x,y){
+    return x+y
+}</pre>
             </div>
             <div class="step slide" data-x="11930" data-y="3400"
                  data-rotate="180">
+                <h2>Caracteristicas</h2>
+                <p>Una función puede ser asignada a una variable.</p>
+                <pre class="prettyprint linenums">var f=function(x){
+    console.log(x)
+}
+f(10)</pre>
             </div>
             <div class="step slide" data-x="10900" data-y="3120"
                  data-rotate="270">
+                <h2>Caracteristicas</h2>
+                <p>Como una función puede ser asignada a una variable, es
+                posible que una función reciba otras funciones como parte de sus
+                parametros.</p>
+                <pre class="prettyprint linenums">function f(x,g){
+    return g(x)
+}
+var a=f(10,function(x){return x*2})
+console.log(a) // 20</pre>
             </div>
-            <div class="step" data-x="4500" data-y="2730" data-scale="3"></div>
+            <div class="step" data-x="11500" data-y="2730" data-scale="3"></div>
+
+            <div class="step" data-x="11500" data-y="4820" data-scale="3"></div>
+            <div class="step slide" data-x="11180" data-y="4180" data-rotate="0">
+                <h2>Caracteristicas</h2>
+                <p>Ademas una función puede definirse de forma anonima, ademas
+                de ejecutarse en la misma sentencia de su definición.</p>
+                <pre class="prettyprint linenums">var a=(function(x,y){
+    return x+y
+}(1,2))</pre>
+            </div>
+            <div class="step slide" data-x="12210" data-y="4460"
+                 data-rotate="90">
+                <h2>Caracteristicas</h2>
+                <p>Otra caracteristica importante sobre las funciones en
+                JavaScript, es que puede definirse una función dentro de otra
+                función.</p>
+                <pre class="prettyprint linenums">function a(){
+    var x=10
+    function b(){
+        return x+1
+    }
+    return b()
+}
+console.log(a())</pre>
+            </div>
+            <div class="step slide" data-x="11930" data-y="5490"
+                data-rotate="180">
+                <h2>Varargs</h2>
+                <p>Al igual que en el lenguaje de programación Java, una función
+                puede ser invocada con mas parametros de los que han sido
+                definidos, o inclusive con menos.</p>
+                <p>Todas los parametros que han sido enviados a una función
+                pueden ser accedidos a esta por el arreglo objeto
+                <em>"arguments"</em>.</p>
+                <pre class="prettyprint linenums">function a(){
+    console.log(arguments)
+}
+a(1,2,3,4,5,6)</pre>
+            </div>
+            <div class="step slide" data-x="10900" data-y="5210"
+                 data-rotate="270">
+                <h1>Objetos</h1>
+                <p>Un objeto es una valor compuesto, que agrega multiples
+                valores, ya sean primitivas o otros tipos de colecciones.</p>
+                <p>Un objeto en JavaScript puede ser definido de 3 maneras.</p>
+            </div>
+            <div class="step" data-x="11500" data-y="4820" data-scale="3"></div>
+
+            <div class="step" data-x="9410" data-y="4820" data-scale="3"></div>
+            <div class="step slide" data-x="9090" data-y="4180" data-rotate="0">
+                <h2>Definición literal</h2>
+                <p>Es una definición de propiedades de tipo clave:valor.</p>
+                <pre class="prettyprint linenums">a = {
+    x:1,
+    y:[1,2,3,4,5],
+    z:function(a){return a}
+}</pre>
+            </div>
+            <div class="step slide" data-x="10120" data-y="4460"
+                data-rotate="90">
+                <h2>New</h2>
+                <p>Otra manera de definir un objeto es instanciando una clase de
+                un tipo de algun Objeto definido en JavaScript.</p>
+                <pre class="prettyprint linenums">a = new Object()
+b = new String('asdf')</pre>
+            </div>
+            <div class="step slide" data-x="9840" data-y="5490"
+                data-rotate="180">
+                <h2>Objetos como arreglos asociativos</h2>
+                <p>Las variables de un objeto pueden ser accedidas como si
+                fuesen arreglos asociativos:</p>
+                <pre class="prettyprint linenums">a={x:1,y:2}
+console.log(a.x)
+console.log(a['x'])</pre>
+            </div>
+            <div class="step slide" data-x="8810" data-y="5210"
+                data-rotate="270">
+                <h2>Clases</h2>
+                <p>Una clase en JavaScript es una colección de objetos que
+                heredan propiedades de un mismo prototipo.</p>
+                <pre class="prettyprint linenums">function A(){
+    this.a=10
+    this.b=11
+}
+a=new A()</pre>
+            </div>
+            <div class="step" data-x="9410" data-y="4820" data-scale="3"></div>
+
+            <div class="step" data-x="7320" data-y="4820" data-scale="3"></div>
+            <div class="step slide" data-x="7000" data-y="4180">
+                <h2>Prototipos</h2>
+                <p>Es un objeto asociado al objeto que se esta definiendo, y del
+                cual va a heredar propiedades.</p>
+                <p>Es establecido cuando el objeto es creado.</p>
+            </div>
+            <div class="step slide" data-x="8030" data-y="4460"
+                data-rotate="90">
+                <h2>Usos</h2>
+                <p>Se usa para agregar funciones a una definición incluso
+                despues de haber declarado alguna instancia.</p>
+                <pre class="prettyprint linenums">a=new String('asdf')
+String.prototype.saludar=function(){
+    return 'hola'
+}
+console.log(a.saludar())</pre>
+            </div>
+            <div class="step slide" data-x="7750" data-y="5490"
+                data-rotate="180">
+                <h2>Usos</h2>
+                <p>Tambien pueden servir para realizar herencia entre
+                objetos.</p>
+                <pre class="prettyprint linenums">function A(){
+    this.a=100
+    this.x=function(){
+        return this.a
+}}
+function B(){this.b=100}
+B.prototype=new A()
+b=new B()
+console.log(b.x())</pre>
+            </div>
+            <div class="step slide" data-x="6720" data-y="5210"
+                data-rotate="270">
+                <h2>Object.create</h2>
+                <p>Construye un nuevo objeto a partir de un prototipo
+                establecido.</p>
+                <pre class="prettyprint linenums">function A(){
+    this.f=function(){return 'asdf'}
+}
+a=new A()
+b=Object.create(a)
+console.log(b.f())</pre>
+            </div>
+            <div class="step" data-x="7320" data-y="4820" data-scale="3"></div>
+
+            <div class="step" data-x="7320" data-y="2730" data-scale="3"></div>
+            <div class="step slide" data-x="7000" data-y="2090" data-rotate="0">
+                <h2>Object.keys</h2>
+                <p>Retorna un arreglo de nombres de las propiedades enumerables
+                de un objeto.</p>
+                <pre class="prettyprint linenums">function A(){
+    this.x=1
+    this.y=2
+}
+console.log(Object.keys(new A()))</pre>
+            </div>
+            <div class="step slide" data-x="8030" data-y="2370"
+                data-rotate="90">
+                <h2>Object</h2>
+                <p>La clase Object, posee varios metodos:</p>
+                <ul>
+                    <li><strong>toString()</strong><br/>
+                        <p>Retorna la representación en cadena de un objeto.</p>
+                    </li>
+                    <li><strong>valueOf()</strong><br/>
+                        <p>Retorna la forma primitiva de un objeto.</p>
+                    </li>
+                </ul>
+                <br />
+                <div class="row text-right">
+                    <a class="glyphicon glyphicon-upload"
+                       href="web/7.html" target="_BLANK"> Referencia</a>
+                </div>
+            </div>
+            <div class="step slide" data-x="7750" data-y="3400"
+                data-rotate="180">
+                <h1>JSON</h1>
+                <p>JSON, acrónimo de JavaScript Object Notation, es un formato
+                ligero para el intercambio de datos. JSON es un subconjunto de
+                la notación literal de objetos de JavaScript que no requiere el
+                uso de XML.</p>
+            </div>
+            <div class="step slide" data-x="6720" data-y="3120"
+                data-rotate="270">
+                <h2>Ejemplo</h2>
+                <pre class="prettyprint linenums">{"menu": {
+    "id": "file",
+    "value": "File",
+    "popup": {
+        "menuitem": [
+            {"value": "New", "onclick": "CreateNewDoc()"},
+            {"value": "Open", "onclick": "OpenDoc()"},
+            {"value": "Close", "onclick": "CloseDoc()"}
+        ]
+    }
+    }}</pre>
+            </div>
+            <div class="step" data-x="7320" data-y="2730" data-scale="3"></div>
+
+            <div class="step" data-x="9000" data-y="2740" data-scale="9"></div>
+
+            <div class="step" data-x="16000" data-y="2740" data-scale="9"></div>
+
+            <div class="step" data-x="14350" data-y="640" data-scale="3"></div>
+            <div class="step slide container" data-x="14000" data-y="0">
+                <h2>Transformación</h2>
+                <p>Existen dos métodos para la transformación entre JSON y
+                Objetos de JavaScript</p>
+                <h3>JSON.stringify <small>OBJETO -> JSON</small></h3>
+                <p>Retorna una cadena en formato JSON correspondiente a un valor
+                especificado.</p>
+                <h3>JSON.parse <small>JSON -> OBJETO</small></h3>
+                <p>Interpreta una cadena en formato JSON a su objeto
+                correspondiente.</p>
+            </div>
+            <div class="step slide" data-x="15030" data-y="280" data-rotate="90">
+                <h1>JavaScript en el Navegador</h1>
+                <div class="list-group">
+                    <a class="list-group-item">Window</a>
+                    <a class="list-group-item">DOM</a>
+                    <a class="list-group-item">Eventos</a>
+                    <a class="list-group-item">AJAX</a>
+                </div>
+            </div>
+            <div class="step slide" data-x="14750" data-y="1310"
+                 data-rotate="180">
+                <h2>DOM</h2>
+                <p>DOM (Document Object Model), es una interfaz de programación
+                para documentos en HTML y XML. Esta provee una representación
+                estructurada del documento (en forma de una estrucura de arbol),
+                y define una manera para que la estructura pueda ser accedida,
+                ademas de poder modificar su estilo o contenido.</p>
+                <p>El DOM permite un acceso a la estructura de una página HTML
+                mediante el mapeo de los elementos de esta página en un árbol de
+                nodos. Cada elemento se convierte en un nodo y cada porción de
+                texto en un nodo de texto.</p>
+            </div>
+            <div class="step slide" data-x="13720" data-y="1030"
+                data-rotate="270">
+            </div>
+            <div class="step" data-x="14350" data-y="640" data-scale="3"></div>
+
+            <div class="step" data-x="16420" data-y="640" data-scale="3"></div>
+            <div class="step slide" data-x="16090" data-y="0" data-rotate="0">
+            </div>
+            <div class="step slide" data-x="17120" data-y="280"
+                 data-rotate="90">
+            </div>
+            <div class="step slide" data-x="16840" data-y="1310"
+                 data-rotate="180">
+            </div>
+            <div class="step slide" data-x="15810" data-y="1030"
+                 data-rotate="270">
+            </div>
+            <div class="step" data-x="16420" data-y="640" data-scale="3"></div>
+
+            <div class="step" data-x="18500" data-y="640" data-scale="3"></div>
+            <div class="step slide" data-x="18180" data-y="0" data-rotate="0">
+            </div>
+            <div class="step slide" data-x="19210" data-y="280"
+                 data-rotate="90">
+            </div>
+            <div class="step slide" data-x="18930" data-y="1310"
+                 data-rotate="180">
+            </div>
+            <div class="step slide" data-x="17900" data-y="1030"
+                 data-rotate="270">
+            </div>
+            <div class="step" data-x="18500" data-y="640" data-scale="3"></div>
+
+            <div class="step" data-x="18500" data-y="2730" data-scale="3"></div>
+            <div class="step slide" data-x="18180" data-y="2090"
+                data-rotate="0">
+            </div>
+            <div class="step slide" data-x="19210" data-y="2370"
+                 data-rotate="90">
+            </div>
+            <div class="step slide" data-x="18930" data-y="3400"
+                 data-rotate="180">
+            </div>
+            <div class="step slide" data-x="17900" data-y="3120"
+                 data-rotate="270">
+            </div>
+            <div class="step" data-x="18500" data-y="2730" data-scale="3"></div>
+
+            <div class="step" data-x="18500" data-y="4820" data-scale="3"></div>
+            <div class="step slide" data-x="18180" data-y="4180" data-rotate="0">
+            </div>
+            <div class="step slide" data-x="19210" data-y="4460"
+                 data-rotate="90">
+            </div>
+            <div class="step slide" data-x="18930" data-y="5490"
+                data-rotate="180">
+            </div>
+            <div class="step slide" data-x="17900" data-y="5210"
+                 data-rotate="270">
+            </div>
+            <div class="step" data-x="18500" data-y="4820" data-scale="3"></div>
+
+            <div class="step" data-x="16410" data-y="4820" data-scale="3"></div>
+            <div class="step slide" data-x="16090" data-y="4180" data-rotate="0">
+            </div>
+            <div class="step slide" data-x="17120" data-y="4460"
+                data-rotate="90">
+            </div>
+            <div class="step slide" data-x="16840" data-y="5490"
+                data-rotate="180">
+            </div>
+            <div class="step slide" data-x="15810" data-y="5210"
+                data-rotate="270">
+            </div>
+            <div class="step" data-x="16410" data-y="4820" data-scale="3"></div>
+
+            <div class="step" data-x="14320" data-y="4820" data-scale="3"></div>
+            <div class="step slide" data-x="14000" data-y="4180">
+            </div>
+            <div class="step slide" data-x="15030" data-y="4460"
+                data-rotate="90">
+            </div>
+            <div class="step slide" data-x="14750" data-y="5490"
+                data-rotate="180">
+            </div>
+            <div class="step slide" data-x="13720" data-y="5210"
+                data-rotate="270">
+            </div>
+            <div class="step" data-x="14320" data-y="4820" data-scale="3"></div>
+
+            <div class="step" data-x="14320" data-y="2730" data-scale="3"></div>
+            <div class="step slide" data-x="14000" data-y="2090" data-rotate="0">
+            </div>
+            <div class="step slide" data-x="15030" data-y="2370"
+                data-rotate="90">
+            </div>
+            <div class="step slide" data-x="14750" data-y="3400"
+                data-rotate="180">
+            </div>
+            <div class="step slide" data-x="13720" data-y="3120"
+                data-rotate="270">
+            </div>
+            <div class="step" data-x="14320" data-y="2730" data-scale="3"></div>
+
+            <div class="step" data-x="16000" data-y="2740" data-scale="9"></div>
+<!--
+getElementById()
+getElementsByTagName()
+
+createElement
+createTextNode
+
+
+-->
         </div>
         <script src="media/js/impress.js"></script>
         <script>impress().init();</script>

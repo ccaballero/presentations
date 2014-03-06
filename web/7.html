@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" id="developer-mozilla-org" class="redesign no-js">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+          <script src="//cdn.optimizely.com/js/237572123.js"></script>
+  
+    <title>Object - JavaScript | MDN</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <link rel="home" href="/en-US/">
+  <link rel="copyright" href="#copyright">
+
+  <link rel="stylesheet" href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css">
+              <link rel="stylesheet" media="all" href="https://developer.cdn.mozilla.net/media/css/mdn-min.css?build=bf9084a" />
+          <link rel="stylesheet" media="screen,projection,tv" href="https://developer.cdn.mozilla.net/media/css/wiki-min.css?build=bf9084a" />
+      
+
+          <link rel="stylesheet" type="text/css"
+            href="/en-US/docs/Template:CustomCSS?raw=1" />
+    
+        
+  <!-- common social tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://developer.mozilla.org/media/redesign/img/opengraph-logo.png">
+  <meta property="og:site_name" content="Mozilla Developer Network">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://developer.mozilla.org/media/redesign/img/opengraph-logo.png">
+  <meta name="twitter:site" content="@mozhacks">
+  <meta name="twitter:creator" content="@mozhacks">
+
+  <link rel="search" type="application/opensearchdescription+xml" href="https://developer.mozilla.org/en-US/search/xml" title="Mozilla Developer Network">
+
+  <!-- For third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon144.png">
+  <!-- For iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon114.png">
+  <!-- For first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon72.png">
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon57.png">
+  <!-- Basic favicon -->
+  <link rel="shortcut icon" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon32.png">
+
+  <!--[if IE]>
+  <meta http-equiv="imagetoolbar" content="no">
+  <script src="https://developer.cdn.mozilla.net/media/js/libs/html5.js"></script>
+  <![endif]-->
+
+    <link rel="alternate" type="application/json" href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$json">
+  <link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" >
+
+            <link rel="alternate" hreflang="de" href="/de/docs/JavaScript/Reference/Global_Objects/Object" title="Object">
+          <link rel="alternate" hreflang="es" href="/es/docs/Referencia_de_JavaScript_1.5/Objetos_globales/Object" title="Object">
+          <link rel="alternate" hreflang="fr" href="/fr/docs/JavaScript/R%C3%A9f%C3%A9rence_JavaScript/Objets_globaux/Object" title="Object">
+          <link rel="alternate" hreflang="ja" href="/ja/docs/Web/JavaScript/Reference/Global_Objects/Object" title="Object">
+          <link rel="alternate" hreflang="ko" href="/ko/docs/JavaScript/Reference/Global_Objects/Object" title="Object">
+          <link rel="alternate" hreflang="pl" href="/pl/docs/Dokumentacja_j%C4%99zyka_JavaScript_1.5/Obiekty/Object" title="Object">
+          <link rel="alternate" hreflang="pt-BR" href="/pt-BR/docs/JavaScript/Reference/Global_Objects/Objetos" title="Objetos">
+          <link rel="alternate" hreflang="ru" href="/ru/docs/JavaScript/Reference/Global_Objects/Object" title="Object">
+          <link rel="alternate" hreflang="zh-CN" href="/zh-CN/docs/JavaScript/Reference/Global_Objects/Object" title="Object">
+      
+  <!-- document-specific social tags -->
+  <meta property="og:title" content="Object">
+  <meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">
+  <meta name="twitter:url" content="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">
+  <meta name="twitter:title" content="Object">
+    <meta property="og:description" content="The Object constructor creates an object wrapper.">
+  <meta name="description" content="The Object constructor creates an object wrapper.">
+  <meta name="twitter:description" content="The Object constructor creates an object wrapper.">
+  
+      <script type="text/javascript">
+  // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+  var removeUtms  =   function(){
+      var location = window.location;
+      if (location.hash.indexOf('utm') != -1) {
+          var anchor = location.hash.match(/#(?!utm)[^&]+/);
+          anchor  =   anchor ? anchor[0] : '';
+          if(!anchor && window.history.replaceState){
+              history.replaceState({}, '', location.pathname + location.search);
+          } else {
+              location.hash = anchor;
+          }
+      }
+  };
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36116321-5'],
+            ['_setAllowAnchor', true],
+            ['_trackPageview']);
+  _gaq.push(removeUtms);
+
+  (function(a, d) {
+    var ga = d.createElement(a); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = d.getElementsByTagName(a)[0]; s.parentNode.insertBefore(ga, s);
+  })('script', document);
+
+</script>
+  </head>
+<body data-slug="Web/JavaScript/Reference/Global_Objects/Object" data-docid="5045" class="html-ltr document  ">
+
+  <script type="text/javascript">
+  (function(){
+  var FLAGS = {
+    'derby_closed': true,'elasticsearch': true,'external_signup': false,'kumaediting': false,'l10ndashboard': false,'page_move': false,'redesign': true,'redesign_beta_notice': true,'search_doc_navigator': false
+    },
+    SWITCHES = {
+    'apps_landing': true,'html5_landing': true,'home_mwc_promo': false,'apps-market-launch': true,'apps_promo': false,'labs_snippets_landing': false,'signin_metrics': true,'social_promo': true,'wiki_error_on_delete': false,'wiki_force_immediate_rendering': true
+    },
+    SAMPLES = {
+    
+    };
+  window.waffle = {
+    "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+    },
+    "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+    },
+    "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+    },
+    "FLAGS": FLAGS,
+    "SWITCHES": SWITCHES,
+    "SAMPLES": SAMPLES
+  };
+})();
+
+  // This represents the site configuration
+  window.mdn = {
+    build: 'bf9084a',
+    // Properties and settings for CKEditor will go here
+    ckeditor: {},
+    // Feature test results and methods will be placed here
+    features: {},
+    // Ensures gettext always returns something, is always set
+    gettext: function(x) { return x; },
+    // The path to media (images, CSS, JS) in MDN
+    mediaPath: 'https://developer.cdn.mozilla.net/media/',
+    // Wiki-specific settings will be placed here
+    wiki: {
+      autosuggestTitleUrl: '/en-US/docs/get-documents'
+    }
+  };
+</script>
+  
+
+  
+  <ul id="nav-access">
+    <li><a href="#content">Skip to main content</a></li>
+    <li><a id="skip-language" href="#language">Select language</a></li>
+          <li><a href="#q" id="skip-search">Skip to search</a></li>
+      </ul>
+
+  <!-- Header -->
+  <header id="main-header"><div class="center">
+
+    <div class="clear header-login">
+      <a href="//www.mozilla.org/" id="tabzilla">mozilla</a>
+              <ul class="user-state signed-out">
+    <li class="user-signin menu">
+    <form class="browserid" action="/en-US/users/browserid_verify" method="POST">
+        <input id="next" name="next" type="hidden" value="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object?redirectlocale=en-US"/>
+        <input required="required" type="hidden" name="assertion" id="id_assertion" />
+                
+          <a href="#" class="persona-button persona-login" data-next="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object?redirectlocale=en-US">
+            <span class="persona-icon"><i aria-hidden="true"></i></span>
+            <span class="signin">Sign in with Persona</span>
+          </a>
+
+      </form>
+    </li>
+  </ul>
+          </div>
+
+    <a href="/en-US/" class="logo">Mozilla Developer Network</a>
+
+    <nav id="main-nav" role="navigation"><ul><li><a href="/en-US/docs/Zones">Zones<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+        <div class="submenu submenu-single" id="nav-zones-submenu">
+          <div class="submenu-column">
+            <ul>
+              <li><a href="/en-US/Add-ons">Add-ons</a></li>
+              <li><a href="/en-US/docs/Apps">App Center</a></li>
+              <li><a href="/en-US/docs/Firefox">Firefox</a></li>
+              <li><a href="/en-US/Marketplace">Firefox Marketplace</a></li>
+              <li><a href="/en-US/docs/Firefox_OS">Firefox OS</a></li>
+              <li><a href="/en-US/docs/Persona">Persona</a></li>
+            </ul>
+          </div>
+          <button class="submenu-close transparent">
+            <span class="offscreen">Close submenu</span>
+            <i aria-hidden="true" class="icon-remove-sign"></i>
+          </button>
+        </div>
+      </li><li><a href="/en-US/docs/Web">Web Platform<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+        <div class="submenu" id="nav-platform-submenu">
+          <div class="submenu-column">
+            <div class="title">Technologies</div>
+            <ul>
+              <li><a href="/en-US/docs/Web/HTML">HTML</a></li>
+              <li><a href="/en-US/docs/Web/CSS">CSS</a></li>
+              <li><a href="/en-US/docs/Web/JavaScript">JavaScript</a></li>
+              <li><a href="/en-US/docs/Web/Guide/Graphics">Graphics</a></li>
+              <li><a href="/en-US/docs/Web/API">APIs / DOM</a></li>
+              <li><a href="/en-US/Apps">Apps</a></li>
+              <li><a href="/en-US/docs/Web/MathML">MathML</a></li>
+            </ul>
+          </div><div class="submenu-column last">
+            <div class="title">References & Guides</div>
+            <ul>
+              <li><a href="/en-US/docs/Web/Tutorials">Tutorials</a></li>
+              <li><a href="/en-US/docs/Web/Reference">References</a></li>
+              <li><a href="/en-US/docs/Web/Guide">Developer Guides</a></li>
+              <li><a href="/en-US/docs/Web/Accessibility">Accessibility</a></li>
+              <li><a href="/en-US/demos/">Demos</a></li>
+              <li><a href="/en-US/docs/Web">...more docs</a></li>
+            </ul>
+          </div>
+          <button class="submenu-close transparent">
+            <span class="offscreen">Close submenu</span>
+            <i aria-hidden="true" class="icon-remove-sign"></i>
+          </button>
+        </div>
+      </li><li><a href="/en-US/docs/Mozilla/Developer_Program">Developer Program</a></li><li><a href="/en-US/docs/Tools">Tools</a></li><li><a href="/en-US/demos/">Demos</a></li><li class="main-nav-search"><form action="/en-US/search" method="get" role="search">
+        <div class="search-wrap">
+          <label for="main-q" class="offscreen">Search</label>
+          <input type="search" id="main-q" name="q" data-placeholder="SEARCH" data-value="" value="" />
+          <span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span>&nbsp;
+          <button type="submit" class="offscreen">Search</button>
+        </div>
+      </form></li></ul></nav>
+  </div></header>
+
+  <!-- Content will go here -->
+  <main id="content" role="main"><div class="center clear">
+    
+  
+
+
+    
+
+
+
+
+  
+
+<div class="wiki-main-content"><div class="center">
+
+    <div class="article-meta">
+    <!-- action buttons -->
+              <ul class="page-buttons"><li><a href="javascript:;" id="languages-menu" class="button transparent" aria-haspopup="true" aria-owns="languages-menu-submenu" aria-expanded="false"><span>Languages</span><i aria-hidden="true" class="icon-comments"></i></a>
+
+        <div class="submenu" id="languages-menu-submenu">
+          <div class="submenu-column">
+            <ul id="translations">
+                                                <li><bdi><a rel="internal" href="/de/docs/JavaScript/Reference/Global_Objects/Object" title="Object">Deutsch</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/es/docs/Referencia_de_JavaScript_1.5/Objetos_globales/Object" title="Object">Español</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/fr/docs/JavaScript/R%C3%A9f%C3%A9rence_JavaScript/Objets_globaux/Object" title="Object">Français</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/ja/docs/Web/JavaScript/Reference/Global_Objects/Object" title="Object">日本語</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/ko/docs/JavaScript/Reference/Global_Objects/Object" title="Object">한국어</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/pl/docs/Dokumentacja_j%C4%99zyka_JavaScript_1.5/Obiekty/Object" title="Object">Polski</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/pt-BR/docs/JavaScript/Reference/Global_Objects/Objetos" title="Objetos">Português (do Brasil)</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/ru/docs/JavaScript/Reference/Global_Objects/Object" title="Object">Русский</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/zh-CN/docs/JavaScript/Reference/Global_Objects/Object" title="Object">中文 (简体)</a></bdi></li>
+                              
+                              <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$locales">Add a translation</a></li>
+                          </ul>
+          </div>
+        </div></li><li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$edit" class="button " >Edit<i aria-hidden="true" class="icon-pencil"></i></a></li><li><a href="javascript:;" id="advanced-menu" class="button only-icon"  aria-haspopup="true" aria-owns="advanced-menu-submenu" aria-expanded="false"><span>Advanced</span><i aria-hidden="true" class="icon-cog"></i></a>
+
+        <div class="submenu" id="advanced-menu-submenu">
+          <!-- this page -->
+          <div class="submenu-column">
+            <div class="title">Advanced</div>
+            <ul>
+                <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object$history">History</a></li>
+                                                                
+                
+                                
+                                                                <li class="page-print"><a href="#" onclick="return window.print();"  title="Print page">Print this page</a></li>
+            </ul>
+          </div>
+        </div>
+  </li></ul>
+
+    <!-- crumbs -->
+      <nav class="crumbs" role="navigation"><ol xmlns:v="http://rdf.data-vocabulary.org/#" aria-label="breadcrumbs">
+    <li typeof="v:Breadcrumb"><a href="/en-US" rel="v:url" property="v:title">MDN</a></li>
+          <li class="crumb" typeof="v:Breadcrumb"><a href="/en-US/docs/Web" rel="v:url" property="v:title">Web technology for developers</a></li>
+          <li class="crumb" typeof="v:Breadcrumb"><a href="/en-US/docs/Web/JavaScript" rel="v:url" property="v:title">JavaScript</a></li>
+          <li class="crumb" typeof="v:Breadcrumb"><a href="/en-US/docs/Web/JavaScript/Reference" rel="v:url" property="v:title">JavaScript reference</a></li>
+          <li class="crumb" typeof="v:Breadcrumb"><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects" rel="v:url" property="v:title">Standard built-in objects</a></li>
+        <li class="crumb" typeof="v:Breadcrumb" property="v:title">Object</li>
+  </ol></nav>
+  </div>
+
+  <!-- heading -->
+  <div class="document-head">
+        <h1>Object</h1>
+
+      
+  </div>
+  
+  <!-- start the main content container -->
+    <div id="wiki-column-container" class="wiki-right-present wiki-left-present">
+
+            <!-- additional controls row; hidden unless needed -->
+      <div id="wiki-controls" class="column-container column-container-reverse">
+        <div class="column-strip">
+          <!-- Show TOC "show" link -->
+        </div>
+        <div class="column-half">
+        </div>
+        <div class="column-strip quick-links hidden">
+          <a href="#show-quick-links" class="title smaller" id="show-quick-links"><i aria-hidden="true" class="icon-caret-down"></i>Show Sidebar</a>
+        </div>
+      </div>
+      
+      <!-- content row with three strips -->
+      <div class="column-container column-container-reverse">
+
+                  <!-- TOC, approvals, etc -->
+          <div class="column-strip wiki-column" id="wiki-right">
+                    <!-- table of contents -->
+          <div id="toc" class="toc toggleable">
+            <a href="#toc" class="title toggler" data-open-icon="icon-plus" data-closed-icon="icon-minus">In This Article<i></i></a>
+            <ol class="toggle-container">
+              <code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><li><a href="#Summary" rel="internal">Summary</a><code></code><li><a href="#Syntax" rel="internal">Constructor</a><code><code></code></code><ol><li><a href="#Parameters" rel="internal">Parameters</a></ol></li><li><a href="#Description" rel="internal">Description</a><code></code><code></code><code></code><code></code><li><a href="#Properties" rel="internal">Properties of the <code>Object</code> constructor</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><li><a href="#Methods" rel="internal">Methods of the <code>Object</code> constructor</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><li><a href="#Object_instances" rel="internal"><code>Object</code> instances and <code>Object</code> prototype object</a><code></code><code></code><code></code><code></code><code></code><ol><li><a href="#Properties_of_Object_instances" rel="internal">Properties</a><code></code><code></code><code></code><code></code><code></code><li><a href="#Methods_of_Object_instances" rel="internal">Methods</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code></ol></li><li><a href="#Examples" rel="internal">Examples</a><ol><li><a href="#Example.3A_Using_Object_given_undefined_and_null_types" rel="internal">Example: Using <code>Object</code> given <code>undefined</code> and <code>null</code> types</a><code></code><code></code><li><a href="#Example.3A_Using_Object_to_create_Boolean_objects" rel="internal">Example: Using <code>Object</code> to create <code>Boolean</code> objects</a><code></code><code></code></ol></li><li><a href="#Specifications" rel="internal">Specifications</a><li><a href="#Browser_compatibility" rel="internal">Browser compatibility</a>
+            </ol>
+          </div>
+                    </div>
+        
+        <!-- just the article content -->
+                          
+        <!-- center: main article content -->
+        <div id="wiki-content" class="column-half wiki-column text-content">
+
+          
+          
+                                                      
+          <!-- just the article content -->
+          <article id="wikiArticle">
+                                          <div>
+ <section class="Quick_links" id="Quick_Links"><!-- --></section></div>
+<h2 id="Summary" name="Summary">Summary</h2>
+<p>The <code><strong>Object</strong></code> constructor creates an object wrapper.</p>
+<h2 id="Syntax" name="Syntax">Constructor</h2>
+<pre class="syntaxbox"><code><code>{ <em>[ nameValuePair1 [, nameValuePair2 [, ...nameValuePairN] ] ]</em> }
+</code>new Object( <em>[ value ]</em> )</code></pre>
+<h3 id="Parameters" name="Parameters">Parameters</h3>
+<dl>
+ <dt>
+  nameValuePair1, nameValuePair2, ... nameValuePairN</dt>
+ <dd>
+  Pairs of names (strings) and values (any value) where the name is separated from the value by a colon.</dd>
+</dl>
+<dl>
+ <dt>
+  value</dt>
+ <dd>
+  Any value.</dd>
+</dl>
+<h2 id="Description" name="Description">Description</h2>
+<p>The <code>Object</code> constructor creates an object wrapper for the given value. If the value is <code>null</code> or <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined" title="The global undefined property represents the value undefined."><code>undefined</code></a>, it will create and return an empty object, otherwise, it will return an object of a type that corresponds to the given value. If the value is an object already, it will return the value.</p>
+<p>When called in a non-constructor context, <code>Object</code> behaves identically.</p>
+<h2 id="Properties" name="Properties">Properties of the <code>Object</code> constructor</h2>
+<p><small><em>For properties available on <code>Object</code> instances, see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype#Properties">Properties of Object instances</a>.</em></small></p>
+<dl>
+ <dt>
+  <code>Object.length</code></dt>
+ <dd>
+  Has a value of 1.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype" title="The Object.prototype property represents the Object prototype object."><code>Object.prototype</code></a></dt>
+ <dd>
+  Allows the addition of properties to all objects of type Object.</dd>
+</dl>
+<div>
+ <div class="inheritsbox template-jsOverrides" style="border: 5px solid #D1D1FF; background: #f5f5ff; padding: 2px 10px; margin: 25px 0; overflow: hidden;">  
+<div><span style="font-weight: 700;">Properties inherited from  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a>:</span></div> 
+<div><a class="internal" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Arity"><code>arity</code></a>, <a class="internal" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Caller"><code>caller</code></a>, <a class="internal" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Constructor"><code>constructor</code></a>, <a class="internal" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Length"><code>length</code></a>, <a class="internal" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Name"><code>name</code></a></div> 
+</div></div>
+<h2 id="Methods" name="Methods">Methods of the <code>Object</code> constructor</h2>
+<p><small><em>For methods available on <code>Object</code> instances, see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype#Methods">Methods of Object instances</a>.</em></small></p>
+<dl>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" title="The Object.create() method creates a new object with the specified prototype object and properties."><code>Object.create()</code></a></dt>
+ <dd>
+  Creates a new object with the specified prototype object and properties.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" title="The Object.defineProperty() method defines a new property directly on an object, or modifies an existing property on an object, and returns the object."><code>Object.defineProperty()</code></a></dt>
+ <dd>
+  Adds the named property described by a given descriptor to an object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties" title="The Object.defineProperties() method defines new or modifies existing properties directly on an object, returning the object."><code>Object.defineProperties()</code></a></dt>
+ <dd>
+  Adds the named properties described by the given descriptors to an object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze" title="The Object.freeze() method freezes an object: that is, prevents new properties from being added to it; prevents existing properties from being removed; and prevents existing properties, or their enumerability, configurability, or writability, from being changed. In essence the object is made effectively immutable. The method returns the object being frozen."><code>Object.freeze()</code></a></dt>
+ <dd>
+  Freezes an object: other code can't delete or change any properties.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor" title="The Object.getOwnPropertyDescriptor() method returns a property descriptor for an own property (that is, one directly present on an object, not present by dint of being along an object's prototype chain) of a given object."><code>Object.getOwnPropertyDescriptor()</code></a></dt>
+ <dd>
+  Returns a property descriptor for a named property on an object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames" title="The Object.getOwnPropertyNames() method returns an array of all properties (enumerable or not) found directly upon a given object."><code>Object.getOwnPropertyNames()</code></a></dt>
+ <dd>
+  Returns an array containing the names of all of the given object's <strong>own</strong> enumerable and non-enumerable properties.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf" title="The Object.getPrototypeOf() method returns the prototype (i.e. the internal [[Prototype]]) of the specified object."><code>Object.getPrototypeOf()</code></a></dt>
+ <dd>
+  Returns the prototype of the specified object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is" title="The Object.is() method determines whether two values are the same value."><code>Object.is()</code></a> <span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></dt>
+ <dd>
+  Compares if two values are distinguishable (ie. the same)</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible" title="The Object.isExtensible() method determines if an object is extensible (whether it can have new properties added to it)."><code>Object.isExtensible()</code></a></dt>
+ <dd>
+  Determines if extending of an object is allowed.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen" title="The Object.isFrozen() determines if an object is frozen."><code>Object.isFrozen()</code></a></dt>
+ <dd>
+  Determines if an object was frozen.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed" title="The Object.isSealed() method determines if an object is sealed."><code>Object.isSealed()</code></a></dt>
+ <dd>
+  Determines if an object is sealed.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" title="The Object.keys() method returns an array of a given object's own enumerable properties, in the same order as that provided by a for...in loop (the difference being that a for-in loop enumerates properties in the prototype chain as well)."><code>Object.keys()</code></a></dt>
+ <dd>
+  Returns an array containing the names of all of the given object's <strong>own</strong> enumerable properties.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions" title="The Object.preventExtensions() method prevents new properties from ever being added to an object (i.e. prevents future extensions to the object)."><code>Object.preventExtensions()</code></a></dt>
+ <dd>
+  Prevents any extensions of an object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal" title="The Object.seal() method seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. Values of present properties can still be changed as long as they are writable."><code>Object.seal()</code></a></dt>
+ <dd>
+  Prevents other code from deleting properties of an object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf" title="The Object.setPrototype() method sets the prototype (i.e., the internal [[Prototype]] property ) of a specified object to another object or null."><code>Object.setPrototypeOf()</code></a> <span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></dt>
+ <dd>
+  Sets the prototype (i.e., the internal <code>[[Prototype]]</code> property)</dd>
+</dl>
+<div>
+ <div class="inheritsbox template-jsOverrides" style="border: 5px solid #D1D1FF; background: #f5f5ff; padding: 2px 10px; margin: 25px 0; overflow: hidden;">  
+<div><span style="font-weight: 700;">Methods inherited from  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a>:</span></div> 
+<div><a class="internal" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Apply"><code>apply</code></a>, <a class="internal" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Call"><code>call</code></a>, <a class="internal" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/ToSource"><code>toSource</code></a>, <a class="internal" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/ToString"><code>toString</code></a></div> 
+</div></div>
+<h2 id="Object_instances" name="Object_instances"><code>Object</code> instances and <code>Object</code> prototype object</h2>
+<p>All objects in JavaScript are descended from <code>Object</code>; all objects inherit methods and properties from <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype" title="The Object.prototype property represents the Object prototype object."><code>Object.prototype</code></a>, although they may be overridden. For example, other constructors' prototypes override the <code>constructor</code> property and provide their own <code>toString</code> methods. Changes to the <code>Object</code> prototype object are propagated to all objects unless the properties and methods subject to those changes are overridden further along the prototype chain.</p>
+<h3 id="Properties_of_Object_instances" name="Properties_of_Object_instances">Properties</h3>
+<div>
+ <dl><dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor" title="Returns a reference to the Object function that created the instance's prototype. Note that the value of this property is a reference to the function itself, not a string containing the function's name. The value is only read-only for primitive values such as 1, true and &quot;test&quot;."><code>Object.prototype.constructor</code></a></dt>
+ <dd>
+  Specifies the function that creates an object's prototype.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto" title="An Object's __proto__ property references the same object as its internal [[Prototype]] (often referred to as &quot;the prototype&quot;), which may be an object or, as in the default case of Object.prototype.__proto__, null. This property is an abstraction error, because a property with the same name, but some other value, could be defined on the object too."><code>Object.prototype.__proto__</code></a> <span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></dt>
+ <dd>
+  Points to the object which was used as prototype when the object was instantiated.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/noSuchMethod" title="The __noSuchMethod__ property references a function to be executed when a non-existent method is called on an object."><code>Object.prototype.__noSuchMethod__</code></a> <span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></dt>
+ <dd>
+  Allows a function to be defined that will be executed when an undefined object member is called as a method.</dd>
+ <dt>
+  <s class="obsoleteElement"><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/count" title="The __count__ property used to store the count of enumerable properties on the object, but it has been removed."><code>Object.prototype.__count__</code></a> <span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></s></dt>
+ <dd>
+  <s class="obsoleteElement">Used to return the number of enumerable properties directly on a user-defined object, but has been removed.</s></dd>
+ <dt>
+  <s class="obsoleteElement"><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/parent" title="The __parent__ property used to point to an object's context, but it has been removed."><code>Object.prototype.__parent__</code></a> <span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></s></dt>
+ <dd>
+  <s class="obsoleteElement">Used to point to an object's context, but has been removed.</s></dd>
+</dl></div>
+<h3 id="Methods_of_Object_instances" name="Methods_of_Object_instances">Methods</h3>
+<div>
+ <dl><dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineGetter" title="The __defineGetter__ method binds an object's property to a function to be called when that property is looked up."><code>Object.prototype.__defineGetter__()</code></a> <span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span> <span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></dt>
+ <dd>
+  Associates a function with a property that, when accessed, executes that function and returns its return value.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineSetter" title="The __defineSetter__ method binds an object's property to a function to be called when an attempt is made to set that property."><code>Object.prototype.__defineSetter__()</code></a> <span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span> <span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></dt>
+ <dd>
+  Associates a function with a property that, when set, executes that function which modifies the property.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/lookupGetter" title="The __lookupGetter__ method returns the function bound as a getter to the specified property."><code>Object.prototype.__lookupGetter__()</code></a> <span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span> <span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></dt>
+ <dd>
+  Returns the function associated with the specified property by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineGetter" title="The __defineGetter__ method binds an object's property to a function to be called when that property is looked up."><code>__defineGetter__</code></a> method.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/lookupSetter" title="The __lookupSetter__ method returns the function bound as a setter to the specified property."><code>Object.prototype.__lookupSetter__()</code></a> <span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span> <span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></dt>
+ <dd>
+  Returns the function associated with the specified property by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineSetter" title="The __defineSetter__ method binds an object's property to a function to be called when an attempt is made to set that property."><code>__defineSetter__</code></a> method.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" title="The hasOwnProperty() method returns a boolean indicating whether the object has the specified property."><code>Object.prototype.hasOwnProperty()</code></a></dt>
+ <dd>
+  Returns a boolean indicating whether an object contains the specified property as a direct property of that object and not inherited through the prototype chain.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf" title="The isPrototypeOf() method tests for an object in another object's prototype chain."><code>Object.prototype.isPrototypeOf()</code></a></dt>
+ <dd>
+  Returns a boolean indication whether the specified object is in the prototype chain of the object this method is called upon.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable" title="The propertyIsEnumerable() method returns a Boolean indicating whether the specified property is enumerable."><code>Object.prototype.propertyIsEnumerable()</code></a></dt>
+ <dd>
+  Returns a boolean indicating if the internal <a href="/en-US/docs/ECMAScript_DontEnum_attribute" title="ECMAScript_DontEnum_attribute">ECMAScript DontEnum attribute</a> is set.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toSource" title="The toSource() method returns a string representing the source code of the object."><code>Object.prototype.toSource()</code></a> <span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></dt>
+ <dd>
+  Returns string containing the source of an object literal representing the object that this method is called upon; you can use this value to create a new object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString" title="The toLocaleString() method returns a string representing the object. This method is meant to be overriden by derived objects for locale-specific purposes."><code>Object.prototype.toLocaleString()</code></a></dt>
+ <dd>
+  Calls <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString" title="The toString() method returns a string representing object."><code>toString()</code></a>.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString" title="The toString() method returns a string representing object."><code>Object.prototype.toString()</code></a></dt>
+ <dd>
+  Returns a string representation of the object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/unwatch" title="The unwatch() method removes a watchpoint set with the watch() method."><code>Object.prototype.unwatch()</code></a> <span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></dt>
+ <dd>
+  Removes a watchpoint from a property of the object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf" title="The valueOf() method returns the primitive value of the specified object."><code>Object.prototype.valueOf()</code></a></dt>
+ <dd>
+  Returns the primitive value of the specified object.</dd>
+ <dt>
+  <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/watch" title="The watch() method watches for a property to be assigned a value and runs a function when that occurs."><code>Object.prototype.watch()</code></a> <span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></dt>
+ <dd>
+  Adds a watchpoint to a property of the object.</dd>
+ <dt>
+  <s class="obsoleteElement"><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/eval" title="The obj.eval() method used to evaluate a string of JavaScript code in the context of an object, however, this method has been removed."><code>Object.prototype.eval()</code></a> <span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></s></dt>
+ <dd>
+  <s class="obsoleteElement">Used to evaluate a string of JavaScript code in the context of the specified object, but has been removed.</s></dd>
+</dl></div>
+<h2 id="Examples" name="Examples">Examples</h2>
+<h3 id="Example.3A_Using_Object_given_undefined_and_null_types" name="Example.3A_Using_Object_given_undefined_and_null_types">Example: Using <code>Object</code> given <code>undefined</code> and <code>null</code> types</h3>
+<p>The following examples store an empty <code>Object</code> object in <code>o</code>:</p>
+<pre class="brush: js">var o = new Object();
+</pre>
+<pre class="brush: js">var o = new Object(undefined);
+</pre>
+<pre class="brush: js">var o = new Object(null);
+</pre>
+<h3 id="Example.3A_Using_Object_to_create_Boolean_objects">Example: Using <code>Object</code> to create <code>Boolean</code> objects</h3>
+<p>The following examples store <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" title="The Boolean object is an object wrapper for a boolean value."><code>Boolean</code></a> objects in <code>o</code>:</p>
+<pre class="brush: js">// equivalent to o = new Boolean(true);
+var o = new Object(true);
+</pre>
+<pre class="brush: js">// equivalent to o = new Boolean(false);
+var o = new Object(Boolean());
+</pre>
+<h2 id="Specifications">Specifications</h2>
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th scope="col">Specification</th>
+   <th scope="col">Status</th>
+   <th scope="col">Comment</th>
+  </tr>
+  <tr>
+   <td>ECMAScript 1st Edition. Implemented in JavaScript 1.0</td>
+   <td>Standard</td>
+   <td>Initial definition.</td>
+  </tr>
+  <tr>
+   <td><a class="external" href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.2" lang="en" title="The definition of 'Object' in that specification.">ECMAScript Language Specification 5.1th Edition (ECMA-262)</a></td>
+   <td><span class="spec-Standard">Standard</span></td>
+   <td> </td>
+  </tr>
+  <tr>
+   <td><a class="external" href="http://people.mozilla.org/~jorendorff/es6-draft.html#sec-object-objects" lang="en" title="The definition of 'Object' in that specification.">ECMAScript Language Specification 6th Edition (ECMA-262)</a></td>
+   <td><span class="spec-Draft">Draft</span></td>
+   <td> </td>
+  </tr>
+ </tbody>
+</table>
+<h2 id="Browser_compatibility">Browser compatibility</h2>
+<p></p><div class="htab"> 
+    <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a> 
+    <ul> 
+        <li class="selected"><a>Desktop</a></li> 
+        <li><a>Mobile</a></li> 
+    </ul> 
+</div><p></p>
+<div id="compat-desktop">
+ <table class="compat-table">
+  <tbody>
+   <tr>
+    <th>Feature</th>
+    <th>Chrome</th>
+    <th>Firefox (Gecko)</th>
+    <th>Internet Explorer</th>
+    <th>Opera</th>
+    <th>Safari</th>
+   </tr>
+   <tr>
+    <td>Basic support</td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<div id="compat-mobile">
+ <table class="compat-table">
+  <tbody>
+   <tr>
+    <th>Feature</th>
+    <th>Android</th>
+    <th>Chrome for Android</th>
+    <th>Firefox Mobile (Gecko)</th>
+    <th>IE Mobile</th>
+    <th>Opera Mobile</th>
+    <th>Safari Mobile</th>
+   </tr>
+   <tr>
+    <td>Basic support</td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<p> </p>
+                                    </article>
+
+                      <!-- attachments list -->
+            
+            <!-- contributors -->
+            <div class="wiki-block contributors">
+              <h2 class="offscreen">Document Tags and Contributors</h2>
+                            <!-- tags if present -->
+              <div class="tag-attach-list tags contributor-sub">
+                <i aria-hidden="true" class="icon-tags"></i><strong>Tags:</strong>
+                <ul class="tag-list"><li><a href="/en-US/docs/tag/Constructor">Constructor</a></li><li><a href="/en-US/docs/tag/JavaScript">JavaScript</a></li><li><a href="/en-US/docs/tag/NeedsMobileBrowserCompatibility">NeedsMobileBrowserCompatibility</a></li><li><a href="/en-US/docs/tag/NeedsBrowserCompatibility">NeedsBrowserCompatibility</a></li><li><a href="/en-US/docs/tag/Object">Object</a></li></ul>
+              </div>
+                            <div class="contributor-sub"> <i aria-hidden="true" class="icon-group"></i><strong>Contributors to this page:</strong> <a href="/en-US/profiles/lmorchard">lmorchard</a>, <a href="/en-US/profiles/Seant23">Seant23</a>, <a href="/en-US/profiles/mholland1337">mholland1337</a>, <a href="/en-US/profiles/coenwulf">coenwulf</a>, <a href="/en-US/profiles/saneyuki_s">saneyuki_s</a>, <a href="/en-US/profiles/mspreij">mspreij</a>, <a href="/en-US/profiles/syssgx">syssgx</a>, <a href="/en-US/profiles/Marcoos">Marcoos</a>, <a href="/en-US/profiles/Sevenspade">Sevenspade</a>, <a href="/en-US/profiles/Dougwright">Dougwright</a>, <a href="/en-US/profiles/Potappo">Potappo</a>, <a href="/en-US/profiles/Crash">Crash</a>, <a href="/en-US/profiles/Sheppy">Sheppy</a>, <a href="/en-US/profiles/fscholz">fscholz</a>, <a href="/en-US/profiles/ziyunfei">ziyunfei</a>, <a href="/en-US/profiles/Nickolay">Nickolay</a>, <a href="/en-US/profiles/evilpie">evilpie</a>, <a href="/en-US/profiles/Waldo">Waldo</a>, <a href="/en-US/profiles/grendel">grendel</a>, <a href="/en-US/profiles/Donspeck">Donspeck</a>, <a href="/en-US/profiles/Jonathan_Watt">Jonathan_Watt</a>, <a href="/en-US/profiles/PaulNovitski">PaulNovitski</a>, <a href="/en-US/profiles/ethertank">ethertank</a>, <a href="/en-US/profiles/Callek">Callek</a>, <a href="/en-US/profiles/BenoitL">BenoitL</a>, <a href="/en-US/profiles/BenB">BenB</a>, <a href="/en-US/profiles/Havvy">Havvy</a>, <a href="/en-US/profiles/Mgjbot">Mgjbot</a>, <a href="/en-US/profiles/Maian">Maian</a>, <a href="/en-US/profiles/Dria">Dria</a> </div>                              <div class="contributor-sub">
+                  <i aria-hidden="true" class="icon-time"></i><strong>Last updated by:</strong>
+                  <a href="/en-US/profiles/coenwulf">coenwulf</a>,
+                  <time datetime="2013-12-30T08:19:06-08:00">Dec 30, 2013 8:19:06 AM</time>
+                </div>
+                          </div>
+                  </div>
+
+                  <!-- quick links and zone subnav strip -->
+          <div id="wiki-left" class="column-strip wiki-column">
+
+          
+            <a href="#quick-links" class="title smaller" id="quick-links-toggle"><i aria-hidden="true" class="icon-caret-up"></i>Hide Sidebar</a>
+
+            
+                          <!-- quick links -->
+                <div class="quick-links" id="quick-links">
+    <div class="title see-also">See also</div>
+     
+    <ol> 
+        <li><strong><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects">Standard built-in objects</a></strong></li> 
+ 
+         
+         
+        <li><strong><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></strong></li> 
+ 
+ 
+         
+        <li data-default-state="open"><a href="#"><strong>Properties</strong></a> 
+            <ol> 
+             
+                <li> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype" title="The Object.prototype property represents the Object prototype object."><code>Object.prototype</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                     
+                        <s class="obsoleteElement"> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/count" title="The __count__ property used to store the count of enumerable properties on the object, but it has been removed."><code>Object.prototype.__count__</code></a> 
+                     
+                     
+                        </s> 
+                     
+                     
+                     
+                     
+                     
+                        <span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span> 
+                     
+                </li> 
+             
+                <li> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/noSuchMethod" title="The __noSuchMethod__ property references a function to be executed when a non-existent method is called on an object."><code>Object.prototype.__noSuchMethod__</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                     
+                        <s class="obsoleteElement"> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/Parent" title="The __parent__ property used to point to an object's context, but it has been removed."><code>Object.prototype.__parent__</code></a> 
+                     
+                     
+                        </s> 
+                     
+                     
+                     
+                     
+                     
+                        <span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span> 
+                     
+                </li> 
+             
+                <li> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto" title="The __proto__ property of Object.prototype is an accessor property (a getter function and a setter function) that exposes the internal [[Prototype]] (either an object or null) of the object through which it is accessed."><code>Object.prototype.__proto__</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor" title="Returns a reference to the Object function that created the instance's prototype. Note that the value of this property is a reference to the function itself, not a string containing the function's name. The value is only read-only for primitive values such as 1, true and &quot;test&quot;."><code>Object.prototype.constructor</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+            </ol> 
+        </li> 
+         
+         
+        <li data-default-state="open"><a href="#"><strong>Methods</strong></a> 
+            <ol> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" title="The Object.create() method creates a new object with the specified prototype object and properties."><code>Object.create()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties" title="The Object.defineProperties() method defines new or modifies existing properties directly on an object, returning the object."><code>Object.defineProperties()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" title="The Object.defineProperty() method defines a new property directly on an object, or modifies an existing property on an object, and returns the object."><code>Object.defineProperty()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze" title="The Object.freeze() method freezes an object: that is, prevents new properties from being added to it; prevents existing properties from being removed; and prevents existing properties, or their enumerability, configurability, or writability, from being changed. In essence the object is made effectively immutable. The method returns the object being frozen."><code>Object.freeze()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor" title="The Object.getOwnPropertyDescriptor() method returns a property descriptor for an own property (that is, one directly present on an object, not present by dint of being along an object's prototype chain) of a given object."><code>Object.getOwnPropertyDescriptor()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames" title="The Object.getOwnPropertyNames() method returns an array of all properties (enumerable or not) found directly upon a given object."><code>Object.getOwnPropertyNames()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf" title="The Object.getPrototypeOf() method returns the prototype (i.e. the internal [[Prototype]]) of the specified object."><code>Object.getPrototypeOf()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is" title="The Object.is() method determines whether two values are the same value."><code>Object.is()</code></a> 
+                     
+                     
+                     
+                        <span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span> 
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible" title="The Object.isExtensible() method determines if an object is extensible (whether it can have new properties added to it)."><code>Object.isExtensible()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen" title="The Object.isFrozen() determines if an object is frozen."><code>Object.isFrozen()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed" title="The Object.isSealed() method determines if an object is sealed."><code>Object.isSealed()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" title="The Object.keys() method returns an array of a given object's own enumerable properties, in the same order as that provided by a for...in loop (the difference being that a for-in loop enumerates properties in the prototype chain as well)."><code>Object.keys()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions" title="The Object.preventExtensions() method prevents new properties from ever being added to an object (i.e. prevents future extensions to the object)."><code>Object.preventExtensions()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineGetter" title="The __defineGetter__ method binds an object's property to a function to be called when that property is looked up."><code>Object.prototype.__defineGetter__()</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineSetter" title="The __defineSetter__ method binds an object's property to a function to be called when an attempt is made to set that property."><code>Object.prototype.__defineSetter__()</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/lookupGetter" title="The __lookupGetter__ method returns the function bound as a getter to the specified property."><code>Object.prototype.__lookupGetter__()</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/lookupSetter" title="The __lookupSetter__ method returns the function bound as a setter to the specified property."><code>Object.prototype.__lookupSetter__()</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                        <s class="obsoleteElement"> 
+                     
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/eval" title="The obj.eval() method used to evaluate a string of JavaScript code in the context of an object, however, this method has been removed."><code>Object.prototype.eval()</code></a> 
+                     
+                     
+                        </s> 
+                     
+                     
+                     
+                     
+                     
+                        <span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span> 
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" title="The hasOwnProperty() method returns a boolean indicating whether the object has the specified property."><code>Object.prototype.hasOwnProperty()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf" title="The isPrototypeOf() method tests for an object in another object's prototype chain."><code>Object.prototype.isPrototypeOf()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable" title="The propertyIsEnumerable() method returns a Boolean indicating whether the specified property is enumerable."><code>Object.prototype.propertyIsEnumerable()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString" title="The toLocaleString() method returns a string representing the object. This method is meant to be overriden by derived objects for locale-specific purposes."><code>Object.prototype.toLocaleString()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toSource" title="The toSource() method returns a string representing the source code of the object."><code>Object.prototype.toSource()</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString" title="The toString() method returns a string representing object."><code>Object.prototype.toString()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/unwatch" title="The unwatch() method removes a watchpoint set with the watch() method."><code>Object.prototype.unwatch()</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf" title="The valueOf() method returns the primitive value of the specified object."><code>Object.prototype.valueOf()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/watch" title="The watch() method watches for a property to be assigned a value and runs a function when that occurs."><code>Object.prototype.watch()</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal" title="The Object.seal() method seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. Values of present properties can still be changed as long as they are writable."><code>Object.seal()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf" title="The Object.setPrototype() method sets the prototype (i.e., the internal [[Prototype]] property ) of a specified object to another object or null."><code>Object.setPrototypeOf()</code></a> 
+                     
+                     
+                     
+                        <span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span> 
+                     
+                     
+                     
+                     
+                </li> 
+             
+            </ol> 
+        </li> 
+         
+         
+         
+         
+         
+         
+            <li><strong>Inheritance:</strong></li> 
+         
+        <li><strong><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a></strong></li> 
+ 
+ 
+         
+        <li><a href="#"><strong>Properties</strong></a> 
+            <ol> 
+             
+                <li> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/arguments" title="The function.arguments property refers to an an array-like object corresponding to the arguments passed to a function. Use the simple variable arguments instead."><code>Function.arguments</code></a> 
+                     
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span> 
+                     
+                     
+                </li> 
+             
+                <li> 
+                     
+                        <s class="obsoleteElement"> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/arity" title="The arity property used to return the number of arguments expected by the function, however, it no longer exists and has been replaced by the Function.prototype.length property."><code>Function.arity</code></a> 
+                     
+                     
+                        </s> 
+                     
+                     
+                     
+                     
+                     
+                        <span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span> 
+                     
+                </li> 
+             
+                <li> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/caller" title="The function.caller property returns the function that invoked the specified function."><code>Function.caller</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length" title="The length property specifies the number of arguments expected by the function."><code>Function.length</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name" title="The function.name property returns the name of the function."><code>Function.name</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                     
+                     
+                      <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype" title="The Function.prototype property represents the Function prototype object."><code>Function.prototype</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+            </ol> 
+        </li> 
+         
+         
+        <li><a href="#"><strong>Methods</strong></a> 
+            <ol> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" title="The apply() method calls a function with a given this value and arguments provided as an array (or an array-like object)."><code>Function.prototype.apply()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" title="The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called."><code>Function.prototype.bind()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call" title="The call() method calls a function with a given this value and arguments provided individually."><code>Function.prototype.call()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/isGenerator" title="The isGenerator() method determines whether or not a function is a generator."><code>Function.prototype.isGenerator()</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/toSource" title="The toSource() method returns a string representing the source code of the object."><code>Function.prototype.toSource()</code></a> 
+                     
+                     
+                     
+                     
+                         <span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span> 
+                     
+                     
+                     
+                </li> 
+             
+                <li> 
+                      
+                     
+                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/toString" title="The toString() method returns a string representing the source code of the function."><code>Function.prototype.toString()</code></a> 
+                     
+                     
+                     
+                     
+                     
+                     
+                </li> 
+             
+            </ol> 
+        </li> 
+         
+         
+         
+         
+         
+ 
+    </ol> 
+
+  </div>
+            
+            <!-- approvals -->
+            
+          
+          </div>
+              </div>
+    </div>
+  </div>
+</div> <!-- ends "main-content" -->  </div></main>
+
+  <!-- Footer -->
+  <footer><div class="center">
+    <div class="column-container">
+      <div class="column-main">
+                <p>
+          <bdi>&copy; 2005-2014 Mozilla Developer Network and individual contributors<br /> Content is available under <a href="/en-US/docs/Project:MDN/About#Copyrights_and_licenses">these licenses</a> &middot; <a href="/en-US/docs/Project:MDN/About">About MDN</a> &middot; <a href="//github.com/mozilla/kuma">Contribute to the code</a> &middot; <a href="//www.mozilla.org/privacy/policies/websites/">Privacy policy</a></bdi>        </p>
+              </div>
+      <div class="column-strip">
+                        <form class="languages go" method="get" action="/en-US/docs/Web">
+      <label for="language">Other languages:</label>
+      <select id="language" class="wiki-l10n" name="next" dir="ltr">
+        <option value="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" selected>
+          English (US)
+        </option>
+                  <option value="/de/docs/JavaScript/Reference/Global_Objects/Object">
+            Deutsch
+          </option>          <option value="/es/docs/Referencia_de_JavaScript_1.5/Objetos_globales/Object">
+            Español
+          </option>          <option value="/fr/docs/JavaScript/R%C3%A9f%C3%A9rence_JavaScript/Objets_globaux/Object">
+            Français
+          </option>          <option value="/ja/docs/Web/JavaScript/Reference/Global_Objects/Object">
+            日本語
+          </option>          <option value="/ko/docs/JavaScript/Reference/Global_Objects/Object">
+            한국어
+          </option>          <option value="/pl/docs/Dokumentacja_j%C4%99zyka_JavaScript_1.5/Obiekty/Object">
+            Polski
+          </option>          <option value="/pt-BR/docs/JavaScript/Reference/Global_Objects/Objetos">
+            Português (do Brasil)
+          </option>          <option value="/ru/docs/JavaScript/Reference/Global_Objects/Object">
+            Русский
+          </option>          <option value="/zh-CN/docs/JavaScript/Reference/Global_Objects/Object">
+            中文 (简体)
+          </option>      </select>
+      <noscript><button type="submit">Go</button></noscript>
+    </form>
+                </div>
+    </div>
+  </div></footer>
+
+  <!-- site js -->
+  <script src="/en-US/jsi18n/build:bf9084a"></script>
+      <!--[if lte IE 8]><script src="/media/redesign/js/libs/selectivizr-1.0.2/selectivizr-build.js?build=bf9084a"></script><div id="feature-test-old-ie"></div><![endif]-->
+
+          <script src="https://developer.cdn.mozilla.net/media/js/jquery1-min.js?build=bf9084a"></script>
+    
+    <script src="https://developer.cdn.mozilla.net/media/js/redesign-main-min.js?build=bf9084a"></script>
+    <script src="//mozorg.cdn.mozilla.net/en-US/tabzilla/tabzilla.js" async></script>
+
+          <script src="https://developer.cdn.mozilla.net/media/js/wiki-min.js?build=bf9084a"></script>
+      
+    </body>
+</html>
