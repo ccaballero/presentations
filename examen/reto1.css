@@ -1,0 +1,12 @@
+* {
+    font-family: monospace;
+    font-size: 12px;
+}
+body {
+    background-color: #ffffff;
+    color: #808080;
+}
+.inline {
+    display: inline;
+}
+
