@@ -94,3 +94,11 @@ body {
     background-image: linear-gradient(to bottom, #00A9DD 0%, #002C38 100%);
 }
 
+h1 {
+    color: hsla(200,100%,40%,1.0);
+}
+
+h2 {
+    color: hsla(200,60%,40%,1.0);
+}
+

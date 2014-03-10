@@ -1094,11 +1094,14 @@ setInterval(function(){alert('asdf')},10000)
                 <p>La manipulación del contenido en el navegador depende de un
                 conjunto de funciones y atributos que son provistos por
                 el objeto document, que es de tipo <em>HTMLDocument</em>.</p>
-                <div class="row text-right">
+                <div class="row text-left">
                     <a target="_blank" class="glyphicon glyphicon-upload"
-                       href="web/9.html"> Referencia</a>
+                       href="web/10.html"> Referencia (Document)</a>
                 </div>
-                <br />
+                <div class="row text-left">
+                    <a target="_blank" class="glyphicon glyphicon-upload"
+                       href="web/11.html"> Referencia (Element)</a>
+                </div>
                 <br />
                 <br />
                 <br />
@@ -1109,68 +1112,217 @@ setInterval(function(){alert('asdf')},10000)
             </div>
             <div class="step slide" data-x="18930" data-y="1310"
                  data-rotate="180">
+                <h2>Representación de un documento HTML</h2>
+                <div class="text-center">
+                    <img src="media/svg/js6.svg" alt="" /></div>
             </div>
             <div class="step slide" data-x="17900" data-y="1030"
                  data-rotate="270">
+                <h2>Notación de navegación</h2>
+                <div class="text-center">
+                    <img src="media/svg/js7.svg" alt="" /></div>
             </div>
             <div class="step" data-x="18500" data-y="640" data-scale="3"></div>
 
             <div class="step" data-x="18500" data-y="2730" data-scale="3"></div>
             <div class="step slide" data-x="18180" data-y="2090"
                 data-rotate="0">
+                <h2>Notación de XML</h2>
+                <div class="text-center">
+                    <img src="media/svg/js8.svg" alt="" /></div>
             </div>
             <div class="step slide" data-x="19210" data-y="2370"
                  data-rotate="90">
+                <h2>Jerarquia de clases DOM</h2>
+                <div class="text-center">
+                    <img src="media/images/dom1.png" />
+                </div>
+                <small class="text-right">
+                    Fuente: <a target="_blank" href="
+    http://www.ikdoeict.be/leercentrum/slides/javascript/02_dom.html#/2/1">
+    http://www.ikdoeict.be/</a>
+                </small>
             </div>
             <div class="step slide" data-x="18930" data-y="3400"
                  data-rotate="180">
+                <div class="text-center">
+                    <img src="media/images/dom2.png" />
+                </div>
+                <small class="text-right">
+                    Fuente: <a target="_blank"  href="http://stackoverflow.com/
+questions/21327204/
+how-to-learn-the-dom-api-which-parts-of-the-dom-api-are-important-to-learn">
+http://stackoverflow.com</a>
+                </small>
             </div>
             <div class="step slide" data-x="17900" data-y="3120"
                  data-rotate="270">
+                <h2>Selectores (I)</h2>
+                <p>Existen multiples métodos de selección de elementos.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        document.getElementById(id)</li>
+                    <li class="list-group-item">
+                        document.getElementsByName(name)</li>
+                    <li class="list-group-item">
+                        document.getElementsByTagName(tagname)</li>
+                    <li class="list-group-item">
+                        document.getElementByClassName(classname)</li>
+                </ul>
             </div>
             <div class="step" data-x="18500" data-y="2730" data-scale="3"></div>
 
             <div class="step" data-x="18500" data-y="4820" data-scale="3"></div>
             <div class="step slide" data-x="18180" data-y="4180"
                  data-rotate="0">
+                <h2>Selectores (II)</h2>
+                <p>Adicionalmente se tienen selectores de tipo CSS.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        document.getSelector(selector)</li>
+                    <li class="list-group-item">
+                        document.getSelectorAll(selector)</li>
+                </ul>
             </div>
             <div class="step slide" data-x="19210" data-y="4460"
                  data-rotate="90">
+                <h2>Recorrido (I)</h2>
+                <p>Una vez establecido un punto de partida, se puede recorrer
+                los alrededores.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">parentNode</li>
+                    <li class="list-group-item">childNodes</li>
+                    <li class="list-group-item">firstChild</li>
+                    <li class="list-group-item">lastChild</li>
+                    <li class="list-group-item">nextSibling</li>
+                    <li class="list-group-item">previousSibling</li>
+                </ul>
             </div>
             <div class="step slide" data-x="18930" data-y="5490"
                 data-rotate="180">
+                <h2>Tipos de nodos</h2>
+                <p>Los nodos tienen ciertas propiedades que pueden ser
+                consultadas, para ver sus caracteristicas.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">nodeType</li>
+                    <li class="list-group-item">nodeValue</li>
+                    <li class="list-group-item">nodeName</li>
+                </ul>
+                <div class="row text-right">
+                    <a target="_blank" class="glyphicon glyphicon-upload"
+                       href="web/12.html"> Referencia (nodeType)</a>
+                </div>
             </div>
             <div class="step slide" data-x="17900" data-y="5210"
                  data-rotate="270">
+                <h2>Recorrido (II)</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">children</li>
+                    <li class="list-group-item">firstElementChild</li>
+                    <li class="list-group-item">lastElementChild</li>
+                    <li class="list-group-item">nextElementSibling</li>
+                    <li class="list-group-item">previousElementSibling</li>
+                    <li class="list-group-item">childElementCount</li>
+                </ul>
             </div>
             <div class="step" data-x="18500" data-y="4820" data-scale="3"></div>
 
             <div class="step" data-x="16410" data-y="4820" data-scale="3"></div>
             <div class="step slide" data-x="16090" data-y="4180"
                  data-rotate="0">
+                <h2>Atributos</h2>
+                <p>Existen metodos especificos para el acceso a los atributos
+                de un elemento.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">getAttribute</li>
+                    <li class="list-group-item">setAttribute</li>
+                    <li class="list-group-item">hasAttribute</li>
+                    <li class="list-group-item">removeAttribute</li>
+                </ul>
             </div>
             <div class="step slide" data-x="17120" data-y="4460"
                 data-rotate="90">
+                <h2>Contenidos (I)</h2>
+                <p>Existen métodos para la manipulación del contenido.</p>
+                <ul lcass="list-group">
+                    <li class="list-group-item">innerHTML</li>
+                    <li class="list-group-item">outerHTML</li>
+                    <li class="list-group-item">
+                        insertAdjacentHTML
+                        <ul>
+                            <li>beforebegin</li>
+                            <li>afterbegin</li>
+                            <li>beforeend</li>
+                            <li>afterend</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
             <div class="step slide" data-x="16840" data-y="5490"
                 data-rotate="180">
+                <h2>Contenidos (II)</h2>
+                <p>Para acceder al contenido de un elemento, existen dos
+                metodos, dependiendo si se trata como HTML Element o Node</p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>textContext</strong>, para HTMLElement.</li>
+                    <li class="list-group-item">
+                        <strong>data</strong>, para Node.</li>
+                <ul>
             </div>
             <div class="step slide" data-x="15810" data-y="5210"
                 data-rotate="270">
+                <h2>Manipulación de elementos</h2>
+                <p>Una vez vistos los métodos para selección e introspección,
+                ahora veremos la forma en la que puede manipularse DOM.</p>
             </div>
             <div class="step" data-x="16410" data-y="4820" data-scale="3"></div>
 
             <div class="step" data-x="14320" data-y="4820" data-scale="3"></div>
             <div class="step slide" data-x="14000" data-y="4180">
+                <h2>Creacion de nodos</h2>
+                <p>Existen tres metodos para la creación de nuevos nodos.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">createElement</li>
+                    <li class="list-group-item">createTextNode</li>
+                    <li class="list-group-item">cloneNode</li>
+                </ul>
             </div>
             <div class="step slide" data-x="15030" data-y="4460"
                 data-rotate="90">
+                <h2>Manipulación de elementos</h2>
+                <p>Se poseen varias funciones para la manipulacion de nodos en
+                el arbol.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">appendChild</li>
+                    <li class="list-group-item">insertBefore</li>
+                    <li class="list-group-item">removeChild</li>
+                    <li class="list-group-item">replaceChild</li>
+                </ul>
             </div>
             <div class="step slide" data-x="14750" data-y="5490"
                 data-rotate="180">
+                <h2>Posicionamiento (I)</h2>
+                <p>Existen varios métodos utiles para conocer las posiciones de
+                los elementos, ademas de sus dimensiones.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">w.pageXOffset</li>
+                    <li class="list-group-item">w.pageYOffset</li>
+                    <li class="list-group-item">w.innerWidth</li>
+                    <li class="list-group-item">w.innerHeight</li>
+                </ul>
             </div>
             <div class="step slide" data-x="13720" data-y="5210"
                 data-rotate="270">
+                <h2>Posicionamiento (II)</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">getBoundingClientRect</li>
+                    <li class="list-group-item">
+                        document.elementFromPoint(x,y)</li>
+                    <li class="list-group-item">scrollTo(x,y)</li>
+                    <li class="list-group-item">scrollBy(x,y)</li>
+                    <li class="list-group-item">scrollIntoView(x,y)</li>
+                </ul>
             </div>
             <div class="step" data-x="14320" data-y="4820" data-scale="3"></div>
 
