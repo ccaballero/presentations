@@ -1,0 +1,39 @@
+#wrapper {
+    position: relative;
+}
+
+.clean {
+    clear: both;
+}
+
+#json, #form {
+    width: 50%;
+    position:absolute;
+    top: 0px;
+    bottom: 0px;
+}
+
+#json {
+    left: 0px;
+}
+
+#form {
+    right: 0px;
+}
+
+#form form {
+    padding: 0.8em 0em 0em 0.5em;
+}
+
+#form p {
+    margin: 0px;
+    padding-bottom: 0.4em;
+    font-size: 14px;
+}
+
+#form p label {
+    float: left;
+    width: 12.0em;
+    font-weight: bold;
+}
+
