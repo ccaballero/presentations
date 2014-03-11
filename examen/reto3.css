@@ -1,12 +1,25 @@
-#field table {}
+td {
+    font-family: Futura Medium, Century Gothic, AppleGothic, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#field table {
+    border-collapse: collapse;
+}
+
 #field table tbody {}
 #field table tbody tr {}
 #field table tbody tr td {
-    width: 16px;
-    height: 16px;
-    background-color: #606060;
+    width: 20px;
+    height: 20px;
+    background-color: #dfdfdf;
+    box-shadow: 1px 1px 3px #606060 inset;
 }
 
 #field table tbody tr td:hover {}
 
+.n1 { color: #0806e6; }
+.n2 { color: #20ff20; }
 
