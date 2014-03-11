@@ -1179,9 +1179,9 @@ http://stackoverflow.com</a>
                 <p>Adicionalmente se tienen selectores de tipo CSS.</p>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        document.getSelector(selector)</li>
+                        document.querySelector(selector)</li>
                     <li class="list-group-item">
-                        document.getSelectorAll(selector)</li>
+                        document.querySelectorAll(selector)</li>
                 </ul>
             </div>
             <div class="step slide" data-x="19210" data-y="4460"
@@ -1330,23 +1330,78 @@ http://stackoverflow.com</a>
             <div class="step slide" data-x="14000" data-y="2090"
                  data-rotate="0">
                 <h2>Formularios</h2>
+                <p>Los formularios pueden accederse como cualquier otro
+                elemento, ademas existe el parametro 'document.forms'</p>
+                <p>Estos pueden ser accedidos por sus atributos name e id.</p>
+                <p>Para acceder a los elementos del formulario, se utiliza la
+                variable 'elements'.</p>
+                <pre class="prettyprint linenums">
+document.forms.name.element.input
+</pre>
             </div>
             <div class="step slide" data-x="15030" data-y="2370"
                 data-rotate="90">
+                <h2>Estilos</h2>
+                <p>Para la modificacion de propiedades de hoja de estilo, se
+                tiene la la propiedad 'style'.</p>
+                <p>Ademas que es posible estructurar un documento de forma que
+                puedan cambiarse su clases y estos, reflejen cambios en la
+                presentación de documentos.</p>
+                <pre class="prettyprint linenums">
+document.querySelector('selector').style
+</pre>
             </div>
             <div class="step slide" data-x="14750" data-y="3400"
                 data-rotate="180">
+                <h2>Eventos</h2>
+                <p>Un evento es algo que desencadena una acción especifica en el
+                navegador.</p>
+                <p>Usualmente un evento ocurre cuando un usuario:</p>
+                <ul>
+                    <li>Termina de cargar una página.</li>
+                    <li>Clickea en un boton.</li>
+                    <li>Ejecuta algunas tareas con el raton o teclado.</li>
+                </ul>
+                <p>Existen muchas formas de agregar eventos a una página.</p>
             </div>
             <div class="step slide" data-x="13720" data-y="3120"
                 data-rotate="270">
+                <h2>Categorias de eventos</h2>
+                <dl>
+                    <dt>Device-dependent input events.</dt>
+                    <dd>Teclado, raton, otros eventos relacionados con dispositivos Touch.</dd>
+                    <dt>Device-independent input events</dt>
+                    <dd>Click.</dd>
+                    <dt>User interface events</dt>
+                    <dd>Foco, cambios, submit.</dd>
+                    <dt>State-change events</dt>
+                    <dd>Cambio de estado en general.</dd>
+                    <dt>API-specific events</dt>
+                    <dd>DnD, Players.</dd>
+                    <dt>Timers and error handlers</dt>
+                    <dd>Temporizadores, errores.</dd>
+                </dl>
             </div>
             <div class="step" data-x="14320" data-y="2730" data-scale="3"></div>
 
-            <div class="step" data-x="16000" data-y="2740" data-scale="9"></div>
+            <div class="step" data-x="23000" data-y="2740" data-scale="9"></div>
+            <div class="step slide container" data-x="21000" data-y="0">
+                <h2>Captura de eventos</h2>
+                <p>Existen dos métodos para el registro de eventos.</p>
+                <pre class="prettyprint linenums">
+b.onclick=function(){console.log('asdf')}
+b.addEventListener('click',
+    function(){console.log('asd')},false)
+</pre>
+            </div>
+            <div class="step slide" data-x="22030" data-y="280"
+                data-rotate="90">
+            </div>
         </div>
         <script src="media/js/impress.js"></script>
         <script>impress().init();</script>
         <script>$(document).ready(prettyPrint)</script>
     </body>
 </html>
+
 
