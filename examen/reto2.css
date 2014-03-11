@@ -1,0 +1,66 @@
+#wrapper {
+    width: 960px;
+    position: relative;
+}
+
+div {
+    padding: 0px;
+    margin: 0px;
+}
+
+#stadium {
+    background-color: #cccccc;
+    position: absolute;
+    left: 1.0em;
+    right: 1.0em;
+    top: 1.0em;
+    height: 250px;
+    box-shadow: 0px 2px 6px #000000 inset;
+    border-radius: 5px;
+    padding: 1.0em 0em 0em 3.0em;
+    overflow: hidden;
+}
+
+#stadium>div>div {
+    background-image: url('reto2.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 165px;
+    float: left;
+
+    margin-top: 0px;
+    transition-property: margin;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+
+#stadium>div {
+    margin-bottom: -115px;
+    float: left;
+}
+
+#stadium>.row1 { margin-left: -15px; z-index: 1; }
+#stadium>.row2 { margin-left:  42px; z-index: 2; }
+#stadium>.row3 { margin-left:  -8px; z-index: 3; }
+#stadium>.row4 { margin-left:  27px; z-index: 4; }
+
+.cat1 { background-position: 0px 0px;   width: 94px; margin-left: 7px; }
+.cat2 { background-position: -95px 0px; width: 87px; margin-left: 7px; }
+.cat3 { background-position: -183px 0px; width: 99px; }
+.cat4 { background-position: -283px 0px; width: 96px; }
+.cat5 { background-position: -380px 0px; width: 90px; margin-left: 1px; }
+.cat6 { background-position: -470px 0px; width: 104px; }
+.cat7 { background-position: -574px 0px; width: 91px; margin-left: 20px; }
+.cat8 { background-position: -675px 0px; width: 73px; margin-left: 11px; }
+
+#stadium>div>div:hover {
+    margin-top: -15px;
+}
+
+.animate {
+    animation: move 2s linear 0s infinite alternate;
+}
+
+@keyframes move { from { margin-top: -15px } to { margin-top: 0px }}
+

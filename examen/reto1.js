@@ -1,5 +1,5 @@
 /*
- * Pregunta #1:
+ * Reto #1:
  * Actualmente este script, recibe de entrada una cadena de texto (la variable
  * 'message', para ser exacto), el reto que se plantea es cambiar la entrada
  * de modo que en lugar de recibir una cadena pueda recibirse un arreglo de
