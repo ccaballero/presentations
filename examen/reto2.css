@@ -59,8 +59,14 @@ div {
 }
 
 .animate {
-    animation: move 2s linear 0s infinite alternate;
+    -webkit-animation: move 2s linear 0s infinite alternate;
+       -moz-animation: move 2s linear 0s infinite alternate;
+         -o-animation: move 2s linear 0s infinite alternate;
+            animation: move 2s linear 0s infinite alternate;
 }
 
-@keyframes move { from { margin-top: -15px } to { margin-top: 0px }}
+@-webkit-keyframes move { from { margin-top: -15px } to { margin-top: 0px }}
+   @-moz-keyframes move { from { margin-top: -15px } to { margin-top: 0px }}
+     @-o-keyframes move { from { margin-top: -15px } to { margin-top: 0px }}
+        @keyframes move { from { margin-top: -15px } to { margin-top: 0px }}
 

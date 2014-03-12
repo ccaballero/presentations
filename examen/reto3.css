@@ -1,12 +1,15 @@
 td {
-    font-family: Futura Medium, Century Gothic, AppleGothic, sans-serif;
+    font-family: "Futura Medium", Century Gothic, AppleGothic, sans-serif;
     font-size: 17px;
     font-weight: bold;
     text-align: center;
 }
 
+#field {}
+
 #field table {
     border-collapse: collapse;
+    margin: 0px auto;
 }
 
 #field table tbody {}
@@ -15,11 +18,30 @@ td {
     width: 20px;
     height: 20px;
     background-color: #dfdfdf;
+    padding-top: 1px;
     box-shadow: 1px 1px 3px #606060 inset;
 }
 
 #field table tbody tr td:hover {}
 
 .n1 { color: #0806e6; }
-.n2 { color: #20ff20; }
+.n2 { color: #0d7b25; }
+.n3 { color: #cd0014; }
+.n4 { color: #04008a; }
+.n5 { color: #840000; }
+.n6 { color: #18928c; }
+
+.bomb {
+    background-image: url('reto3_bomb.png');
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    background-size: 17px;
+}
+
+.flag {
+    background-image: url('reto3_flag.png');
+    background-repeat: no-repeat;
+    background-position: 4px 4px;
+    background-size: 14px;
+}
 
