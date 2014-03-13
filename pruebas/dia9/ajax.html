@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <script>
+            window.onload=function(){
+                a=document.getElementById('load')
+                a.onclick=function(){
+                    var ajax=new XMLHttpRequest()
+                    ajax.open(
+                        'get',
+                        'http://javascript.local/test')
+                    ajax.onload=function(){
+                        console.log('asdf')
+                    }
+                    ajax.send()
+                    return false
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <a href="" id="load">LEER</a>
+        <div id="message"></div>
+    </body>
+</html>
+

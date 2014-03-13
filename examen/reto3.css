@@ -24,6 +24,10 @@ td {
 
 #field table tbody tr td:hover {}
 
+#field table tbody tr td.hide {
+    background-color: #202020;
+}
+
 .n1 { color: #0806e6; }
 .n2 { color: #0d7b25; }
 .n3 { color: #cd0014; }

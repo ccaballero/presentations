@@ -1345,7 +1345,7 @@ document.forms.name.element.input
                 <p>Para la modificacion de propiedades de hoja de estilo, se
                 tiene la la propiedad 'style'.</p>
                 <p>Ademas que es posible estructurar un documento de forma que
-                puedan cambiarse su clases y estos reflejen cambios en la
+                puedan cambiarse su clases y estos, reflejen cambios en la
                 presentación de documentos.</p>
                 <pre class="prettyprint linenums">
 document.querySelector('selector').style
@@ -1367,32 +1367,20 @@ document.querySelector('selector').style
             <div class="step slide" data-x="13720" data-y="3120"
                 data-rotate="270">
                 <h2>Categorias de eventos</h2>
-                <table class="table">
-                    <tr>
-                        <td>Device-dependent input events.</td>
-                        <td>Teclado, raton, dispositivos Touch.</td>
-                    </tr>
-                    <tr>
-                        <td>Device-independent input events</td>
-                        <td>Click.</td>
-                    </tr>
-                    <tr>
-                        <td>User interface events</td>
-                        <td>Foco, cambios, submit.</td>
-                    </tr>
-                    <tr>
-                        <td>State-change events</td>
-                        <td>Cambio de estado en general.</td>
-                    </tr>
-                    <tr>
-                        <td>API-specific events</td>
-                        <td>DnD, Players.</td>
-                    </tr>
-                    <tr>
-                        <td>Timers and error handlers</td>
-                        <td>Temporizadores, errores.</td>
-                    </tr>
-                </table>
+                <dl>
+                    <dt>Device-dependent input events.</dt>
+                    <dd>Teclado, raton, otros eventos relacionados con dispositivos Touch.</dd>
+                    <dt>Device-independent input events</dt>
+                    <dd>Click.</dd>
+                    <dt>User interface events</dt>
+                    <dd>Foco, cambios, submit.</dd>
+                    <dt>State-change events</dt>
+                    <dd>Cambio de estado en general.</dd>
+                    <dt>API-specific events</dt>
+                    <dd>DnD, Players.</dd>
+                    <dt>Timers and error handlers</dt>
+                    <dd>Temporizadores, errores.</dd>
+                </dl>
             </div>
             <div class="step" data-x="14320" data-y="2730" data-scale="3"></div>
 
@@ -1402,43 +1390,13 @@ document.querySelector('selector').style
                 <p>Existen dos métodos para el registro de eventos.</p>
                 <pre class="prettyprint linenums">
 b.onclick=function(){console.log('asdf')}
-b.addEventListener('click',function(){
-    console.log('asd')
-},false)
+b.addEventListener('click',
+    function(){console.log('asd')},false)
 </pre>
-                 <p>Mas información: <a
-                 href="http://www.quirksmode.org/js/events_mouse.html">
-                 http://www.quirksmode.org/js/events_mouse.html</a></p>
             </div>
             <div class="step slide" data-x="22030" data-y="280"
                 data-rotate="90">
-                <h2>Ajax</h2>
-                <blockquote>AJAX (Asynchronous JavaScript And XML), es una
-                    técnica de desarrollo web para crear aplicaciones
-                    interactivas. De esta forma es posible realizar cambios
-                    sobre las páginas sin necesidad de recargarlas, mejorando la
-                    interactividad, velocidad y usabilidad en las aplicaciones.
-                </blockquote>
-                <small>Fuente:
-                <a target="_blank"
-                   href="https://en.wikipedia.org/wiki/AJAX">
-                    https://en.wikipedia.org/wiki/AJAX</a>
-                </small>
             </div>
-            <div class="step slide" data-x="21750" data-y="1310"
-                 data-rotate="180">
-                <h2>Ejemplo</h2>
-                <pre class="prettyprint linenums">
-
-var ajax=new XMLHttpRequest()
-ajax.open('get',url)
-ajax.onload=function(){}
-ajax.send()
-            </div>
-            <div class="step slide" data-x="20720" data-y="1030"
-                data-rotate="270">
-            </div>
-            <div class="step" data-x="21350" data-y="640" data-scale="3"></div>
         </div>
         <script src="media/js/impress.js"></script>
         <script>impress().init();</script>

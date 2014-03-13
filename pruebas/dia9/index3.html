@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+    </head>
+    <body>
+        <form method="post" action="" name="login">
+            <p>
+                <label>Nombre:</label>
+                <input type="text" name="name" />
+            </p>
+            <p>
+                <label>Apellido:</label>
+                <input type="text" name="surname" />
+            </p>
+            <p>
+                <input type="submit" />
+            </p>
+        </form>
+        <script>
+            window.onload=function(){
+                f=document.forms.login
+                f.onsubmit=function(){
+                    name=f.elements.name
+                    console.log(name)
+                    return false
+                }
+            }
+        </script>
+    </body>
+</html>
+

@@ -14,7 +14,7 @@ var Model=new(function(){
         for(i=0;i<this.rows;i++){
             matrix[i]=new Array(this.columns)
             for(j=0;j<this.columns;j++){
-                matrix[i][j]=0
+                matrix[i][j]={'type':0,'hide':1}
             }
         }
         // Insercion de bombas
@@ -22,23 +22,30 @@ var Model=new(function(){
             do{
                 _i=this.random(this.rows)
                 _j=this.random(this.columns)
-            }while(matrix[_i][_j]===-1)
-            matrix[_i][_j]=-1
+            }while(matrix[_i][_j]['type']===-1)
+            matrix[_i][_j]['type']=-1
         }
         // Insercion de contadores de bombas
         h=this.columns
         w=this.rows
         for(i=0;i<this.rows;i++){
             for(j=0;j<this.columns;j++){
-                if(matrix[i][j]===-1){  // es bomba
-/* sup izq */       (i!=0&&j!=0&&matrix[i-1][j-1]>=0)&&(matrix[i-1][j-1]++);
-/* sup cen */       (i!=0&&matrix[i-1][j]>=0)&&(matrix[i-1][j]++);
-/* sup der */       (i!=0&&matrix[i-1][j+1]>=0)&&(matrix[i-1][j+1]++);
-/* mid izq */       (j!=0&&matrix[i][j-1]>=0)&&(matrix[i][j-1]++);
-/* mid der */       (j!=h-1&&matrix[i][j+1]>=0)&&(matrix[i][j+1]++);
-/* inf izq */       (i!=w-1&&j!=0&&matrix[i+1][j-1]>=0)&&(matrix[i+1][j-1]++);
-/* inf cen */       (i<w-1&&matrix[i+1][j]>=0)&&(matrix[i+1][j]++);
-/* inf der */       (i<w-1&&j<h-1&&matrix[i+1][j+1]>=0)&&(matrix[i+1][j+1]++);
+                if(matrix[i][j]['type']===-1){  // es bomba
+/* sup izq */       (i!=0&&j!=0&&matrix[i-1][j-1]['type']>=0)
+                        &&(matrix[i-1][j-1]['type']++);
+/* sup cen */       (i!=0&&matrix[i-1][j]['type']>=0)
+                        &&(matrix[i-1][j]['type']++);
+/* sup der */       (i!=0&&j!=h-1&&matrix[i-1][j+1]['type']>=0)
+                        &&(matrix[i-1][j+1]['type']++);
+/* mid izq */       (j!=0&&matrix[i][j-1]['type']>=0)&&(matrix[i][j-1]['type']++);
+/* mid der */       (j!=h-1&&matrix[i][j+1]['type']>=0)
+                        &&(matrix[i][j+1]['type']++);
+/* inf izq */       (i!=w-1&&j!=0&&matrix[i+1][j-1]['type']>=0)
+                        &&(matrix[i+1][j-1]['type']++);
+/* inf cen */       (i!=w-1&&matrix[i+1][j]['type']>=0)
+                        &&(matrix[i+1][j]['type']++);
+/* inf der */       (i!=w-1&&j!=h-1&&matrix[i+1][j+1]['type']>=0)
+                        &&(matrix[i+1][j+1]['type']++);
                 }
             }
         }
@@ -48,29 +55,50 @@ var Model=new(function(){
 })()
 
 var Render=new(function(){
-    this.renderTable=function(matrix){
-        
-    }
-    this.finishGame=function(matrix){
+    this.render=function(matrix){
         tbody=document.querySelector('#field table tbody')
         for(i=0;i<Model.rows;i++){
             tr=tbody.children[i]
             for(j=0;j<Model.columns;j++){
                 td=tr.children[j]
-                if(matrix[i][j]<0){
-                    td.setAttribute('class','bomb')
+                if(matrix[i][j]['hide']){
+                    td.setAttribute('class','hide')
                 }else{
-                    if(matrix[i][j]!=0){
-                        td.setAttribute('class','n'+matrix[i][j])
-                        td.textContent=matrix[i][j]
+                    if(matrix[i][j]['type']<0){
+                        td.setAttribute('class','bomb')
+                    }else{
+                        if(matrix[i][j]['type']!=0){
+                            td.setAttribute('class','n'+matrix[i][j]['type'])
+                            td.textContent=matrix[i][j]['type']
+                        }
                     }
                 }
             }
         }
     }
+    this.listener=function(){
+        tbody=document.querySelector('#field table tbody')
+        for(i=0;i<Model.rows;i++){
+            tr=tbody.children[i]
+            for(j=0;j<Model.columns;j++){
+                td=tr.children[j]
+                td.addEventListener('click',Listener.action.bind(Listener))
+            }
+        }
+        return this
+    }
+})()
+
+var Listener=new(function(){
+    this.test='qwer'
+    this.action=function(e){
+        console.log(this)
+        console.log(this.test)
+    }
 })()
 
 window.onload=function(){
     Model.generateMatrix()
+    Render.listener().render(Model.getMatrix())
 }
 

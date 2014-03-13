@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" id="developer-mozilla-org" class="redesign no-js">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+          <script src="//cdn.optimizely.com/js/237572123.js"></script>
+  
+    <title>XMLHttpRequest - Web API Interfaces | MDN</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <link rel="home" href="/en-US/">
+  <link rel="copyright" href="#copyright">
+
+  <link rel="stylesheet" href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css">
+              <link rel="stylesheet" media="all" href="https://developer.cdn.mozilla.net/media/css/mdn-min.css?build=5c057c9" />
+      
+    <link rel="stylesheet" media="all" href="https://developer.cdn.mozilla.net/media/css/wiki-min.css?build=5c057c9" />
+
+          <link rel="stylesheet" type="text/css"
+            href="/en-US/docs/Template:CustomCSS?raw=1" />
+    
+        
+  <!-- common social tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://developer.mozilla.org/media/redesign/img/opengraph-logo.png">
+  <meta property="og:site_name" content="Mozilla Developer Network">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://developer.mozilla.org/media/redesign/img/opengraph-logo.png">
+  <meta name="twitter:site" content="@mozhacks">
+  <meta name="twitter:creator" content="@mozhacks">
+
+  <link rel="search" type="application/opensearchdescription+xml" href="https://developer.mozilla.org/en-US/search/xml" title="Mozilla Developer Network">
+
+  <!-- For third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon144.png">
+  <!-- For iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon114.png">
+  <!-- For first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon72.png">
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon57.png">
+  <!-- Basic favicon -->
+  <link rel="shortcut icon" href="https://developer.cdn.mozilla.net/media/redesign/img/favicon32.png">
+
+  <!--[if IE]>
+  <meta http-equiv="imagetoolbar" content="no">
+  <script src="https://developer.cdn.mozilla.net/media/js/libs/html5.js"></script>
+  <![endif]-->
+
+    <link rel="alternate" type="application/json" href="/en-US/docs/Web/API/XMLHttpRequest$json">
+  <link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" >
+
+            <link rel="alternate" hreflang="de" href="/de/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">
+          <link rel="alternate" hreflang="es" href="/es/docs/XMLHttpRequest" title="XMLHttpRequest">
+          <link rel="alternate" hreflang="fr" href="/fr/docs/XMLHttpRequest" title="XMLHttpRequest">
+          <link rel="alternate" hreflang="it" href="/it/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">
+          <link rel="alternate" hreflang="ja" href="/ja/docs/XMLHttpRequest" title="XMLHttpRequest">
+          <link rel="alternate" hreflang="ko" href="/ko/docs/XMLHttpRequest" title="XMLHttpRequest">
+          <link rel="alternate" hreflang="pl" href="/pl/docs/XMLHttpRequest" title="XMLHttpRequest">
+          <link rel="alternate" hreflang="pt-BR" href="/pt-BR/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">
+          <link rel="alternate" hreflang="zh-CN" href="/zh-CN/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">
+          <link rel="alternate" hreflang="zh-TW" href="/zh-TW/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">
+      
+  <!-- document-specific social tags -->
+  <meta property="og:title" content="XMLHttpRequest">
+  <meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">
+  <meta name="twitter:url" content="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">
+  <meta name="twitter:title" content="XMLHttpRequest">
+    <meta property="og:description" content="XMLHttpRequest is a JavaScript object that was designed by Microsoft and adopted by Mozilla, Apple, and Google. It&#39;s now being standardized in the W3C. It provides an easy way to retrieve data from a URL without having to do a full page refresh. A Web page can update just a part of the page without disrupting what the user is doing. XMLHttpRequest is used heavily in AJAX programming.">
+  <meta name="description" content="XMLHttpRequest is a JavaScript object that was designed by Microsoft and adopted by Mozilla, Apple, and Google. It&#39;s now being standardized in the W3C. It provides an easy way to retrieve data from a URL without having to do a full page refresh. A Web page can update just a part of the page without disrupting what the user is doing. XMLHttpRequest is used heavily in AJAX programming.">
+  <meta name="twitter:description" content="XMLHttpRequest is a JavaScript object that was designed by Microsoft and adopted by Mozilla, Apple, and Google. It&#39;s now being standardized in the W3C. It provides an easy way to retrieve data from a URL without having to do a full page refresh. A Web page can update just a part of the page without disrupting what the user is doing. XMLHttpRequest is used heavily in AJAX programming.">
+  
+      <script type="text/javascript">
+  // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+  var removeUtms  =   function(){
+      var location = window.location;
+      if (location.hash.indexOf('utm') != -1) {
+          var anchor = location.hash.match(/#(?!utm)[^&]+/);
+          anchor  =   anchor ? anchor[0] : '';
+          if(!anchor && window.history.replaceState){
+              history.replaceState({}, '', location.pathname + location.search);
+          } else {
+              location.hash = anchor;
+          }
+      }
+  };
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36116321-5'],
+            ['_setAllowAnchor', true],
+            ['_trackPageview']);
+  _gaq.push(removeUtms);
+
+  (function(a, d) {
+    var ga = d.createElement(a); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = d.getElementsByTagName(a)[0]; s.parentNode.insertBefore(ga, s);
+  })('script', document);
+
+</script>
+  </head>
+<body data-slug="Web/API/XMLHttpRequest" data-docid="756" contextmenu="edit-history-menu" class="html-ltr document  ">
+
+  <script type="text/javascript">
+  (function(){
+  var FLAGS = {
+    'derby_closed': true,'elasticsearch': true,'external_signup': false,'ga_outbound_links': true,'kumaediting': false,'l10ndashboard': false,'page_move': false,'redesign': true,'redesign_beta_notice': true,'search_doc_navigator': false
+    },
+    SWITCHES = {
+    'apps_landing': true,'html5_landing': true,'home_mwc_promo': false,'apps-market-launch': true,'apps_promo': false,'labs_snippets_landing': false,'signin_metrics': true,'social_promo': true,'wiki_error_on_delete': false,'wiki_force_immediate_rendering': true
+    },
+    SAMPLES = {
+    
+    };
+  window.waffle = {
+    "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+    },
+    "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+    },
+    "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+    },
+    "FLAGS": FLAGS,
+    "SWITCHES": SWITCHES,
+    "SAMPLES": SAMPLES
+  };
+})();
+
+  // This represents the site configuration
+  window.mdn = {
+    build: '5c057c9',
+    // Properties and settings for CKEditor will go here
+    ckeditor: {},
+    // Feature test results and methods will be placed here
+    features: {},
+    // Ensures gettext always returns something, is always set
+    gettext: function(x) { return x; },
+    // The path to media (images, CSS, JS) in MDN
+    mediaPath: 'https://developer.cdn.mozilla.net/media/',
+    // Wiki-specific settings will be placed here
+    wiki: {
+      autosuggestTitleUrl: '/en-US/docs/get-documents'
+    }
+  };
+</script>
+  
+
+  
+  <ul id="nav-access">
+    <li><a href="#content">Skip to main content</a></li>
+    <li><a id="skip-language" href="#language">Select language</a></li>
+          <li><a href="#q" id="skip-search">Skip to search</a></li>
+      </ul>
+
+  <!-- Header -->
+  <header id="main-header"><div class="center">
+
+    <div class="clear header-login">
+      <a href="//www.mozilla.org/" id="tabzilla">mozilla</a>
+              <ul class="user-state signed-out">
+    <li class="user-signin menu">
+    <form class="browserid" action="/en-US/users/browserid_verify" method="POST">
+        <input id="next" name="next" type="hidden" value="/en-US/docs/Web/API/XMLHttpRequest"/>
+        <input required="required" type="hidden" name="assertion" id="id_assertion" />
+                
+          <a href="#" class="persona-button persona-login" data-next="/en-US/docs/Web/API/XMLHttpRequest">
+            <span class="persona-icon"><i aria-hidden="true"></i></span>
+            <span class="signin">Sign in with Persona</span>
+          </a>
+
+      </form>
+    </li>
+  </ul>
+          </div>
+
+    <a href="/en-US/" class="logo">Mozilla Developer Network</a>
+
+    <nav id="main-nav" role="navigation"><ul><li><a href="/en-US/docs/Zones">Zones<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+        <div class="submenu submenu-single" id="nav-zones-submenu">
+          <div class="submenu-column">
+            <ul>
+              <li><a href="/en-US/Add-ons">Add-ons</a></li>
+              <li><a href="/en-US/docs/Apps">App Center</a></li>
+              <li><a href="/en-US/docs/Firefox">Firefox</a></li>
+              <li><a href="/en-US/Marketplace">Firefox Marketplace</a></li>
+              <li><a href="/en-US/docs/Firefox_OS">Firefox OS</a></li>
+              <li><a href="/en-US/docs/Persona">Persona</a></li>
+            </ul>
+          </div>
+        </div>
+      </li><li><a href="/en-US/docs/Web">Web Platform<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+        <div class="submenu" id="nav-platform-submenu">
+          <div class="submenu-column">
+            <div class="title">Technologies</div>
+            <ul>
+              <li><a href="/en-US/docs/Web/HTML">HTML</a></li>
+              <li><a href="/en-US/docs/Web/CSS">CSS</a></li>
+              <li><a href="/en-US/docs/Web/JavaScript">JavaScript</a></li>
+              <li><a href="/en-US/docs/Web/Guide/Graphics">Graphics</a></li>
+              <li><a href="/en-US/docs/Web/API">APIs / DOM</a></li>
+              <li><a href="/en-US/Apps">Apps</a></li>
+              <li><a href="/en-US/docs/Web/MathML">MathML</a></li>
+            </ul>
+          </div><div class="submenu-column last">
+            <div class="title">References & Guides</div>
+            <ul>
+              <li><a href="/en-US/docs/Web/Tutorials">Tutorials</a></li>
+              <li><a href="/en-US/docs/Web/Reference">References</a></li>
+              <li><a href="/en-US/docs/Web/Guide">Developer Guides</a></li>
+              <li><a href="/en-US/docs/Web/Accessibility">Accessibility</a></li>
+              <li><a href="/en-US/demos/">Demos</a></li>
+              <li><a href="/en-US/docs/Web">...more docs</a></li>
+            </ul>
+          </div>
+        </div>
+      </li><li><a href="/en-US/docs/Mozilla/Developer_Program">Developer Program</a></li><li><a href="/en-US/docs/Tools">Tools</a></li><li><a href="/en-US/demos/">Demos</a></li><li class="main-nav-search"><form action="/en-US/search" method="get" role="search">
+        <div class="search-wrap">
+          <label for="main-q" class="offscreen">Search</label>
+          <input type="search" id="main-q" name="q" data-placeholder="SEARCH" data-value="" value="" />
+          <span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span>&nbsp;
+          <button type="submit" class="offscreen">Search</button>
+        </div>
+      </form></li></ul></nav>
+  </div></header>
+
+  <!-- Content will go here -->
+  <main id="content" role="main"><div class="center clear">
+    
+  
+
+
+
+
+
+  
+
+<div class="wiki-main-content"><div class="center">
+
+    <div class="article-meta">
+    <!-- action buttons -->
+              <ul class="page-buttons"><li><a href="javascript:;" id="languages-menu" class="button transparent" aria-haspopup="true" aria-owns="languages-menu-submenu" aria-expanded="false"><span>Languages</span><i aria-hidden="true" class="icon-comments"></i></a>
+
+        <div class="submenu" id="languages-menu-submenu">
+          <div class="submenu-column">
+            <ul id="translations">
+                                                <li><bdi><a rel="internal" href="/de/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">Deutsch</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/es/docs/XMLHttpRequest" title="XMLHttpRequest">Español</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/fr/docs/XMLHttpRequest" title="XMLHttpRequest">Français</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/it/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">Italiano</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/ja/docs/XMLHttpRequest" title="XMLHttpRequest">日本語</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/ko/docs/XMLHttpRequest" title="XMLHttpRequest">한국어</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/pl/docs/XMLHttpRequest" title="XMLHttpRequest">Polski</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/pt-BR/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">Português (do Brasil)</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/zh-CN/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">中文 (简体)</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="/zh-TW/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">正體中文 (繁體)</a></bdi></li>
+                              
+                              <li><a href="/en-US/docs/Web/API/XMLHttpRequest$locales">Add a translation</a></li>
+                          </ul>
+          </div>
+        </div></li><li><a href="/en-US/docs/Web/API/XMLHttpRequest$edit" class="button " >Edit<i aria-hidden="true" class="icon-pencil"></i></a></li><li><a href="javascript:;" id="advanced-menu" class="button only-icon"  aria-haspopup="true" aria-owns="advanced-menu-submenu" aria-expanded="false"><span>Advanced</span><i aria-hidden="true" class="icon-cog"></i></a>
+
+        <div class="submenu" id="advanced-menu-submenu">
+          <!-- this page -->
+          <div class="submenu-column">
+            <div class="title">Advanced</div>
+            <ul>
+                <li><a href="/en-US/docs/Web/API/XMLHttpRequest$history">History</a></li>
+                                                                
+                
+                                
+                                                                <li class="page-print"><a href="#" onclick="return window.print();"  title="Print page">Print this page</a></li>
+            </ul>
+          </div>
+        </div>
+  </li></ul>
+
+    <!-- crumbs -->
+      <nav class="crumbs" role="navigation"><ol xmlns:v="http://rdf.data-vocabulary.org/#" aria-label="breadcrumbs">
+    <li typeof="v:Breadcrumb"><a href="/en-US" rel="v:url" property="v:title">MDN</a></li>
+          <li class="crumb" typeof="v:Breadcrumb"><a href="/en-US/docs/Web" rel="v:url" property="v:title">Web technology for developers</a></li>
+          <li class="crumb" typeof="v:Breadcrumb"><a href="/en-US/docs/Web/API" rel="v:url" property="v:title">Web API Interfaces</a></li>
+        <li class="crumb" typeof="v:Breadcrumb" property="v:title">XMLHttpRequest</li>
+  </ol></nav>
+  </div>
+
+  <!-- heading -->
+  <div class="document-head">
+        <h1>XMLHttpRequest</h1>
+
+      
+  </div>
+  
+  <!-- start the main content container -->
+    <div id="wiki-column-container" class="wiki-right-present wiki-left-closed wiki-left-none">
+
+      
+      <!-- content row with three strips -->
+      <div class="column-container column-container-reverse">
+
+                  <!-- TOC, approvals, etc -->
+          <div class="column-strip wiki-column" id="wiki-right">
+                    <!-- table of contents -->
+          <div id="toc" class="toc toggleable">
+            <a href="#toc" class="title toggler" data-open-icon="icon-plus" data-closed-icon="icon-minus">In This Article<i></i></a>
+            <ol class="toggle-container">
+              <code></code><code></code><code></code><code></code><code></code><code></code><li><a href="#Method_overview" rel="internal">Method overview</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><li><a href="#Properties" rel="internal">Properties</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><ol><li><a href="#Non-standard_properties" rel="internal">Non-standard properties</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code></ol></li><li><a href="#Constructor" rel="internal">Constructor</a><ol><li><a href="#XMLHttpRequest()" rel="internal">XMLHttpRequest()</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code></ol></li><li><a href="#Methods" rel="internal">Methods</a><ol><li><a href="#abort()" rel="internal">abort()</a><li><a href="#getAllResponseHeaders()" rel="internal">getAllResponseHeaders()</a><code></code><li><a href="#getResponseHeader()" rel="internal">getResponseHeader()</a><code></code><li><a href="#open()" rel="internal">open()</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><li><a href="#overrideMimeType()" rel="internal">overrideMimeType()</a><code></code><li><a href="#send()" rel="internal">send()</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><li><a href="#setRequestHeader()" rel="internal">setRequestHeader()</a><code></code><code></code><code></code><code></code><code></code><li><a href="#Non-standard_methods" rel="internal">Non-standard methods</a><ol><li><a href="#init()" rel="internal">init()</a><code></code><code></code><code></code><code></code><code></code><code></code><li><a href="#openRequest()" rel="internal">openRequest()</a><code></code><code></code></ol></li><li><a href="#sendAsBinary()" rel="internal">sendAsBinary()</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code></ol></li><li><a href="#Notes_2" rel="internal">Notes</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><ol><li><ol><li><a href="#Events" rel="internal">Events</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code></ol></li></ol></li><li><a href="#Permissions" rel="internal">Permissions</a><code></code><code></code><li><a href="#Browser_Compatibility" rel="internal">Browser compatibility</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code><ol><li><a href="#Gecko_notes" rel="internal">Gecko notes</a><code></code><code></code><code></code><code></code><code></code><code></code><code></code><code></code></ol></li><li><a href="#See_also" rel="internal">See also</a><code></code>
+            </ol>
+          </div>
+                    </div>
+        
+        <!-- just the article content -->
+                          
+        <!-- center: main article content -->
+        <div id="wiki-content" class="column-main wiki-column text-content">
+
+          
+          
+                                                      
+          <!-- just the article content -->
+          <article id="wikiArticle">
+                                          <p><code>XMLHttpRequest</code> is a <a class="internal" href="/en/JavaScript" title="En/JavaScript">JavaScript</a> object that was designed by Microsoft and adopted by Mozilla, Apple, and Google. It's now being <a class="external" href="http://www.w3.org/TR/XMLHttpRequest/" title="http://www.w3.org/TR/XMLHttpRequest/">standardized in the W3C</a>. It provides an easy way to retrieve data from a URL without having to do a full page refresh. A Web page can update just a part of the page without disrupting what the user is doing.  <span style="font-family: 'Courier New', 'Andale Mono', monospace; line-height: normal;">XMLHttpRequest</span><span style="line-height: 1.572;"> is used heavily in <a href="/en-US/docs/AJAX" title="/en-US/docs/AJAX">AJAX</a> programming.</span></p>
+<p>Despite its name, <code>XMLHttpRequest</code> can be used to retrieve any type of data, not just XML, and it supports protocols other than <a href="/en/HTTP" title="en/HTTP">HTTP</a> (including <code>file</code> and <code>ftp</code>).</p>
+<p>To create an instance of <code>XMLHttpRequest</code>, simply do this:</p>
+<pre>var myRequest = new XMLHttpRequest();
+</pre>
+<p>For details about how to use <code>XMLHttpRequest</code>, see <a class="internal" href="/en/DOM/XMLHttpRequest/Using_XMLHttpRequest" title="En/Using XMLHttpRequest">Using XMLHttpRequest</a>.</p>
+<h2 id="Method_overview">Method overview</h2>
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <td><code><a class="internal" href="/en/DOM/XMLHttpRequest#XMLHttpRequest()" title="/en/DOM/XMLHttpRequest#XMLHttpRequest()">XMLHttpRequest</a>(JSObject objParameters);</code></td>
+  </tr>
+  <tr>
+   <td><code>void <a class="internal" href="/en/DOM/XMLHttpRequest#abort()" title="en/DOM/XMLHttpRequest#abort()">abort</a>();</code></td>
+  </tr>
+  <tr>
+   <td><code>DOMString <a class="internal" href="/en/DOM/XMLHttpRequest#getAllResponseHeaders()" title="en/DOM/XMLHttpRequest#getAllResponseHeaders()">getAllResponseHeaders</a>();</code></td>
+  </tr>
+  <tr>
+   <td><code>DOMString? <a class="internal" href="/en/DOM/XMLHttpRequest#getResponseHeader()" title="en/DOM/XMLHttpRequest#getResponseHeader()">getResponseHeader</a>(DOMString header);</code></td>
+  </tr>
+  <tr>
+   <td><code>void <a class="internal" href="/en/DOM/XMLHttpRequest#open()" title="en/DOM/XMLHttpRequest#open()">open</a>(DOMString method, DOMString url, optional boolean async, optional DOMString? user, optional DOMString? password);</code></td>
+  </tr>
+  <tr>
+   <td><code>void <a class="internal" href="/en/DOM/XMLHttpRequest#overrideMimeType()" title="en/DOM/XMLHttpRequest#overrideMimeType()">overrideMimeType</a>(DOMString mime);</code></td>
+  </tr>
+  <tr>
+   <td><code>void <a class="internal" href="/en/DOM/XMLHttpRequest#send()" title="en/DOM/XMLHttpRequest#send()">send</a>();</code><br>
+    <strike><code>void <a class="internal" href="/en/DOM/XMLHttpRequest#send()" title="en/DOM/XMLHttpRequest#send()">send</a>(ArrayBuffer data);</code></strike><br>
+    <code>void <a class="internal" href="/en/DOM/XMLHttpRequest#send()" title="en/DOM/XMLHttpRequest#send()">send</a>(ArrayBufferView data);</code><br>
+    <code>void <a class="internal" href="/en/DOM/XMLHttpRequest#send()" title="en/DOM/XMLHttpRequest#send()">send</a>(Blob data);</code><br>
+    <code>void <a class="internal" href="/en/DOM/XMLHttpRequest#send()" title="en/DOM/XMLHttpRequest#send()">send</a>(Document data);</code><br>
+    <code>void <a class="internal" href="/en/DOM/XMLHttpRequest#send()" title="en/DOM/XMLHttpRequest#send()">send</a>(DOMString? data);</code><br>
+    <code>void <a class="internal" href="/en/DOM/XMLHttpRequest#send()" title="en/DOM/XMLHttpRequest#send()">send</a>(FormData data);</code></td>
+  </tr>
+  <tr>
+   <td><code>void <a class="internal" href="/en/DOM/XMLHttpRequest#setRequestHeader()" title="en/DOM/XMLHttpRequest#setRequestHeader()">setRequestHeader</a>(DOMString header, DOMString value);</code></td>
+  </tr>
+  <tr>
+   <th>Non-standard methods</th>
+  </tr>
+  <tr>
+   <td><code>[noscript] void <a class="internal" href="/en/DOM/XMLHttpRequest#init()" title="en/DOM/XMLHttpRequest#init()">init</a>(in nsIPrincipal principal, in nsIScriptContext scriptContext, in nsPIDOMWindow ownerWindow);</code></td>
+  </tr>
+  <tr>
+   <td><code>[noscript] void <a class="internal" href="/en/DOM/XMLHttpRequest#openRequest()" title="en/DOM/XMLHttpRequest#openRequest()">openRequest</a>(in AUTF8String method, in AUTF8String url, in boolean async, in AString user, in AString password); </code></td>
+  </tr>
+  <tr>
+   <td><code>void <a class="internal" href="/en/DOM/XMLHttpRequest#sendAsBinary()" title="en/DOM/XMLHttpRequest#sendAsBinary()">sendAsBinary</a>(in DOMString body);</code></td>
+  </tr>
+ </tbody>
+</table>
+<h2 id="Properties">Properties</h2>
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th>Attribute</th>
+   <th>Type</th>
+   <th>Description</th>
+  </tr>
+  <tr id="onreadystatechange">
+   <td>
+    <p><code>onreadystatechange</code></p>
+   </td>
+   <td><code>Function?</code></td>
+   <td>
+    <p>A JavaScript function object that is called whenever the <code>readyState</code> attribute changes. The callback is called from the user interface thread.</p>
+    <div class="warning">
+     <strong>Warning:</strong> This should not be used with synchronous requests and must not be used from native code.</div>
+   </td>
+  </tr>
+  <tr id="readyState">
+   <td><code>readyState</code></td>
+   <td><code>unsigned short</code></td>
+   <td>
+    <p>The state of the request:</p>
+    <table class="standard-table">
+     <tbody>
+      <tr>
+       <td class="header">Value</td>
+       <td class="header">State</td>
+       <td class="header">Description</td>
+      </tr>
+      <tr>
+       <td><code>0</code></td>
+       <td><code>UNSENT</code></td>
+       <td><code>open()</code>has not been called yet.</td>
+      </tr>
+      <tr>
+       <td><code>1</code></td>
+       <td><code>OPENED</code></td>
+       <td><code>send()</code>has not been called yet.</td>
+      </tr>
+      <tr>
+       <td><code>2</code></td>
+       <td><code>HEADERS_RECEIVED</code></td>
+       <td><code>send()</code> has been called, and headers and status are available.</td>
+      </tr>
+      <tr>
+       <td><code>3</code></td>
+       <td><code>LOADING</code></td>
+       <td>Downloading; <code>responseText</code> holds partial data.</td>
+      </tr>
+      <tr>
+       <td><code>4</code></td>
+       <td><code>DONE</code></td>
+       <td>The operation is complete.</td>
+      </tr>
+     </tbody>
+    </table>
+   </td>
+  </tr>
+  <tr id="response">
+   <td><code>response</code></td>
+   <td>varies</td>
+   <td>
+    <p>The response entity body according to <code><a href="#responseType">responseType</a></code>, as an <a href="/en/JavaScript_typed_arrays/ArrayBuffer" title="en/JavaScript typed arrays/ArrayBuffer"><code>ArrayBuffer</code></a>, <a href="/en/DOM/Blob" title="en/DOM/Blob"><code>Blob</code></a>, <a href="/en-US/docs/Web/API/Document" title="Each web page loaded in the browser has its own document object. The Document interface serves as an entry point to the web page's content (the DOM tree, including elements such as &lt;body> and &lt;table>) and provides functionality global to the document (such as obtaining the page's URL and creating new elements in the document)."><code>Document</code></a>, JavaScript object (for "json"), or string. This is <code>null</code> if the request is not complete or was not successful.</p>
+   </td>
+  </tr>
+  <tr id="responseText">
+   <td><code>responseText</code> <span class="inlineIndicator readOnly readOnlyInline" title="This value may not be changed.">Read only </span></td>
+   <td><code>DOMString</code></td>
+   <td>The response to the request as text, or <code>null</code> if the request was unsuccessful or has not yet been sent.</td>
+  </tr>
+  <tr id="responseType">
+   <td><code>responseType</code></td>
+   <td><code>XMLHttpRequestResponseType</code></td>
+   <td>
+    <p>Can be set to change the response type.</p>
+    <table class="standard-table" style="width: auto;">
+     <tbody>
+      <tr>
+       <td class="header">Value</td>
+       <td class="header">Data type of <code>response</code> property</td>
+      </tr>
+      <tr>
+       <td><code>""</code> (empty string)</td>
+       <td>String (this is the default)</td>
+      </tr>
+      <tr>
+       <td><code>"arraybuffer"</code></td>
+       <td><a href="/en/JavaScript_typed_arrays/ArrayBuffer" title="en/JavaScript typed arrays/ArrayBuffer"><code>ArrayBuffer</code></a></td>
+      </tr>
+      <tr>
+       <td><code>"blob"</code></td>
+       <td><a href="/en-US/docs/Web/API/Blob" title="A Blob object represents a file-like object of immutable, raw data. Blobs represent data that isn't necessarily in a JavaScript-native format. The File interface is based on Blob, inheriting blob functionality and expanding it to support files on the user's system."><code>Blob</code></a></td>
+      </tr>
+      <tr>
+       <td><code>"document"</code></td>
+       <td><a href="/en-US/docs/Web/API/Document" title="Each web page loaded in the browser has its own document object. The Document interface serves as an entry point to the web page's content (the DOM tree, including elements such as &lt;body> and &lt;table>) and provides functionality global to the document (such as obtaining the page's URL and creating new elements in the document)."><code>Document</code></a></td>
+      </tr>
+      <tr>
+       <td><code>"json"</code></td>
+       <td>JavaScript object, parsed from a JSON string returned by the server</td>
+      </tr>
+      <tr>
+       <td><code>"text"</code></td>
+       <td>String</td>
+      </tr>
+      <tr>
+       <td><code>"moz-blob"</code></td>
+       <td>Used by Firefox to allow retrieving partial <a href="/en-US/docs/Web/API/Blob" title="A Blob object represents a file-like object of immutable, raw data. Blobs represent data that isn't necessarily in a JavaScript-native format. The File interface is based on Blob, inheriting blob functionality and expanding it to support files on the user's system."><code>Blob</code></a> data from progress events. This lets your progress event handler start processing data while it's still being received. </td>
+      </tr>
+      <tr>
+       <td><code>"moz-chunked-text"</code></td>
+       <td>
+        <p>Similar to <code>"text"</code>, but is streaming. This means that the value in <code>response</code> is only available during dispatch of the <code>"progress"</code> event and only contains the data received since the last <code>"progress"</code> event.</p>
+        <p>When <code>response</code> is accessed during a <code>"progress"</code> event it contains a string with the data. Otherwise it returns <code>null</code>.</p>
+        <p>This mode currently only works in Firefox. </p>
+       </td>
+      </tr>
+      <tr>
+       <td><code>"moz-chunked-arraybuffer"</code></td>
+       <td>
+        <p>Similar to <code>"arraybuffer"</code>, but is streaming. This means that the value in <code>response</code> is only available during dispatch of the <code>"progress"</code> event and only contains the data received since the last <code>"progress"</code> event.</p>
+        <p>When <code>response</code> is accessed during a <code>"progress"</code> event it contains a string with the data. Otherwise it returns <code>null</code>.</p>
+        <p>This mode currently only works in Firefox. </p>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <div class="note">
+     <strong>Note:</strong> Starting with Gecko 11.0 (Firefox 11.0 / Thunderbird 11.0 / SeaMonkey 2.8), as well as WebKit build 528, these browsers no longer let you use the <code>responseType</code> attribute when performing synchronous requests. Attempting to do so throws an <code>NS_ERROR_DOM_INVALID_ACCESS_ERR</code> exception. This change has been proposed to the W3C for standardization.</div>
+   </td>
+  </tr>
+  <tr id="responseXML">
+   <td><code>responseXML</code> <span class="inlineIndicator readOnly readOnlyInline" title="This value may not be changed.">Read only </span></td>
+   <td><code>Document?</code></td>
+   <td>
+    <p>The response to the request as a DOM <code><a class="internal" href="/en/DOM/document" title="En/DOM/Document">Document</a></code> object, or <code>null</code> if the request was unsuccessful, has not yet been sent, or cannot be parsed as XML or HTML. The response is parsed as if it were a <code>text/xml</code> stream. When the <code>responseType</code> is set to <code>"document"</code> and the request has been made asynchronously, the response is parsed as a <code>text/html</code> stream.</p>
+    <div class="note">
+     <strong>Note:</strong> If the server doesn't apply the <code>text/xml</code> Content-Type header, you can use <code>overrideMimeType()</code>to force <code>XMLHttpRequest</code> to parse it as XML anyway.</div>
+   </td>
+  </tr>
+  <tr id="status">
+   <td><code>status</code> <span class="inlineIndicator readOnly readOnlyInline" title="This value may not be changed.">Read only </span></td>
+   <td><code>unsigned short</code></td>
+   <td>The status of the response to the request. This is the HTTP result code (for example, <code>status</code> is 200 for a successful request).</td>
+  </tr>
+  <tr id="statusText">
+   <td><code>statusText</code> <span class="inlineIndicator readOnly readOnlyInline" title="This value may not be changed.">Read only </span></td>
+   <td><code>DOMString</code></td>
+   <td>The response string returned by the HTTP server. Unlike <code>status</code>, this includes the entire text of the response message ("<code>200 OK</code>", for example).</td>
+  </tr>
+  <tr id="timeout">
+   <td><code>timeout</code></td>
+   <td><code>unsigned long</code></td>
+   <td>
+    <p>The number of milliseconds a request can take before automatically being terminated. A value of 0 (which is the default) means there is no timeout. </p>
+    <div class="note">
+     <strong>Note:</strong> You may not use a timeout for synchronous requests with an owning window.</div>
+   </td>
+  </tr>
+  <tr id="ontimeout">
+   <td><code>ontimeout</code></td>
+   <td><code>Function</code></td>
+   <td>
+    <p>A JavaScript function object that is called whenever the request times out. </p>
+   </td>
+  </tr>
+  <tr id="upload">
+   <td><code>upload</code></td>
+   <td><code>XMLHttpRequestUpload</code></td>
+   <td>The upload process can be tracked by adding an event listener to <code>upload</code>.</td>
+  </tr>
+  <tr id="withCredentials">
+   <td><code>withCredentials</code></td>
+   <td><code>boolean</code></td>
+   <td>
+    <p>Indicates whether or not cross-site <code>Access-Control</code> requests should be made using credentials such as cookies or authorization headers. The default is <code>false</code>.</p>
+    <div class="note">
+     <strong>Note:</strong> This never affects same-site requests.</div>
+    <div class="note">
+     <strong>Note:</strong> Starting with Gecko 11.0 (Firefox 11.0 / Thunderbird 11.0 / SeaMonkey 2.8), Gecko no longer lets you use the <code>withCredentials</code> attribute when performing synchronous requests. Attempting to do so throws an <code>NS_ERROR_DOM_INVALID_ACCESS_ERR</code> exception.</div>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h3 id="Non-standard_properties">Non-standard properties</h3>
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th>Attribute</th>
+   <th>Type</th>
+   <th>Description</th>
+  </tr>
+  <tr id="channel">
+   <td><code>channel</code> <span class="inlineIndicator readOnly readOnlyInline" title="This value may not be changed.">Read only </span></td>
+   <td><code><a href="/en-US/docs/XPCOM_Interface_Reference/nsIChannel" title="">nsIChannel</a></code></td>
+   <td>The channel used by the object when performing the request. This is <code>null</code> if the channel hasn't been created yet. In the case of a multi-part request, this is the initial channel, not the different parts in the multi-part request. <strong>Requires elevated privileges to access.</strong></td>
+  </tr>
+  <tr id="mozAnon">
+   <td><code>mozAnon</code> <span class="inlineIndicator readOnly readOnlyInline" title="This value may not be changed.">Read only </span></td>
+   <td><code>boolean</code></td>
+   <td>
+    <p>If true, the request will be sent without cookie and authentication headers.</p>
+   </td>
+  </tr>
+  <tr id="mozSystem">
+   <td><code>mozSystem</code> <span class="inlineIndicator readOnly readOnlyInline" title="This value may not be changed.">Read only </span></td>
+   <td><code>boolean</code></td>
+   <td>
+    <p>If true, the same origin policy will not be enforced on the request.</p>
+   </td>
+  </tr>
+  <tr id="mozBackgroundRequest">
+   <td><code>mozBackgroundRequest</code></td>
+   <td><code>boolean</code></td>
+   <td>
+    <p>Indicates whether or not the object represents a background service request. If <code>true</code>, no load group is associated with the request, and security dialogs are prevented from being shown to the user. <strong>Requires elevated privileges to access.</strong></p>
+    <p>In cases in which a security dialog (such as authentication or a bad certificate notification) would normally be shown, the request simply fails instead.</p>
+    <div class="note">
+     <strong>Note: </strong>This property must be set before calling <code>open()</code>.</div>
+   </td>
+  </tr>
+  <tr id="mozResponseArrayBuffer">
+   <td><code>mozResponseArrayBuffer</code>  <span class="inlineIndicator obsolete obsoleteInline" title="(Firefox 6 / Thunderbird 6 / SeaMonkey 2.3)">Obsolete since Gecko 6</span> <span class="inlineIndicator readOnly readOnlyInline" title="This value may not be changed.">Read only </span></td>
+   <td><a href="/en/JavaScript_typed_arrays/ArrayBuffer" title="en/JavaScript typed arrays/ArrayBuffer"><code>ArrayBuffer</code></a></td>
+   <td>The response to the request, as a JavaScript typed array. This is <code>NULL</code> if the request was not successful, or if it hasn't been sent yet.</td>
+  </tr>
+  <tr id="multipart">
+   <td><code>multipart</code> <span class="inlineIndicator obsolete obsoleteInline" title="(Firefox 22 / Thunderbird 22 / SeaMonkey 2.19)">Obsolete since Gecko 22</span></td>
+   <td><code>boolean</code></td>
+   <td>
+    <p><strong>This Gecko-only feature was removed in Firefox/Gecko 22.</strong> Please use <a href="/en-US/docs/Server-sent_events" title="/en-US/docs/Server-sent_events">Server-Sent Events</a>, <a href="/en-US/docs/WebSockets" title="/en-US/docs/WebSockets">Web Sockets</a>, or <code>responseText</code> from progress events instead.</p>
+    <p>Indicates whether or not the response is expected to be a stream of possibly multiple XML documents. If set to <code>true</code>, the content type of the initial response must be <code>multipart/x-mixed-replace</code> or an error will occur. All requests must be asynchronous.</p>
+    <p>This enables support for server push; for each XML document that's written to this request, a new XML DOM document is created and the <code>onload</code> handler is called between documents.</p>
+    <div class="note">
+     <strong>Note:</strong> When this is set, the <code>onload</code> handler and other event handlers are not reset after the first XMLdocument is loaded, and the <code>onload</code> handler is called after each part of the response is received.</div>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<h2 id="Constructor">Constructor</h2>
+<h3 id="XMLHttpRequest()" name="XMLHttpRequest()">XMLHttpRequest()</h3>
+<p>The constructor initiates an XMLHttpRequest. It must be called before any other method calls.</p>
+<p>Gecko/Firefox 16 adds a non-standard parameter to the constructor that can enable anonymous mode (see <a class="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=692677" title="692677 – Relax same-origin XHR restrictions for privileged applications">Bug 692677</a>). Setting the <code>mozAnon</code> flag to <code>true</code> effectively resembles the <a class="external" href="http://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#dom-anonxmlhttprequest" title="see AnonXMLHttpRequest in the XMLHttpRequest specification"><code>AnonXMLHttpRequest()</code></a> constructor described in the XMLHttpRequest specification which has not been implemented in any browser yet (as of September 2012).</p>
+<pre>XMLHttpRequest (
+  JSObject objParameters
+);</pre>
+<h5 id="Parameters_(non-standard)">Parameters (non-standard)</h5>
+<dl>
+ <dt>
+  <code>objParameters</code> </dt>
+ <dd>
+  There are two flags you can set:
+  <dl>
+   <dt>
+    <code>mozAnon</code></dt>
+   <dd>
+    Boolean: Setting this flag to <code>true</code> will cause the browser not to expose the origin and <a class="external" href="http://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#user-credentials" title="Defintion of “User credentials” in the XMLHttpRequest specification.">user credentials</a> when fetching resources. Most important, this means that cookies will not be sent unless explicitly added using setRequestHeader.</dd>
+   <dt>
+    <code>mozSystem</code></dt>
+   <dd>
+    Boolean: Setting this flag to <code>true</code> allows making cross-site connections without requiring the server to opt-in using CORS. <em>Requires setting <code>mozAnon: true</code>, i.e. this can't be combined with sending cookies or other user credentials. This <a class="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=692677#c68" title="Bug 692677 comment 68">only works in privileged (reviewed) apps</a>; it does not work on arbitrary webpages loaded in Firefox.</em></dd>
+  </dl>
+ </dd>
+</dl>
+<h2 id="Methods">Methods</h2>
+<h3 id="abort()" name="abort()">abort()</h3>
+<p>Aborts the request if it has already been sent.</p>
+<h3 id="getAllResponseHeaders()" name="getAllResponseHeaders()">getAllResponseHeaders()</h3>
+<pre>DOMString getAllResponseHeaders();</pre>
+<p>Returns all the response headers as a string, or <code>null</code> if no response has been received.<strong> Note:</strong> For multipart requests, this returns the headers from the <em>current</em> part of the request, not from the original channel.</p>
+<h3 id="getResponseHeader()" name="getResponseHeader()">getResponseHeader()</h3>
+<pre>DOMString? getResponseHeader(DOMString <var>header</var>);</pre>
+<p>Returns the string containing the text of the specified header, or <code>null</code> if either the response has not yet been received or the header doesn't exist in the response.</p>
+<h3 id="open()" name="open()">open()</h3>
+<p>Initializes a request. This method is to be used from JavaScript code; to initialize a request from native code, use <a class="internal" href="/en/nsIXMLHttpRequest#openRequest()" title="/en/XMLHttpRequest#openRequest()"><code>openRequest()</code></a>instead.</p>
+<div class="note">
+ <strong>Note:</strong> Calling this method for an already active request (one for which <code>open()</code>or <code>openRequest()</code>has already been called) is the equivalent of calling <code>abort()</code>.</div>
+<pre>void open(
+   DOMString <var>method</var>,
+   DOMString <var>url</var>,
+   optional boolean <var>async</var>,
+   optional DOMString <var>user</var>,
+   optional DOMString <var>password</var>
+);
+</pre>
+<h6 id="Parameters">Parameters</h6>
+<dl>
+ <dt>
+  <code>method</code></dt>
+ <dd>
+  The HTTP method to use, such as "GET", "POST", "PUT", "DELETE", etc. Ignored for non-HTTP(S) URLs.</dd>
+ <dt>
+  <code>url</code></dt>
+ <dd>
+  The URL to send the request to.</dd>
+ <dt>
+  <code>async</code></dt>
+ <dd>
+  An optional boolean parameter, defaulting to <code>true</code>, indicating whether or not to perform the operation asynchronously. If this value is <code>false</code>, the <code>send()</code>method does not return until the response is received. If <code>true</code>, notification of a completed transaction is provided using event listeners. This <em>must</em> be true if the <code>multipart</code> attribute is <code>true</code>, or an exception will be thrown.</dd>
+ <dt>
+  <code>user</code></dt>
+ <dd>
+  The optional user name to use for authentication purposes; by default, this is an empty string.</dd>
+ <dt>
+  <code>password</code></dt>
+ <dd>
+  The optional password to use for authentication purposes; by default, this is an empty string.</dd>
+</dl>
+<h3 id="overrideMimeType()" name="overrideMimeType()">overrideMimeType()</h3>
+<p>Overrides the MIME type returned by the server. This may be used, for example, to force a stream to be treated and parsed as text/xml, even if the server does not report it as such. This method must be called before <code>send()</code>.</p>
+<pre>void overrideMimeType(DOMString <var>mimetype</var>);</pre>
+<h3 id="send()" name="send()">send()</h3>
+<p>Sends the request. If the request is asynchronous (which is the default), this method returns as soon as the request is sent. If the request is synchronous, this method doesn't return until the response has arrived.</p>
+<div class="note">
+ <strong>Note:</strong> Any event listeners you wish to set must be set before calling <code>send()</code>.</div>
+<div class="note">
+ <strong>Note:</strong> Be aware to stop using a plain ArrayBuffer as parameter. This is not part of the <code>XMLHttpRequest</code> specification any longer. Use an ArrayBufferView instead (see compatibility table for version information).</div>
+<pre>void send();
+<strike>void send(ArrayBuffer <var>data</var>);</strike>
+void send(ArrayBufferView <var>data</var>);
+void send(Blob <var>data</var>);
+void send(Document <var>data</var>);
+void send(DOMString? <var>data</var>);
+void send(FormData <var>data</var>);</pre>
+<h6 id="Notes">Notes</h6>
+<p>If the <var>data</var> is a <code>Document</code>, it is serialized before being sent. When sending a Document, versions of Firefox prior to version 3 always send the request using UTF-8 encoding; <a href="/en/Firefox_3" rel="internal" title="en/Firefox_3">Firefox 3</a> properly sends the document using the encoding specified by <code>body.xmlEncoding</code>, or UTF-8 if no encoding is specified.</p>
+<p>If it's an <code>nsIInputStream</code>, it must be compatible with <code>nsIUploadChannel</code>'s <code>setUploadStream()</code>method. In that case, a Content-Length header is added to the request, with its value obtained using <code>nsIInputStream</code>'s <code>available()</code>method. Any headers included at the top of the stream are treated as part of the message body. The stream's MIMEtype should be specified by setting the Content-Type header using the <a class="internal" href="/en/nsIXMLHttpRequest#setRequestHeader()" title="/en/XMLHttpRequest#setRequestHeader()"><code>setRequestHeader()</code></a> method prior to calling <code>send()</code>.</p>
+<p>The best way to send binary content (like in files upload) is using an <a href="/en-US/docs/JavaScript/Typed_arrays/ArrayBufferView" title="/en-US/docs/JavaScript/Typed_arrays/ArrayBufferView">ArrayBufferView</a> or <a href="/en-US/docs/DOM/Blob" title="/en-US/docs/DOM/Blob">Blobs</a> in conjuncton with the <code>send()</code> method. However, if you want to send a <a href="/en-US/docs/JavaScript/Reference/Global_Objects/JSON/stringify" title="/en-US/docs/JavaScript/Reference/Global_Objects/JSON/stringify">stringifiable</a> raw data, use the <a href="/en-US/docs/DOM/XMLHttpRequest#sendAsBinary()" title="/en-US/docs/DOM/XMLHttpRequest#sendAsBinary()"><code>sendAsBinary()</code></a> method instead, or the <a href="/en-US/docs/Web/JavaScript/Typed_arrays/StringView" title="/en-US/docs/Web/JavaScript/Typed_arrays/StringView"><code>StringView</code></a> <span class="inlineIndicator" title="This API is not native.">Non native</span> typed arrays superclass.</p>
+<h3 id="setRequestHeader()" name="setRequestHeader()">setRequestHeader()</h3>
+<p>Sets the value of an HTTP request header. You must call <code>setRequestHeader()</code> after <a href="#open"><code>open()</code></a>, but before <code>send()</code>. If this method is called several times with the same header, the values are merged into one single request header.</p>
+<pre>void setRequestHeader(
+   DOMString <var>header</var>,
+   DOMString <var>value</var>
+);
+</pre>
+<h6 id="Parameters_2">Parameters</h6>
+<dl>
+ <dt>
+  <code>header</code></dt>
+ <dd>
+  The name of the header whose value is to be set.</dd>
+ <dt>
+  <code>value</code></dt>
+ <dd>
+  The value to set as the body of the header.</dd>
+</dl>
+<h3 id="Non-standard_methods">Non-standard methods</h3>
+<h4 id="init()">init()</h4>
+<p>Initializes the object for use from C++ code.</p>
+<div class="warning">
+ <strong>Warning:</strong> This method must <em>not</em> be called from JavaScript.</div>
+<pre>[noscript] void init(
+   in nsIPrincipal principal,
+   in nsIScriptContext scriptContext,
+   in nsPIDOMWindow ownerWindow
+);
+</pre>
+<h5 id="Parameters_3">Parameters</h5>
+<dl>
+ <dt>
+  <code>principal</code></dt>
+ <dd>
+  The principal to use for the request; must not be <code>null</code>.</dd>
+ <dt>
+  <code>scriptContext</code></dt>
+ <dd>
+  The script context to use for the request; must not be <code>null</code>.</dd>
+ <dt>
+  <code>ownerWindow</code></dt>
+ <dd>
+  The window associated with the request; may be <code>null</code>.</dd>
+</dl>
+<h4 id="openRequest()">openRequest()</h4>
+<p>Initializes a request. This method is to be used from native code; to initialize a request from JavaScript code, use <a class="internal" href="/en/nsIXMLHttpRequest#open()" title="/en/XMLHttpRequest#open()"><code>open()</code></a>instead. See the documentation for <code>open()</code>.</p>
+<p></p><div> 
+    <span class="indicatorInHeadline standardNote standardNoteMethod">Requires Gecko 1.9 (Firefox 3)</span> 
+    <h3 id="sendAsBinary()" name="sendAsBinary()">sendAsBinary()</h3> 
+</div><p></p>
+<p>A variant of the <code>send()</code> method that sends binary data.</p>
+<pre>void sendAsBinary(
+   in DOMString body
+);
+</pre>
+<p>This method, used in conjunction with the <a href="/en-US/docs/DOM/FileReader#readAsBinaryString()" title="/en-US/docs/DOM/FileReader#readAsBinaryString()"><code>readAsBinaryString</code></a> method of the <a href="/en-US/docs/DOM/FileReader" title="/en-US/docs/DOM/FileReader"><code>FileReader</code></a> API, makes it possible to <a class="new" href="https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest/Using_XMLHttpRequest#Submitting_forms_and_uploading_files" title="/en-US/docs/DOM/XMLHttpRequest/Using_XMLHttpRequest#Submitting_forms_and_uploading_files">read and <strong>upload</strong> any type of file</a> and to <a href="/en-US/docs/JavaScript/Reference/Global_Objects/JSON/stringify" title="/en-US/docs/JavaScript/Reference/Global_Objects/JSON/stringify">stringify</a> the raw data.</p>
+<h5 id="Parameters_4">Parameters</h5>
+<dl>
+ <dt>
+  <code>body</code></dt>
+ <dd>
+  The request body as a DOMstring. This data is converted to a string of single-byte characters by truncation (removing the high-order byte of each character).</dd>
+</dl>
+<h5 id="sendAsBinary()_polyfill"><code>sendAsBinary()</code> polyfill</h5>
+<p>Since <code>sendAsBinary()</code> is an experimental feature, here is <strong>a polyfill</strong> for browsers that <em>don't</em> support the <code>sendAsBinary()</code> method but support <a href="/en-US/docs/JavaScript/Typed_arrays" title="/en-US/docs/JavaScript/Typed_arrays">typed arrays</a>.</p>
+<pre class="brush: js">/*\
+|*|
+|*|  :: XMLHttpRequest.prototype.sendAsBinary() Polyfill ::
+|*|
+|*|  https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#sendAsBinary()
+|*|
+\*/
+
+if (!XMLHttpRequest.prototype.sendAsBinary) {
+  XMLHttpRequest.prototype.sendAsBinary = function (sData) {
+    var nBytes = sData.length, ui8Data = new Uint8Array(nBytes);
+    for (var nIdx = 0; nIdx &lt; nBytes; nIdx++) {
+      ui8Data[nIdx] = sData.charCodeAt(nIdx) &amp; 0xff;
+    }
+    /* send as ArrayBufferView...: */
+    this.send(ui8Data);
+    /* ...or as ArrayBuffer (legacy)...: this.send(ui8Data.buffer); */
+  };
+}</pre>
+<div class="note">
+ <strong>Note:</strong> It's possible to build this polyfill putting two types of data as argument for <code>send()</code>: an <a href="/en-US/docs/JavaScript/Typed_arrays/ArrayBuffer" title="/en-US/docs/JavaScript/Typed_arrays/ArrayBuffer"><code>ArrayBuffer</code></a> (<code>ui8Data.buffer</code> – the commented code) or an <a href="/en-US/docs/JavaScript/Typed_arrays/ArrayBufferView" title="/en-US/docs/JavaScript/Typed_arrays/ArrayBufferView"><code>ArrayBufferView</code></a> (<code>ui8Data</code>, which is a <a href="/en-US/docs/JavaScript/Typed_arrays/Uint8Array" title="/en-US/docs/JavaScript/Typed_arrays/Uint8Array">typed array of 8-bit unsigned integers</a> – uncommented code). However, on Google Chrome, when you try to send an <code>ArrayBuffer</code>, the following warning message will appear: <code>ArrayBuffer is deprecated in XMLHttpRequest.send(). Use ArrayBufferView instead.</code> Another possible approach to send binary data is the <a href="/en-US/docs/Web/JavaScript/Typed_arrays/StringView" title="/en-US/docs/Web/JavaScript/Typed_arrays/StringView"><code>StringView</code></a> <span class="inlineIndicator" style="background-color: #ffffff;" title="This API is not native.">Non native</span> typed arrays superclass in conjunction with the <a href="#send()" title="#send()"><code>send()</code></a> method.</div>
+<h2 id="Notes_2">Notes</h2>
+<ul>
+ <li class="note">By default, Firefox 3 limits the number of <code>XMLHttpRequest</code> connections per server to 6 (previous versions limit this to 2 per server). Some interactive web sites may keep an <code>XMLHttpRequest</code> connection open, so opening multiple sessions to such sites may result in the browser hanging in such a way that the window no longer repaints and controls don't respond. This value can be changed by editing the <code>network.http.max-persistent-connections-per-server</code> preference in <code><a class="linkification-ext" href="/about:config" title="Linkification: about:config">about:config</a></code>.</li>
+ <li class="note">From <span title="(Firefox 7.0 / Thunderbird 7.0 / SeaMonkey 2.4)">Gecko 7.0</span> headers set by <code><a class="external" href="http://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#setRequestHeader()">setRequestHeader()</a></code> are sent with the request when following a redirect. Previously these headers would not be sent.</li>
+ <li class="note"><code>XMLHttpRequest</code> is implemented in Gecko using the <code><a class="new" href="/en-US/docs/XPCOM_Interface_Reference/nsIXMLHttpRequest" title="">nsIXMLHttpRequest</a></code>, <code><a href="/en-US/docs/XPCOM_Interface_Reference/nsIXMLHttpRequestEventTarget" title="">nsIXMLHttpRequestEventTarget</a></code>, and <code><a href="/en-US/docs/XPCOM_Interface_Reference/nsIJSXMLHttpRequest" title="">nsIJSXMLHttpRequest</a></code> interfaces.</li>
+ <li class="note">When a request reaches its timeout value,   a "timeout" event is raised.</li>
+</ul>
+<h4 class="note" id="Events">Events</h4>
+<p><code>onreadystatechange</code> as a property of the <code>XMLHttpRequest</code> instance is supported in all browsers.</p>
+<p>Since then, a number of additional event handlers were implemented in various browsers (<code>onload</code>, <code>onerror</code>, <code>onprogress</code>, etc.). These are supported in Firefox. In particular, see <code><a href="/en-US/docs/XPCOM_Interface_Reference/nsIXMLHttpRequestEventTarget" title="">nsIXMLHttpRequestEventTarget</a></code> and <a href="/en/DOM/XMLHttpRequest/Using_XMLHttpRequest" title="En/XMLHttpRequest/Using_XMLHttpRequest">Using XMLHttpRequest</a>.</p>
+<p>More recent browsers, including Firefox, also support listening to the <code>XMLHttpRequest</code> events via standard <code><a href="/en/DOM/element.addEventListener" title="element.addEventListener">addEventListener</a></code> APIs in addition to setting <code>on*</code> properties to a handler function.</p>
+<h2 id="Permissions" name="Permissions">Permissions</h2>
+<p>When using System XHR via the <code>mozSystem</code> property, for example for Firefox OS apps, you need to be sure to add the <code>systemXHR</code> permission into your manifest file. System XHR can be used in privileged or certified apps.</p>
+<pre class="brush: js">"permissions": {
+    "systemXHR":{}
+}</pre>
+<h2 id="Browser_Compatibility" name="Browser_Compatibility">Browser compatibility</h2>
+<p></p><div class="htab"> 
+    <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a> 
+    <ul> 
+        <li class="selected"><a>Desktop</a></li> 
+        <li><a>Mobile</a></li> 
+    </ul> 
+</div><p></p>
+<div id="compat-desktop">
+ <table class="compat-table">
+  <tbody>
+   <tr>
+    <th>Feature</th>
+    <th>Chrome</th>
+    <th>Firefox (Gecko)</th>
+    <th>Internet Explorer</th>
+    <th>Opera</th>
+    <th>Safari (WebKit)</th>
+   </tr>
+   <tr>
+    <td>Basic support (XHR1)</td>
+    <td>1</td>
+    <td>1.0</td>
+    <td>5 (via ActiveXObject)<br>
+     7 (XMLHttpRequest)</td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td>1.2</td>
+   </tr>
+   <tr>
+    <td><code>send(ArrayBuffer)</code></td>
+    <td>9</td>
+    <td>9</td>
+    <td>10</td>
+    <td>11.60</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   </tr>
+   <tr>
+    <td><code>send(ArrayBufferView)</code></td>
+    <td>22</td>
+    <td>20</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   </tr>
+   <tr>
+    <td><code>send(Blob)</code></td>
+    <td>7</td>
+    <td>3.6</td>
+    <td>10</td>
+    <td>12</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   </tr>
+   <tr>
+    <td><code>send(FormData)</code></td>
+    <td>6</td>
+    <td>4</td>
+    <td>10</td>
+    <td>12</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   </tr>
+   <tr>
+    <td><code>sendAsBinary(DOMString)</code></td>
+    <td><span style="color: #f00;">Not supported</span> – use the <a href="#sendAsBinary%28%29_polyfill" title="sendAsBinary() polyfill">polyfill</a></td>
+    <td>1.9</td>
+    <td><span style="color: #f00;">Not supported</span></td>
+    <td><span style="color: #f00;">Not supported</span></td>
+    <td><span style="color: #f00;">Not supported</span></td>
+   </tr>
+   <tr>
+    <td><code>response</code></td>
+    <td>10</td>
+    <td>6</td>
+    <td>10</td>
+    <td>11.60</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   </tr>
+   <tr>
+    <td><code>responseType</code> = 'arraybuffer'</td>
+    <td>10</td>
+    <td>6</td>
+    <td>10</td>
+    <td>11.60</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   </tr>
+   <tr>
+    <td><code>responseType</code> = 'blob'</td>
+    <td>19</td>
+    <td>6</td>
+    <td>10</td>
+    <td>12</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   </tr>
+   <tr>
+    <td><code>responseType</code> = 'document'</td>
+    <td>18</td>
+    <td>11</td>
+    <td>10</td>
+    <td><span style="color: #f00;">Not supported</span></td>
+    <td>6.1</td>
+   </tr>
+   <tr>
+    <td><code>responseType</code> = 'json'</td>
+    <td><span style="color: #f00;">Not supported</span></td>
+    <td>10</td>
+    <td><span style="color: #f00;">Not supported</span></td>
+    <td>12</td>
+    <td><span style="color: #f00;">Not supported</span></td>
+   </tr>
+   <tr>
+    <td>Progress Events</td>
+    <td>7</td>
+    <td>3.5</td>
+    <td>10</td>
+    <td>12</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   </tr>
+   <tr>
+    <td><code>withCredentials</code></td>
+    <td>3</td>
+    <td>3.5</td>
+    <td>10</td>
+    <td>12</td>
+    <td>4</td>
+   </tr>
+   <tr>
+    <td><code>timeout</code></td>
+    <td><a class="external" href="https://code.google.com/p/chromium/issues/detail?id=231959" title="https://code.google.com/p/chromium/issues/detail?id=231959">29</a></td>
+    <td>12.0</td>
+    <td>8</td>
+    <td><a class="external" href="http://dev.opera.com/articles/view/xhr2/#xhrtimeouts" title="http://dev.opera.com/articles/view/xhr2/#xhrtimeouts">12</a></td>
+    <td><span style="color: #f00;">Not supported</span></td>
+   </tr>
+   <tr>
+    <td><code>responseType</code> = 'moz-blob'</td>
+    <td><span style="color: #f00;">Not supported</span></td>
+    <td>12.0</td>
+    <td><span style="color: #f00;">Not supported</span></td>
+    <td><span style="color: #f00;">Not supported</span></td>
+    <td><span style="color: #f00;">Not supported</span></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<div id="compat-mobile">
+ <table class="compat-table">
+  <tbody>
+   <tr>
+    <th>Feature</th>
+    <th>Android</th>
+    <th>Chrome for Android</th>
+    <th>Firefox Mobile (Gecko)</th>
+    <th>IE Phone</th>
+    <th>Opera Mobile</th>
+    <th>Safari Mobile</th>
+   </tr>
+   <tr>
+    <td>Basic support</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+    <td>0.16</td>
+    <td><span style="color: #888;" title="Please update this with the earliest version of support.">(Yes)</span></td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+<h3 id="Gecko_notes">Gecko notes</h3>
+<p>Gecko 11.0 (Firefox 11.0 / Thunderbird 11.0 / SeaMonkey 2.8) removed support for using the <code>responseType</code> and <code>withCredentials</code> attributes when performing synchronous requests. Attempting to do so throws an <code>NS_ERROR_DOM_INVALID_ACCESS_ERR</code> exception. This change has been proposed to the W3C for standardization.</p>
+<p>Gecko 12.0 (Firefox 12.0 / Thunderbird 12.0 / SeaMonkey 2.9) and later support using <code>XMLHttpRequest</code> to read from <a href="/en/data_URIs" title="en/data_URIs"><code>data:</code> URLs</a>.</p>
+<p>Gecko 20.0 (Firefox 20.0 / Thunderbird 20.0 / SeaMonkey 2.17) adds the support of sending an <a href="/en-US/docs/JavaScript/Typed_arrays/ArrayBufferView" title="/en-US/docs/JavaScript/Typed_arrays/ArrayBufferView"><code>ArrayBufferView</code></a> - sending a plain <a href="/en-US/docs/JavaScript/Typed_arrays/ArrayBuffer" title="/en-US/docs/JavaScript/Typed_arrays/ArrayBuffer"><code>ArrayBuffer</code></a> is not part of the <code>XMLHttpRequest</code> specification any longer and should be treated as deprecated.</p>
+<h2 id="See_also">See also</h2>
+<ul>
+ <li>MDN articles about XMLHttpRequest:
+  <ul>
+   <li><a href="/en/AJAX/Getting_Started" title="en/AJAX/Getting_Started">AJAX - Getting Started</a></li>
+   <li><a href="/en/DOM/XMLHttpRequest/Using_XMLHttpRequest" title="En/Using XMLHttpRequest">Using XMLHttpRequest</a></li>
+   <li><a href="/en/HTML_in_XMLHttpRequest" title="en/HTML_in_XMLHttpRequest">HTML in XMLHttpRequest</a></li>
+   <li><a href="/en/DOM/XMLHttpRequest/FormData" title="en/XMLHttpRequest/FormData"><code>FormData</code></a></li>
+  </ul>
+ </li>
+ <li>XMLHttpRequest references from W3C and browser vendors:
+  <ul>
+   <li><a class="external" href="http://www.w3.org/TR/XMLHttpRequest1/">W3C: XMLHttpRequest</a> (base features)</li>
+   <li><a class="external" href="http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html" title="http://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html">W3C: XMLHttpRequest</a> (latest editor's draft with extensions to the base functionality, formerly XMLHttpRequest Level 2</li>
+   <li><a class="external" href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/xmlsdk/html/xmobjxmlhttprequest.asp">Microsoft documentation</a></li>
+   <li><a class="external" href="https://developer.apple.com/library/safari/#documentation/AppleApplications/Conceptual/SafariJSProgTopics/Articles/XHR.html">Apple developers' reference</a></li>
+  </ul>
+ </li>
+ <li><a class="external" href="http://jibbering.com/2002/4/httprequest.html">"Using the XMLHttpRequest Object" (jibbering.com)</a></li>
+ <li><a class="external" href="http://www.peej.co.uk/articles/rich-user-experience.html">XMLHttpRequest - REST and the Rich User Experience</a></li>
+ <li><a class="external" href="http://www.html5rocks.com/en/tutorials/file/xhr2/">HTML5 Rocks - New Tricks in XMLHttpRequest2</a></li>
+</ul>
+<p></p>
+                                    </article>
+
+                      <!-- attachments list -->
+            
+            <!-- contributors -->
+            <div class="wiki-block contributors">
+              <h2 class="offscreen">Document Tags and Contributors</h2>
+                            <!-- tags if present -->
+              <div class="tag-attach-list tags contributor-sub">
+                <i aria-hidden="true" class="icon-tags"></i><strong>Tags:</strong>
+                <ul class="tag-list"><li><a href="/en-US/docs/tag/API">API</a></li><li><a href="/en-US/docs/tag/NeedsMobileBrowserCompatibility">NeedsMobileBrowserCompatibility</a></li><li><a href="/en-US/docs/tag/Reference">Reference</a></li><li><a href="/en-US/docs/tag/XMLHttpRequest">XMLHttpRequest</a></li><li><a href="/en-US/docs/tag/MakeBrowserAgnostic">MakeBrowserAgnostic</a></li><li><a href="/en-US/docs/tag/HTTP">HTTP</a></li><li><a href="/en-US/docs/tag/AJAX">AJAX</a></li><li><a href="/en-US/docs/tag/R%C3%A9f%C3%A9rence">Référence</a></li><li><a href="/en-US/docs/tag/JavaScript">JavaScript</a></li><li><a href="/en-US/docs/tag/WebAPI">WebAPI</a></li></ul>
+              </div>
+                            <div class="contributor-sub"> <i aria-hidden="true" class="icon-group"></i><strong>Contributors to this page:</strong> <a href="/en-US/profiles/mwahaha">mwahaha</a>, <a href="/en-US/profiles/myakura">myakura</a>, <a href="/en-US/profiles/Dbs">Dbs</a>, <a href="/en-US/profiles/fusionchess">fusionchess</a>, <a href="/en-US/profiles/J%C3%BCrgen%20Jeka">Jürgen Jeka</a>, <a href="/en-US/profiles/MarkFinkle">MarkFinkle</a>, <a href="/en-US/profiles/alispivak">alispivak</a>, <a href="/en-US/profiles/Np">Np</a>, <a href="/en-US/profiles/Yaffle">Yaffle</a>, <a href="/en-US/profiles/Chbok">Chbok</a>, <a href="/en-US/profiles/emk">emk</a>, <a href="/en-US/profiles/kscarfone">kscarfone</a>, <a href="/en-US/profiles/kmaglione">kmaglione</a>, <a href="/en-US/profiles/Mak77">Mak77</a>, <a href="/en-US/profiles/another_sam">another_sam</a>, <a href="/en-US/profiles/guirong">guirong</a>, <a href="/en-US/profiles/Okome">Okome</a>, <a href="/en-US/profiles/khuey">khuey</a>, <a href="/en-US/profiles/julienfabre">julienfabre</a>, <a href="/en-US/profiles/saneyuki_s">saneyuki_s</a>, <a href="/en-US/profiles/amadwiyzer">amadwiyzer</a>, <a href="/en-US/profiles/kathyw">kathyw</a>, <a href="/en-US/profiles/Inimino">Inimino</a>, <a href="/en-US/profiles/jkronegg">jkronegg</a>, <a href="/en-US/profiles/AlexisMetaireau">AlexisMetaireau</a>, <a href="/en-US/profiles/Riboribo">Riboribo</a>, <a href="/en-US/profiles/XP1">XP1</a>, <a href="/en-US/profiles/Sicking">Sicking</a>, <a href="/en-US/profiles/Sevenspade">Sevenspade</a>, <a href="/en-US/profiles/markrgrant">markrgrant</a>, <a href="/en-US/profiles/Brettz9">Brettz9</a>, <a href="/en-US/profiles/jswisher">jswisher</a>, <a href="/en-US/profiles/didizingo">didizingo</a>, <a href="/en-US/profiles/Konno.Software">Konno.Software</a>, <a href="/en-US/profiles/sdwilsh">sdwilsh</a>, <a href="/en-US/profiles/Cfinke">Cfinke</a>, <a href="/en-US/profiles/psdmca">psdmca</a>, <a href="/en-US/profiles/Ted_Mielczarek">Ted_Mielczarek</a>, <a href="/en-US/profiles/LukSoft">LukSoft</a>, <a href="/en-US/profiles/Cipherzero">Cipherzero</a>, <a href="/en-US/profiles/Vesicles">Vesicles</a>, <a href="/en-US/profiles/Carrie%20zhxj">Carrie zhxj</a>, <a href="/en-US/profiles/Prahal">Prahal</a>, <a href="/en-US/profiles/Alaa.moustafa">Alaa.moustafa</a>, <a href="/en-US/profiles/B0at">B0at</a>, <a href="/en-US/profiles/Bruceboughton">Bruceboughton</a>, <a href="/en-US/profiles/LeeHyeok">LeeHyeok</a>, <a href="/en-US/profiles/Lev.novikov">Lev.novikov</a>, <a href="/en-US/profiles/Sheppy">Sheppy</a>, <a href="/en-US/profiles/tymofiy">tymofiy</a>, <a href="/en-US/profiles/natevw">natevw</a>, <a href="/en-US/profiles/ericjung">ericjung</a>, <a href="/en-US/profiles/fbender">fbender</a>, <a href="/en-US/profiles/mattbasta">mattbasta</a>, <a href="/en-US/profiles/ziyunfei">ziyunfei</a>, <a href="/en-US/profiles/geoffstokes">geoffstokes</a>, <a href="/en-US/profiles/Nickolay">Nickolay</a>, <a href="/en-US/profiles/trevorh">trevorh</a>, <a href="/en-US/profiles/Simon%20Lindholm">Simon Lindholm</a>, <a href="/en-US/profiles/Mossop">Mossop</a>, <a href="/en-US/profiles/MarkGiffin">MarkGiffin</a>, <a href="/en-US/profiles/ebidel">ebidel</a>, <a href="/en-US/profiles/Waldo">Waldo</a>, <a href="/en-US/profiles/teoli">teoli</a>, <a href="/en-US/profiles/matt.kantor">matt.kantor</a>, <a href="/en-US/profiles/darktrojan">darktrojan</a>, <a href="/en-US/profiles/grendel">grendel</a>, <a href="/en-US/profiles/cburgmer">cburgmer</a>, <a href="/en-US/profiles/Hsivonen">Hsivonen</a>, <a href="/en-US/profiles/MatrixFrog">MatrixFrog</a>, <a href="/en-US/profiles/CN">CN</a>, <a href="/en-US/profiles/krishnachandra">krishnachandra</a>, <a href="/en-US/profiles/salva">salva</a>, <a href="/en-US/profiles/chrisdavidmills">chrisdavidmills</a>, <a href="/en-US/profiles/GeorgF">GeorgF</a>, <a href="/en-US/profiles/Gandalf">Gandalf</a>, <a href="/en-US/profiles/Asuza">Asuza</a>, <a href="/en-US/profiles/Federico">Federico</a>, <a href="/en-US/profiles/Mgjbot">Mgjbot</a>, <a href="/en-US/profiles/TwelveBaud">TwelveBaud</a>, <a href="/en-US/profiles/Dria">Dria</a>, <a href="/en-US/profiles/timdream">timdream</a>, <a href="/en-US/profiles/Bzbarsky">Bzbarsky</a> </div>                              <div class="contributor-sub">
+                  <i aria-hidden="true" class="icon-time"></i><strong>Last updated by:</strong>
+                  <a href="/en-US/profiles/chrisdavidmills">chrisdavidmills</a>,
+                  <time datetime="2014-03-05T01:24:30-08:00">Mar 5, 2014 1:24:30 AM</time>
+                </div>
+                          </div>
+                  </div>
+
+              </div>
+    </div>
+  </div>
+</div> <!-- ends "main-content" -->
+  <menu type="context" id="edit-history-menu">
+    <menuitem data-action="$edit" label="Edit page"></menuitem>
+    <menuitem data-action="$history" label="View page history"></menuitem>
+  </menu>
+
+  </div></main>
+
+  <!-- Footer -->
+  <footer><div class="center">
+    <div class="column-container">
+      <div class="column-main">
+                <p>
+          <bdi>&copy; 2005-2014 Mozilla Developer Network and individual contributors<br /> Content is available under <a href="/en-US/docs/Project:MDN/About#Copyrights_and_licenses">these licenses</a> &middot; <a href="/en-US/docs/Project:MDN/About">About MDN</a> &middot; <a href="//github.com/mozilla/kuma">Contribute to the code</a> &middot; <a href="//www.mozilla.org/privacy/policies/websites/">Privacy policy</a></bdi>        </p>
+              </div>
+      <div class="column-strip">
+                        <form class="languages go" method="get" action="/en-US/docs/Web">
+      <label for="language">Other languages:</label>
+      <select id="language" class="wiki-l10n" name="next" dir="ltr">
+        <option value="/en-US/docs/Web/API/XMLHttpRequest" selected>
+          English (US)
+        </option>
+                  <option value="/de/docs/DOM/XMLHttpRequest">
+            Deutsch
+          </option>          <option value="/es/docs/XMLHttpRequest">
+            Español
+          </option>          <option value="/fr/docs/XMLHttpRequest">
+            Français
+          </option>          <option value="/it/docs/DOM/XMLHttpRequest">
+            Italiano
+          </option>          <option value="/ja/docs/XMLHttpRequest">
+            日本語
+          </option>          <option value="/ko/docs/XMLHttpRequest">
+            한국어
+          </option>          <option value="/pl/docs/XMLHttpRequest">
+            Polski
+          </option>          <option value="/pt-BR/docs/DOM/XMLHttpRequest">
+            Português (do Brasil)
+          </option>          <option value="/zh-CN/docs/DOM/XMLHttpRequest">
+            中文 (简体)
+          </option>          <option value="/zh-TW/docs/DOM/XMLHttpRequest">
+            正體中文 (繁體)
+          </option>      </select>
+      <noscript><button type="submit">Go</button></noscript>
+    </form>
+                </div>
+    </div>
+  </div></footer>
+
+  <!-- site js -->
+  <script src="/en-US/jsi18n/build:5c057c9"></script>
+      <!--[if lte IE 8]><script src="/media/redesign/js/libs/selectivizr-1.0.2/selectivizr-build.js?build=5c057c9"></script><div id="feature-test-old-ie"></div><![endif]-->
+
+          <script src="https://developer.cdn.mozilla.net/media/js/jquery1-min.js?build=5c057c9"></script>
+    
+    <script src="https://developer.cdn.mozilla.net/media/js/redesign-main-min.js?build=5c057c9"></script>
+
+          <script>
+        mdn.analytics.initOutboundLinks($('body'));
+      </script>
+    
+    <script src="//mozorg.cdn.mozilla.net/en-US/tabzilla/tabzilla.js" async></script>
+
+          <script src="https://developer.cdn.mozilla.net/media/js/wiki-min.js?build=5c057c9"></script>
+      
+    </body>
+</html>
