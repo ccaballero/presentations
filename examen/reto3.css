@@ -5,11 +5,17 @@ td {
     text-align: center;
 }
 
+button {
+    padding: 0;
+    margin: 0;
+}
+
 #field {}
 
 #field table {
     border-collapse: collapse;
     margin: 0px auto;
+    cursor: pointer;
 }
 
 #field table tbody {}
@@ -18,14 +24,17 @@ td {
     width: 20px;
     height: 20px;
     background-color: #dfdfdf;
-    padding-top: 1px;
     box-shadow: 1px 1px 3px #606060 inset;
+    border: 1px solid #606060;
 }
 
-#field table tbody tr td:hover {}
+#field table tbody tr td.hide:hover {
+    background-color: #ffcc00;
+}
 
 #field table tbody tr td.hide {
     background-color: #202020;
+    box-shadow: 1px 1px 3px #000000;
 }
 
 .n1 { color: #0806e6; }
