@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Less</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Carlos Caballero">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="css/favicon.png" />
+    <link rel="apple-touch-icon" href="css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="css/style.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>LESS</h1>
+
+<p><img src="http://localhost:9000/img/logo.jpg" alt="alt text" title="LESS"></p>
+</div>
+      <div class='step' >
+    
+<h1>Introducción</h1>
+
+<p>Less es un pre-procesador, lo que significa que extiende el lenguaje CSS,
+agregando caracteristicas como variables, <em>mixins</em>, funciones y muchas otras
+tecnicas que permiten hacer a las hojas de estilo (CSS) mas mantenibles, y
+extensibles.</p>
+</div>
+      <div class='step' >
+    
+<p>Less se ejecuta dentro de Node.js, en el navegador, y dentro de Rhino. Tambien
+existen muchas herramientas que permiten compilar los archivos less y visualizar
+los cambios.</p>
+</div>
+      <div class='step' >
+    
+<h1>Historia</h1>
+
+<p>Less fue creada en 2009 por Alexis Sellier (@cloudhead), originalmente fue
+escrito en Ruby, y luego portado a JavaScript.</p>
+
+<p>En Mayo del 2012, Alexis cedio el control y desarrollo a un equipo central de
+colaboradores que ahora administran, reparan, y extienden el lenguaje.</p>
+</div>
+      <div class='step' >
+    
+<h1>Referencia del Lenguaje</h1>
+
+<h2>Variables</h2>
+<pre><code class='prettyprint '>@color: #4D926F;
+@background: #3d3d3d;
+
+#header {
+    color: @color;
+    background: @background;
+}
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Referencia del lenguaje</h1>
+
+<h2>Mixins</h2>
+<pre><code class='prettyprint '>.rounded-corners (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+#header {
+    .rounded-corners;
+}
+#footer {
+    .rounded-corners(10px);
+}
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Referencia del lenguaje</h1>
+
+<h2>Anidamiento</h2>
+<pre><code class='prettyprint '>#header {
+    h1 {
+        font-size: 26px;
+        font-weight: bold;
+    }
+    p { 
+        font-size: 12px;
+        a { 
+            text-decoration: none;
+            &:hover { 
+                border-width: 1px;
+            }
+        }
+    }
+}
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Referencia del lenguaje</h1>
+
+<h2>Media Queries</h2>
+<pre><code class='prettyprint '>.screencolor {
+    @media screen {
+        color: green;
+        @media (min-width:768px) {
+            color: red;
+        }
+    }
+    @media tv {
+        color: black;
+    }
+}
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Referencia del lenguaje</h1>
+
+<h2>Operaciones</h2>
+<pre><code class='prettyprint '>@base: 5%;
+@filler: @base * 2;
+@other: @base + @filler;
+
+color: #888 / 4;
+background-color: @base-color + #111;
+height: 100% / 2 + @filler;
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Referencia del lenguaje</h1>
+
+<h2>Funciones</h2>
+<pre><code class='prettyprint '>@base: #f04615;
+@width: 0.5;
+
+.class {
+    width: percentage(@width); // returns `50%`
+    color: saturate(@base, 5%);
+    background-color: spin(lighten(@base, 25%), 8);
+}
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Referencias</h1>
+
+<ul>
+<li><a href="http://lesscss.org/">http://lesscss.org/</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Less_(stylesheet_language)">http://en.wikipedia.org/wiki/Less_(stylesheet_language)</a></li>
+</ul>
+
+      </div>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
