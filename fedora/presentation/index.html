@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Full Stack Javascript</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Carlos Eduardo Caballero Burgoa">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="css/favicon.png" />
+    <link rel="apple-touch-icon" href="css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="css/style.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>Fedora 21 Release Party</h1>
+
+<h2>Desarrollo Fullstack en Fedora 21</h2>
+
+<p><img src="http://localhost:9000/img/logo.jpg" alt="alt text" title="LESS"></p>
+</div>
+      <div class='step' >
+    
+<h1>Introducción</h1>
+</div>
+      <div class='step' >
+    
+<h1>ssh</h1>
+
+<p>systemctl enable sshd.service
+systemctl start sshd.service</p>
+</div>
+      <div class='step' >
+    
+<h1>node.js / npm</h1>
+
+<p>yum install nodejs
+yum install npm</p>
+
+<p>yum install grunt
+yum install grunt-cli</p>
+</div>
+      <div class='step' >
+    
+<h1>git</h1>
+
+<p>yum install git</p>
+</div>
+      <div class='step' >
+    
+<h1>nginx</h1>
+
+<p>yum install nginx</p>
+
+<p>systemctl enable nginx.service
+systemctl start nginx.service</p>
+</div>
+      <div class='step' >
+    
+<h1>iptables</h1>
+
+<p>vim /etc/sysconfig/iptables</p>
+
+<p>-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT</p>
+
+<p>service iptables restart</p>
+</div>
+      <div class='step' >
+    
+<h1>couchdb</h1>
+
+<p>yum install couchdb</p>
+
+<p>systemctl enable couchdb.service
+systemctl start couchdb.service</p>
+</div>
+      <div class='step' >
+    
+<h1>redis</h1>
+
+<p>yum install redis</p>
+</div>
+      <div class='step' >
+    
+<h1>reverse proxy</h1>
+
+<p>location / {
+    proxy<em>pass <a href="http://localhost:3003">http://localhost:3003</a>;
+    proxy</em>set_header Host $host;
+}</p>
+</div>
+      <div class='step' >
+    
+<h1>systemd</h1>
+</div>
+      <div class='step' >
+    
+<h1>Referencias</h1>
+
+<ul>
+<li><a href="http://www.smashingmagazine.com/2013/11/21/introduction-to-full-stack-javascript/">http://www.smashingmagazine.com/2013/11/21/introduction-to-full-stack-javascript/</a></li>
+<li><a href="https://fedoraproject.org/wiki/Features/NodeJS">https://fedoraproject.org/wiki/Features/NodeJS</a></li>
+<li><a href="https://fedoraproject.org/wiki/Nginx">https://fedoraproject.org/wiki/Nginx</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-configure-the-nginx-web-server-on-a-virtual-private-server">https://www.digitalocean.com/community/tutorials/how-to-configure-the-nginx-web-server-on-a-virtual-private-server</a></li>
+</ul>
+</div>
+      <div class='step' >
+    
+<ul>
+<li><a href="https://docs.fedoraproject.org/en-US/Community_Services_Infrastructure/1/html/Security_Policy/HostIptables-Standard-Introduction-Prerequisites.html#id669278">https://docs.fedoraproject.org/en-US/Community_Services_Infrastructure/1/html/Security_Policy/HostIptables-Standard-Introduction-Prerequisites.html#id669278</a></li>
+<li><a href="http://wiki.apache.org/couchdb/Installing_on_Fedora17">http://wiki.apache.org/couchdb/Installing_on_Fedora17</a></li>
+<li><a href="https://binaryhash.wordpress.com/2014/08/09/install-redis-server-on-fedora-20/">https://binaryhash.wordpress.com/2014/08/09/install-redis-server-on-fedora-20/</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-node-js-applications-using-systemd-and-nginx">https://www.digitalocean.com/community/tutorials/how-to-deploy-node-js-applications-using-systemd-and-nginx</a></li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h1>gracias ...</h1>
+
+      </div>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
