@@ -28,84 +28,108 @@
     
 <h1>Fedora 21 Release Party</h1>
 
-<h2>Desarrollo Fullstack en Fedora 21</h2>
+<h2>full-stack javascript en fedora 21</h2>
 
-<p><img src="http://localhost:9000/img/logo.jpg" alt="alt text" title="LESS"></p>
+<p><img src="img/fedora.jpg" alt="alt text" title="fedora"></p>
 </div>
       <div class='step' >
     
-<h1>Introducción</h1>
+<p><img src="img/node.png" alt="alt text" title="node.js">
+Node.js es un entorno de programación en la capa del servidor basado en el lenguaje de programación ECMAScript.</p>
+
+<ul>
+<li>Asincrono.</li>
+<li>Orientado a eventos.</li>
+<li>basado en el motor V8.</li>
+</ul>
 </div>
       <div class='step' >
     
 <h1>ssh</h1>
-
-<p>systemctl enable sshd.service
-systemctl start sshd.service</p>
-</div>
+<pre><code class='prettyprint '>systemctl enable sshd.service
+systemctl start sshd.service
+</code></pre></div>
       <div class='step' >
     
 <h1>node.js / npm</h1>
+<pre><code class='prettyprint '>yum install nodejs
+yum install npm
 
-<p>yum install nodejs
-yum install npm</p>
-
-<p>yum install grunt
-yum install grunt-cli</p>
-</div>
+yum install grunt
+yum install grunt-cli
+</code></pre></div>
       <div class='step' >
     
 <h1>git</h1>
-
-<p>yum install git</p>
-</div>
+<pre><code class='prettyprint '>yum install git
+</code></pre></div>
       <div class='step' >
     
 <h1>nginx</h1>
 
-<p>yum install nginx</p>
+<p><img src="img/nginx.png" alt="alt text" title="nginx"></p>
+<pre><code class='prettyprint '>yum install nginx
 
-<p>systemctl enable nginx.service
-systemctl start nginx.service</p>
-</div>
+systemctl enable nginx.service
+systemctl start nginx.service
+</code></pre></div>
       <div class='step' >
     
 <h1>iptables</h1>
+<pre><code class='prettyprint '>vim /etc/sysconfig/iptables
 
-<p>vim /etc/sysconfig/iptables</p>
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
 
-<p>-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT</p>
-
-<p>service iptables restart</p>
-</div>
+service iptables restart
+</code></pre></div>
       <div class='step' >
     
 <h1>couchdb</h1>
 
-<p>yum install couchdb</p>
+<p><img src="img/couchdb.png" alt="alt text" title="couchdb"></p>
+<pre><code class='prettyprint '>yum install couchdb
 
-<p>systemctl enable couchdb.service
-systemctl start couchdb.service</p>
-</div>
+systemctl enable couchdb.service
+systemctl start couchdb.service
+</code></pre></div>
       <div class='step' >
     
 <h1>redis</h1>
 
-<p>yum install redis</p>
-</div>
+<p><img src="img/redis.png" alt="alt text" title="redis"></p>
+<pre><code class='prettyprint '>yum install redis
+</code></pre></div>
       <div class='step' >
     
 <h1>reverse proxy</h1>
-
-<p>location / {
-    proxy<em>pass <a href="http://localhost:3003">http://localhost:3003</a>;
-    proxy</em>set_header Host $host;
-}</p>
-</div>
+<pre><code class='prettyprint '>location /some/path/ {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_pass http://localhost:3003;
+}
+</code></pre></div>
       <div class='step' >
     
 <h1>systemd</h1>
-</div>
+<pre><code class='prettyprint '>[Service]
+ExecStart=[node binary] /home/srv-node-sample/[main file]
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=node-sample
+User=srv-node-sample
+Group=srv-node-sample
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></div>
+      <div class='step' >
+    
+<h1>systemd</h1>
+<pre><code class='prettyprint '>systemctl enable node-sample
+systemctl start node-sample
+</code></pre></div>
       <div class='step' >
     
 <h1>Referencias</h1>

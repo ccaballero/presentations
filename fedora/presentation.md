@@ -4,70 +4,119 @@ title: Full Stack Javascript
 
 ---
 # Fedora 21 Release Party
-## Desarrollo Fullstack en Fedora 21
-![alt text](http://localhost:9000/img/logo.jpg "LESS")
+## full-stack javascript en fedora 21
+![alt text](http://localhost:9000/img/fedora.jpg "fedora")
 
 ---
-# Introducción
+![alt text](http://localhost:9000/img/node.png "node.js")
+Node.js es un entorno de programación en la capa del servidor basado en el lenguaje de programación ECMAScript.
+
+- Asincrono.
+- Orientado a eventos.
+- basado en el motor V8.
 
 ---
 # ssh
 
+```
 systemctl enable sshd.service
 systemctl start sshd.service
+```
 
 ---
 # node.js / npm
 
+```
 yum install nodejs
 yum install npm
 
 yum install grunt
 yum install grunt-cli
+```
 
 ---
 # git
+
+```
 yum install git
+```
 
 ---
 # nginx
+![alt text](http://localhost:9000/img/nginx.png "nginx")
 
+```
 yum install nginx
 
 systemctl enable nginx.service
 systemctl start nginx.service
+```
 
 ---
 # iptables
 
+```
 vim /etc/sysconfig/iptables
 
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
 
 service iptables restart
+```
 
 ---
 # couchdb
+![alt text](http://localhost:9000/img/couchdb.png "couchdb")
+
+```
 yum install couchdb
 
 systemctl enable couchdb.service
 systemctl start couchdb.service
+```
 
 ---
 # redis
+![alt text](http://localhost:9000/img/redis.png "redis")
 
+```
 yum install redis
+```
 
 ---
 # reverse proxy
 
-location / {
-    proxy_pass http://localhost:3003;
+```
+location /some/path/ {
     proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_pass http://localhost:3003;
 }
+```
 
 ---
 # systemd
+
+```
+[Service]
+ExecStart=[node binary] /home/srv-node-sample/[main file]
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=node-sample
+User=srv-node-sample
+Group=srv-node-sample
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
+```
+---
+# systemd
+
+```
+systemctl enable node-sample
+systemctl start node-sample
+```
 
 ---
 # Referencias
