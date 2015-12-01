@@ -3,8 +3,7 @@ author: Carlos Eduardo Caballero Burgoa
 title: Full Stack Javascript
 
 ---
-# Fedora 21 Release Party
-## full-stack javascript en fedora 21
+# full-stack development en fedora
 ![alt text](http://localhost:9000/img/fedora.jpg "fedora")
 
 ---
@@ -14,6 +13,28 @@ Node.js es un entorno de programación en la capa del servidor basado en el leng
 - Asincrono.
 - Orientado a eventos.
 - basado en el motor V8.
+
+---
+La página oficial nodejs.org, define node como "una plataforma construida sobre
+la maquina de ejecución Chrome's JavaScript para construir rapidamente y
+facilmente aplicaciones de red escalables. Node.js usa un modelo event-driven,
+non-blocking I/O y lo realiza de manera ligera y eficiente, perfecto para
+aplicaciones en tiempo real y de uso intensivo de datos para ejecutar en
+dispositivos distribuidos.
+
+---
+Dos grandes sucesos estan sucediendo justo ahora en el desarrollo de software, y
+node.js esta encaminada a solucionar ambas:
+
+---
+1° El software esta convirtiendose rapidamente asincrono, si se necesita
+trabajos para Big Data, interacción con usuarios finales, o simplemente
+responder a una llamada al API, probablemente sean necesarias tecnicas de
+programación asincrona.
+
+---
+2° JavaScript se ha convertido en el estandar para los navegadores, bases de
+datos NoSQL, y ahora tambien en servidores.
 
 ---
 # ssh
