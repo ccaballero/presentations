@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>nos atacan desde d3.js</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Carlos Eduardo Caballero Burgoa">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="css/favicon.png" />
+    <link rel="apple-touch-icon" href="css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="css/style.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<p><img src="http://localhost:9000/img/d3.png" alt="alt text" title="d3"></p>
+
+<h1>Nos atacan desde d3.js</h1>
+</div>
+      <div class='step' >
+    
+<h1>Visualizacion de Datos</h1>
+
+<p>Es el proceso de búsqueda, interpretación, contrastación y comparación de datos
+que permite un conocimiento en profundidad y detalle de los mismos de tal forma
+que se transformen en información comprensible para el usuario.</p>
+</div>
+      <div class='step' >
+    
+<h1>D3.js</h1>
+
+<p>Es una librería de JavaScript para producir, a partir de datos, infogramas
+dinámicos e interactivos en navegadores web. Hace uso de tecnologías bien
+sustentadas como SVG, HTML5, y CSS.</p>
+</div>
+      <div class='step' >
+    
+<h1>Ventajas</h1>
+
+<ul>
+<li>Buena integración y facilidad de depuración.</li>
+<li>Manipulación del DOM dirigida por los datos.</li>
+<li>Eficiente y modular (plug-ins).</li>
+<li>Animaciones y transiciones de última generación.</li>
+<li>8a librería mejor valorada en GitHub.</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h1>Desventajas</h1>
+
+<ul>
+<li>Curva de aprendizaje elevada.</li>
+<li>Integración con navegadores antiguos (p.ej.SVG).</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h1>Módulos</h1>
+
+<ul>
+<li><strong>Core</strong>: Selecciones, transiciones...</li>
+<li><strong>Scales</strong>: Mapeo de entrada/salida.</li>
+<li><strong>SVG</strong>: Generación de elementos SVG.</li>
+<li><strong>Time</strong>: Formatos y funciones matemáticas.</li>
+<li><strong>Layouts</strong>: Chord, cluster, force, hierarchy, etc.</li>
+<li><strong>Geography</strong>: Proyecciones geográficas.</li>
+<li><strong>Geometry</strong>: Voronoi, quadtree, polygon, hull...</li>
+<li><strong>Behaviour</strong>: Drag, zoom, etc.</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h1>Ejemplos de aplicación</h1>
+
+<p>Galería oficial:</p>
+
+<ul>
+<li><a href="https://github.com/mbostock/d3/wiki/Gallery">https://github.com/mbostock/d3/wiki/Gallery</a></li>
+</ul>
+
+<p>Web del creador:</p>
+
+<ul>
+<li><a href="http://bost.ocks.org/mike/">http://bost.ocks.org/mike/</a></li>
+<li><a href="http://bl.ocks.org/mbostock">http://bl.ocks.org/mbostock</a></li>
+</ul>
+
+<p>Webs de otros desarrolladores:</p>
+
+<ul>
+<li><a href="http://alignedleft.com/">http://alignedleft.com/</a></li>
+<li><a href="http://www.jasondavies.com/">http://www.jasondavies.com/</a></li>
+<li><a href="http://anna.ps/">http://anna.ps/</a></li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h1>Plantilla de uso básica</h1>
+<pre><code class='prettyprint html'>&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;title>Plantilla d3.js&lt;/title>
+        &lt;script type='text/javascript'
+                src='d3.min.js'>&lt;/script>
+    &lt;/head>
+    &lt;body>
+        &lt;script type='text/javascript'>
+            // Código JS que utiliza los
+            // objetos de d3.
+        &lt;/script>
+    &lt;/body>
+&lt;/html>
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Selecciones</h1>
+<pre><code class='prettyprint javascript'>// Seleccionar el elemento &lt;body>
+var body=d3.select('body');
+
+// Añadir un elemento &lt;h1>
+var h1=body.append('h1').text('Hola mundo!');
+
+d3.select('table');
+
+d3.selectAll('td');
+
+d3.selectAll('tr').selectAll('td');
+</code></pre></div>
+      <div class='step' >
+    
+<h1>DOM</h1>
+<pre><code class='prettyprint javascript'>// Update...
+var p=d3.select('body')
+        .selectAll('p')
+        .data([4,8,15,16,23,42])
+        .text(String)
+
+// Enter...
+p.enter()
+ .append('p')
+ .text(String);
+
+// Exit...
+p.exit()
+ .remove();
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Carga de datos externos</h1>
+<pre><code class='prettyprint javascript'>// CSV:
+// d3.csv('source.csv',function(source){...})
+// TSV:
+// d3.tsv('source.tsv',function(source){...})
+// JSON:
+// d3.csv('source.json',function(source){...})
+
+var format=d3.time.format('%b %Y')
+
+d3.csv('stocks.csv',function(stocks){
+    stocks.forEach(function(d){
+        d.price=+d.price;
+        d.date=format.parse(d.date);
+    });
+});
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Escalas</h1>
+
+<ul>
+<li>Facilita el mapeo de datos a propiedades gráficas.</li>
+<li>Normaliza el dominio de entrada.</li>
+<li>Tipos de escalas:
+
+<ul>
+<li>linear</li>
+<li>sqrt</li>
+<li>pow</li>
+<li>log</li>
+<li>quantize</li>
+<li>quantile</li>
+<li>y ordinal.</li>
+</ul></li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h1>Ejes</h1>
+
+<p>Visualiza un eje para una determinada escala</p>
+<pre><code class='prettyprint javascript'>var x=d3.scale.linear()
+        .domain([20, 80])
+        .range([0, 120])
+        .ticks(5); // Sólo orientativo
+
+var xAxis=d3.svg.axis()
+            .scale(x)
+            .orient('bottom');
+
+svg.append('g')
+   .attr('class','x axis')
+   .call(xAxis);
+
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Interacción</h1>
+
+<ul>
+<li>selection.on(type, function(d, i) {...});</li>
+<li>Tipos: click, mouseover, mouseout, submit...</li>
+<li>+Info: this, d3.event, d3.mouse, d3.touches</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h1>Referencias</h1>
+
+<p><strong>d3.js:</strong> Sitio oficial con el API de programación, recursos y ejemplos
+  descargables.</p>
+
+<ul>
+<li>http:// d3js.org</li>
+</ul>
+
+<p><strong>Mike Bostock:</strong> Web del creador de d3.js.</p>
+
+<ul>
+<li>http:// bost.ocks.org</li>
+</ul>
+
+<p><strong>Scott Murray:</strong> Web del autor de buenos tutoriales y un libro para el
+  aprendizaje de 3d.js con buena crítica.</p>
+
+<ul>
+<li><a href="http://alignedleft.com">http://alignedleft.com</a></li>
+<li><a href="http://www.scribd.com/doc/129910826/Interactive-Data-Visualization-for-the-Web">http://www.scribd.com/doc/129910826/Interactive-Data-Visualization-for-the-Web</a></li>
+</ul>
+</div>
+      <div class='step' >
+    
+<p>gracias ...</p>
+
+      </div>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
